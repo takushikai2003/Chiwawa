@@ -1,0 +1,17 @@
+DATA
+
+[Global]
+score: Int
+lesson: Int
+missed_stack: Array
+
+[each question]
+{
+    id: String,
+    img: link_str,
+    audio: link_str,
+    picture_text: String,
+    main_text: String,
+    supplement: templete String,
+    cleared: Boolean,
+}
