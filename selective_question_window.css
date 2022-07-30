@@ -1,0 +1,40 @@
+
+#selective_question_picture_area{
+    cursor: pointer;
+    border: solid 1px springgreen;
+}
+
+#selective_question_picture{
+    width: 90%;
+}
+
+#selective_question_play{
+    top: 0px;
+    height: 40px;
+}
+
+#selective_question_area{
+    margin-top: 40px;
+}
+
+#selective_question_option1{
+    height: 100px;
+    background-color: palegreen;
+    margin-bottom: 30px;
+}
+
+#selective_question_option2{
+    height: 100px;
+    background-color: palegreen;
+    margin-bottom: 30px;
+}
+
+#selective_question_option3{
+    height: 100px;
+    background-color: palegreen;
+}
+
+#selective_question_gonext{
+    margin-top: 50px;
+    background-color: lightsteelblue;
+}

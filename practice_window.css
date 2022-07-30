@@ -11,6 +11,7 @@
 #practice_playtext_area{
     margin-top: 30px;
     background-color: lightgreen;
+    cursor: pointer;
 }
 
 #practice_play{
