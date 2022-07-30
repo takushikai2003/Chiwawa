@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+#description_question_picture_area{
+    border: solid 1px springgreen;
+}
+
+#description_question_picture{
+    width: 90%;
+}
+
+#description_question_playtext_area{
+    margin-top: 30px;
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+#description_question_play{
+    top: 0px;
+    height: 40px;
+}
+
+#description_question_area{
+    margin-top: 40px;
+    border: solid 1px springgreen;
+}
+
+#description_question_correctanswer_area{
+    margin-top: 40px;
+    border: solid 1px springgreen;
+}
+
+#description_question_correctanswer_picture{
+    width: 100px;
+}
+
+#description_question_gonext{
+    margin-top: 50px;
+    background-color: lightsteelblue;
+}
