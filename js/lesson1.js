@@ -1,12 +1,18 @@
-const $get = function (querySelector){
-    return document.querySelector(querySelector);
+const practice_data = {
+    img_src: "./images/図1.jpg",
+    pic_txt: "chào buổi trưa",
+    audio_src: "",
+    play_txt: "こんにちは",
+    supplement_txt: "Nghe và nói theo 3 lần nhé!\n(聞きながら３回繰り返しましょう）"
 }
 
+practice_start(practice_data);
+
 //step1 practice
-function practice_start(img_src, pic_txt, audio_src, play_txt, supplement_txt){
+function practice_start({img_src, pic_txt, audio_src, play_txt, supplement_txt}){
     hideAllWindow();
     $get("#practice_window").hidden = false;
-    
+
     $get("#practice_picture").src = img_src;
     $get("#practice_picture_text").innerHTML = pic_txt;
     $get("#practice_audio").src = audio_src;

@@ -10,3 +10,7 @@ function hideAllWindow(){
     document.querySelector("#description_question_window").hidden = true;
     document.querySelector("#speak_question_window").hidden = true;   
 }
+
+const $get = function (querySelector){
+    return document.querySelector(querySelector);
+}
