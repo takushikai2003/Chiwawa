@@ -8,14 +8,15 @@
 
 <body>
 
-    <div id="practice_window" class="container" hidden>
+    <div id="practice_window" class="container">
         <div id="practice_picture_area" class="row">
-            <img src="./図1.jpg" id="practice_picture" class="d-block mx-auto">
+            <img src="./images/図1.jpg" id="practice_picture" class="d-block mx-auto">
             <div id="practice_picture_text" class="display-1 text-center">chào buổi trưa</div>
         </div>
         
         <div id="practice_playtext_area" class="row">
-            <img src="./play_icon.svg" id="practice_play">
+            <audio id="practice_audio" src=""></audio>
+            <img src="./images/play_icon.svg" id="practice_play">
             <span id="practice_play_text" class="display-1 text-center">こんにちは</span>
         </div>
 
@@ -34,8 +35,8 @@
     
     <div id="selective_question_window" class="container" hidden>
         <div id="selective_question_picture_area" class="row">
-            <img src="./図1.jpg" id="selective_question_picture" class="d-block mx-auto">
-            <img src="./play_icon.svg" id="selective_question_play">
+            <img src="./images/図1.jpg" id="selective_question_picture" class="d-block mx-auto">
+            <img src="./images/play_icon.svg" id="selective_question_play">
         </div>
 
         <div id="selective_question_area" class="row">
@@ -51,11 +52,11 @@
 
     <div id="description_question_window" class="container" hidden>
         <div id="description_question_picture_area" class="row">
-            <img src="./図1.jpg" id="description_question_picture" class="d-block mx-auto">
+            <img src="./images/図1.jpg" id="description_question_picture" class="d-block mx-auto">
         </div>
         
         <div id="description_question_playtext_area" class="row">
-            <img src="./play_icon.svg" id="description_question_play">
+            <img src="./images/play_icon.svg" id="description_question_play">
             <span id="description_question_play_text" class="display-1 text-center">こんにちは</span>
         </div>
 
@@ -68,7 +69,7 @@
 
         <div id="description_question_correctanswer_area" class="row">
             <div>
-                <img id="description_question_correctanswer_picture" src="./図2.png">
+                <img id="description_question_correctanswer_picture" src="./images/図2.png">
                 <span id="description_question_correctanswer" class="display-1">
                     ĐÚNG
                 </span>
@@ -80,15 +81,15 @@
         </div>
     </div>
 
-    <div id="speak_question_window" class="container">
+    <div id="speak_question_window" class="container" hidden>
         <div id="speak_question_picture_area" class="row">
-            <img src="./図1.jpg" id="speak_question_picture" class="d-block mx-auto">
+            <img src="./images/図1.jpg" id="speak_question_picture" class="d-block mx-auto">
             <div id="speak_question_picture_text" class="display-1 text-center">chào buổi trưa</div>
         </div>
 
         <div id="speak_question_mic_area">
             <div>
-                <img id="speak_question_mic" src="./mic.png">
+                <img id="speak_question_mic" src="./images/mic.png">
                 <span id="speak_question_mic_text" class="h1">
                     ここを押しながら喋ってください
                 </span>
@@ -97,7 +98,7 @@
 
         <div id="speak_question_correctanswer_area" class="row">
             <div>
-                <img id="speak_question_correctanswer_picture" src="./図2.png">
+                <img id="speak_question_correctanswer_picture" src="./images/図2.png">
                 <span id="speak_question_correctanswer" class="display-1">
                     ĐÚNG
                 </span>
@@ -109,10 +110,11 @@
         </div>
     </div>
 
-    <script src="./main.js"></script>
-    <link rel="stylesheet" href="./overall.css">
-    <link rel="stylesheet" href="./practice_window.css">
-    <link rel="stylesheet" href="./selective_question_window.css">
-    <link rel="stylesheet" href="./description_question_window.css">
-    <link rel="stylesheet" href="./speak_question_window.css">
+    <script src="./js/main.js"></script>
+    <script src="./js/lesson1.js"></script>
+    <link rel="stylesheet" href="./css/overall.css">
+    <link rel="stylesheet" href="./css/practice_window.css">
+    <link rel="stylesheet" href="./css/selective_question_window.css">
+    <link rel="stylesheet" href="./css/description_question_window.css">
+    <link rel="stylesheet" href="./css/speak_question_window.css">
 </body>
