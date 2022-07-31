@@ -31,8 +31,6 @@ const speak_question_data = {
 }
 
 
-// practice_start(practice_data);
-
 //step1 practice
 function practice_start({img_src, pic_txt, audio_src, play_txt, supplement_txt}){
     hideAllWindow();
@@ -64,11 +62,13 @@ function practice_start({img_src, pic_txt, audio_src, play_txt, supplement_txt})
     }
 
 
+    //onclickで置き換えたい
     //go next
     $get("#practice_gonext").addEventListener("click",()=>{
-        console.log("go next");
         $get("#practice_playtext_area").removeEventListener("click", audio_play);
         $get("#practice_audio").removeEventListener("click", onplayended);
+
+        score++;
 
         selective_question_start(selective_question_data);
     },{once:true});
@@ -78,19 +78,26 @@ function practice_start({img_src, pic_txt, audio_src, play_txt, supplement_txt})
 function selective_question_start({img_src, audio_src, opt1_txt, opt2_txt, opt3_txt, correct_opt_num}){
     hideAllWindow();
     $get("#selective_question_window").hidden = false;
-    
     $get("#selective_question_picture").src = img_src;
-    $get("#selective_question_audio").src = audio_src;
+    
     const option1 = $get("#selective_question_option1");
     const option2 = $get("#selective_question_option2");
     const option3 = $get("#selective_question_option3");
     const gonext = $get("#selective_question_gonext");
+    const audio = $get("#selective_question_audio");
+
+    audio.src = audio_src;
 
     option1.innerHTML = opt1_txt;
     option2.innerHTML = opt2_txt;
     option3.innerHTML = opt3_txt;
 
     gonext.disabled = true;
+
+    $get("#selective_question_picture_area").onclick = function(){
+        audio.play();
+    }
+    
 
     let selected_opt_num = 0;
 
@@ -120,7 +127,8 @@ function selective_question_start({img_src, audio_src, opt1_txt, opt2_txt, opt3_
     }
 
     function oncorrect(){
-        description_question_start();
+        score++;
+        description_question_start(description_question_data);
     }
 
     function onmistake(){
@@ -162,14 +170,17 @@ function description_question_start({img_src, audio_src, play_txt, supplement_tx
 
     
     function oncorrect(){
+        score++;
+        
+        $get("#description_question_correctanswer_picture").src = "./images/correct.png";
         correctanswer_area.hidden = false;
-        gonext.onclick = function(){speak_question_start()};
+        gonext.onclick = function(){speak_question_start(speak_question_data)};
     }
 
-    //[未]バツの時の画像に置き換え
     function onmistake(){
+        $get("#description_question_correctanswer_picture").src = "./images/mistake.png";
         correctanswer_area.hidden = false;
-        gonext.onclick = function(){speak_question_start()};
+        gonext.onclick = function(){speak_question_start(speak_question_data)};
     }
 
 }
@@ -178,6 +189,7 @@ function description_question_start({img_src, audio_src, play_txt, supplement_tx
 // description_question_start(description_question_data);
 
 
+//[未]
 function speak_question_start({img_src, pic_txt, correct_txt, speak_lang}){
     hideAllWindow();
     $get("#speak_question_window").hidden = false;
@@ -185,6 +197,7 @@ function speak_question_start({img_src, pic_txt, correct_txt, speak_lang}){
     $get("#speak_question_picture").src = img_src;
     $get("#speak_question_picture_text").innerHTML = pic_txt;
     $get("#speak_question_correctanswer").innerHTML = correct_txt;
+    $get("#speak_question_correctanswer_area").hidden = true;
 
     const mic_area = $get("#speak_question_mic_area");
     const gonext = $get("#speak_question_gonext");
@@ -197,9 +210,12 @@ function speak_question_start({img_src, pic_txt, correct_txt, speak_lang}){
     const SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
     const SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
-    
+
 
     mic_area.onpointerdown = function(){
 
     }
 }
+
+
+practice_start(practice_data);
