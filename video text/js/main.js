@@ -108,4 +108,4 @@ video_element.addEventListener("timeupdate", ()=>{
         view_updated = false;
         return;
     }
-}); 
+});
