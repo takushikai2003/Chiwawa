@@ -1,0 +1,36 @@
+/* left */
+.tippy-box[data-theme~="left"] {
+    background-color: rgb(177, 198, 229);
+}
+
+.tippy-box[data-theme~="left"][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: rgb(177, 198, 229);
+}
+.tippy-box[data-theme~="left"][data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: rgb(177, 198, 229);
+}
+.tippy-box[data-theme~="left"][data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: rgb(177, 198, 229);
+}
+.tippy-box[data-theme~="left"][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: rgb(177, 198, 229);
+}
+
+
+/* right */
+.tippy-box[data-theme~="right"] {
+    background-color: rgb(237, 173, 160);
+}
+
+.tippy-box[data-theme~="right"][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: rgb(237, 173, 160);
+}
+.tippy-box[data-theme~="right"][data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: rgb(237, 173, 160);
+}
+.tippy-box[data-theme~="right"][data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: rgb(237, 173, 160);
+}
+.tippy-box[data-theme~="right"][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: rgb(237, 173, 160);
+}
