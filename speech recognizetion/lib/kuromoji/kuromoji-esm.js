@@ -8114,6 +8114,7 @@ BrowserDictionaryLoader.prototype = Object.create(DictionaryLoader.prototype);
  * @param {BrowserDictionaryLoader~onLoad} callback Callback function
  */
 BrowserDictionaryLoader.prototype.loadArrayBuffer = function (url, callback) {
+    /*
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.responseType = "arraybuffer";
@@ -8132,6 +8133,18 @@ BrowserDictionaryLoader.prototype.loadArrayBuffer = function (url, callback) {
         callback(err, null);
     };
     xhr.send();
+    */
+    const gunzip = (arraybuffer, callback) => {
+        const gz = new zlib.Zlib.Gunzip(new Uint8Array(arraybuffer));
+        const typed_array = gz.decompress();
+        callback(null, typed_array.buffer);
+    };
+    try {
+        console.log("fetch", url);
+        fetch(url).then(r => r.arrayBuffer()).then(a => gunzip(a, callback)).catch(err => callback(err, null));
+    } catch (e) {
+        Deno.readFile(url).then(a => gunzip(a, callback)).catch(err => callback(err, null));
+    }
 };
 
 /**
@@ -9057,3 +9070,5 @@ module.exports = ViterbiSearcher;
 
 },{}]},{},[18])(18)
 });
+
+export const kuromoji = globalThis.kuromoji;
