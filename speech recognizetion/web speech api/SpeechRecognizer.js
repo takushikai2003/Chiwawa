@@ -2,6 +2,7 @@ const SpeechRecognizer = {
     message: "",
     start: start,
     stop: stop,
+    recording: false,
 };
 
 
@@ -24,19 +25,26 @@ function start() {
     //     console.log("no match");
     // }
 
-    recognition.onend = (event) => {
-        // 一定時間入力が無いと終了するので継続する
-        recognition.start();
+    function get_message(){
+        return new Promise(resolve=>{
+            recognition.onend = (event) => {
+                resolve(SpeechRecognizer.message);
+            }
+        });
     }
 
+    SpeechRecognizer.get_message = get_message;
     SpeechRecognizer.recognition = recognition;
 
     recognition.start();
+
+    SpeechRecognizer.recording = true;
 }
 
 
 function stop(){
     SpeechRecognizer.recognition.stop();
+    SpeechRecognizer.recording = false;
 
     return SpeechRecognizer.message;
 }

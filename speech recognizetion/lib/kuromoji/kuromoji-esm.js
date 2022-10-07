@@ -8140,7 +8140,7 @@ BrowserDictionaryLoader.prototype.loadArrayBuffer = function (url, callback) {
         callback(null, typed_array.buffer);
     };
     try {
-        console.log("fetch", url);
+        // console.log("fetch", url);
         fetch(url).then(r => r.arrayBuffer()).then(a => gunzip(a, callback)).catch(err => callback(err, null));
     } catch (e) {
         Deno.readFile(url).then(a => gunzip(a, callback)).catch(err => callback(err, null));
