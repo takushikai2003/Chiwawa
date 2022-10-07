@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <script src="./lib/kuromoji/kuromoji.js"></script>
+</head>
+
+<script type="module">
+    // import SpeechRecognition from "./web speech api/web speech api.js";
+
+    // SpeechRecognition();
+
+    // import FuzzySet from "./lib/FuzzySet/FuzzySet.esm.js";
+    // const fs = FuzzySet(["こんんにてゃ"]);
+    // console.log(fs.get("こんにちは"));
+
+
+    import tokenizer from "./js/get_tokenizer.js";
+    console.log(tokenizer.tokenize("今日はいい天気です"));
+</script>
