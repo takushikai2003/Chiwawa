@@ -26,11 +26,17 @@ function lesson_content_select(){
     $get("#lesson_select_menu").hidden = true;
     $get("#lesson_content_select_menu").hidden = false;
 
-    $get("#lesson_content_option1").addEventListener("click", start_content, {once: true});
+    $get("#lesson_content_option1").addEventListener("click", ()=>{
+        start_content(`../common/index.html?lesson=${1}`);
+    }, {once: true});
+
+    $get("#lesson_content_option3").addEventListener("click", ()=>{
+        start_content(`../video text/index.html`);
+    }, {once: true});
 }
 
 
-function start_content(){
+function start_content(url){
     console.log("start content");
-    location.href = "../common/index.html?lesson="+1;
+    location.href = url;
 }
