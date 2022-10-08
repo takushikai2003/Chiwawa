@@ -33,4 +33,5 @@ function lesson_content_select(){
 
 function start_content(){
     console.log("start content");
+    location.href = "../common/index.html";
 }
