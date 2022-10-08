@@ -255,19 +255,18 @@ class speak_question{
         mic_area.addEventListener("pointerdown", ()=>{
             if(!recording){
                 rec_start();
-                mic_area.style.border = "solid 5px red";
                 recording = true;
             }
             else{
                 rec_stop();
-                mic_area.style.border = "";
                 recording = false;
             }
         });
 
         function rec_start(){
             SpeechRecognizer.start();
-
+	        mic_area.style.border = "solid 5px red";
+            
             setTimeout(() => {
                 rec_stop();
             }, 10000);
@@ -277,6 +276,8 @@ class speak_question{
             if(!SpeechRecognizer.recording){
                 return;
             }
+
+	        mic_area.style.border = "";
 
             SpeechRecognizer.stop();
             const message = await SpeechRecognizer.get_message();

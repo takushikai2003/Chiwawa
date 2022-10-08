@@ -1,26 +1,13 @@
-const left_tippy = tippy("#image_left", {
-    content: "<h1>I'm left</h1>",
-    allowHTML: true,
-    theme: "left",
-    onHide(instance) {
-        return false;
-    },
-})[0];
+import { talk_like } from "./classes.js";
 
-const right_tippy = tippy("#image_right", {
-    content: "<h1>I'm right</h1>",
-    allowHTML: true,
-    backgroundColor: "yellow",
-    theme: "right",
-    onHide(instance) {
-        return false;
-    },
-})[0];
+const data = {
+    left_img_src: "./images/chiwawa1.png",
+    right_img_src: "./images/chiwawa2.png",
+    audio_src: "./data/こんにちは.mp3",
+    left_html: "<h1>こんにちは</h1><img src='./images/play_icon.svg' class='icon'/>",
+    right_html: "<h1>-----</h1><img src='./images/mic.png' class='icon'/>",
+    correct_text: "こんにちは",
+}
 
-// console.log(left_tippy);
 
-//常時表示は、show()とfn onHide:return false
-left_tippy.show();
-right_tippy.show();
-
-// left_tippy.setContent("string");
+const tl1 = new talk_like(data);
