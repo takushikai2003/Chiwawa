@@ -41,3 +41,4 @@ const des_q = new description_question(description_question_data);
 await des_q.onend();
 const spe_q = new speak_question(speak_question_data);
 await spe_q.onend();
+location.href = "../boot/index.html";

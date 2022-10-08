@@ -27,11 +27,10 @@ function lesson_content_select(){
     $get("#lesson_content_select_menu").hidden = false;
 
     $get("#lesson_content_option1").addEventListener("click", start_content, {once: true});
-
 }
 
 
 function start_content(){
     console.log("start content");
-    location.href = "../common/index.html";
+    location.href = "../common/index.html?lesson="+1;
 }
