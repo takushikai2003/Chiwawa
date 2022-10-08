@@ -2,7 +2,7 @@ import {kuromoji} from "../lib/kuromoji/kuromoji-esm.js";
 
 function get_tokenizer(){
     return new Promise(resolve=>{
-        kuromoji.builder({ dicPath: "./lib/kuromoji/dict" })
+        kuromoji.builder({ dicPath: "../../speech recognizetion/lib/kuromoji/dict" })
         .build((err, tokenizer) => {
             resolve(tokenizer);
         });
