@@ -34,6 +34,15 @@
     background-color: palegreen;
 }
 
+#selective_question_correctanswer_area{
+    margin-top: 40px;
+    border: solid 1px springgreen;
+}
+
+#selective_question_correctanswer_picture{
+    width: 100px;
+}
+
 #selective_question_gonext{
     margin-top: 50px;
     background-color: lightsteelblue;

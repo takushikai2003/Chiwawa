@@ -35,9 +35,9 @@ const speak_question_data = {
 
 // const prc = new practice(practice_data);
 // await prc.onend();
-const sel_q = new selective_question(selective_question_data);
-await sel_q.onend();
+// const sel_q = new selective_question(selective_question_data);
+// await sel_q.onend();
 // const des_q = new description_question(description_question_data);
 // await des_q.onend();
-// const spe_q = new speak_question(speak_question_data);
-// await spe_q.onend();
+const spe_q = new speak_question(speak_question_data);
+await spe_q.onend();

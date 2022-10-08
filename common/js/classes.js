@@ -73,7 +73,8 @@ class selective_question{
         hide_all_window();
         $get("#selective_question_window").hidden = false;
         $get("#selective_question_picture").src = img_src;
-        
+        $get("#selective_question_correctanswer_area").hidden = true;
+
         const option1 = $get("#selective_question_option1");
         const option2 = $get("#selective_question_option2");
         const option3 = $get("#selective_question_option3");
@@ -86,14 +87,27 @@ class selective_question{
         option2.innerHTML = opt2_txt;
         option3.innerHTML = opt3_txt;
 
+        gonext.innerHTML = "OK";
         gonext.disabled = true;
 
         $get("#selective_question_picture_area").onclick = function(){
             audio.play();
         }
-        
 
-        let selected_opt_num = 0;
+        
+        let correct_opt_text;
+        if(correct_opt_num==1){
+            correct_opt_text = opt1_txt;
+        }
+        else if(correct_opt_num==2){
+            correct_opt_text = opt2_txt;
+        }
+        else{
+            correct_opt_text = opt3_txt;
+        }
+
+
+        let selected_opt_num;
 
         option1.onclick = function(){
             selected_opt_num = 1;
@@ -118,23 +132,38 @@ class selective_question{
             });
         }
 
-        gonext.onclick = function(){
+        gonext.addEventListener("click",()=>{
             if(selected_opt_num == correct_opt_num){
                 oncorrect();
             }
             else{
                 onmistake();
             }
-        }
+
+            gonext.innerHTML = "Next";
+        },{once: true});
 
         //正解ならtrue,不正解ならfalseを返してresolve
         function oncorrect(){
+            $get("#selective_question_correctanswer_picture").src = "./images/correct.png";
+            $get("#selective_question_correctanswer").innerHTML = "ĐÚNG";
+            $get("#selective_question_correctanswer_area").hidden = false;
+
             score++;
-            _resolve(true);
+
+            gonext.addEventListener("click",()=>{
+                _resolve(true);
+            });
         }
 
         function onmistake(){
-            _resolve(false);
+            $get("#selective_question_correctanswer_picture").src = "./images/mistake.png";
+            $get("#selective_question_correctanswer").innerHTML = "SAI rồi bạn ơi!\nĐáp án :\n" + correct_opt_text;
+            $get("#selective_question_correctanswer_area").hidden = false;
+
+            gonext.addEventListener("click",()=>{
+                _resolve(false);
+            });
         }
     }
 }
@@ -161,15 +190,18 @@ class description_question{
             $get("#description_question_audio").play();
         }
     
-    
-        gonext.onclick = function(){
+        gonext.innerHTML = "OK";
+
+        gonext.addEventListener("click",()=>{
             if(input.value == correct_txt){
                 oncorrect();
             }
             else{
                 onmistake();
             }
-        }
+
+            gonext.innerHTML = "Next";
+        }, {once: true});
     
         let _resolve;
         this.onend = function(){
@@ -202,7 +234,7 @@ class description_question{
     }
 }
 
-//未
+
 class speak_question{
     constructor({img_src, pic_txt, correct_txt}){
         hide_all_window();
@@ -223,10 +255,12 @@ class speak_question{
         mic_area.addEventListener("pointerdown", ()=>{
             if(!recording){
                 rec_start();
+                mic_area.style.border = "solid 5px red";
                 recording = true;
             }
             else{
                 rec_stop();
+                mic_area.style.border = "";
                 recording = false;
             }
         });
@@ -290,7 +324,7 @@ class speak_question{
         }
 
         function oncorrect(){
-            $get("#description_question_correctanswer_picture").src = "./images/correct.png";
+            $get("#speak_question_correctanswer_picture").src = "./images/correct.png";
             $get("#speak_question_correctanswer").innerHTML = "ĐÚNG";
             $get("#speak_question_correctanswer_area").hidden = false;
             gonext.disabled = false;
