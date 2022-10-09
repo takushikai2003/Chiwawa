@@ -5,6 +5,10 @@ import FuzzySet from "../../speech recognizetion/lib/FuzzySet/FuzzySet.esm.js";
 const left_img = document.getElementById("image_left");
 const right_img = document.getElementById("image_right");
 const audio = document.getElementById("audio");
+const gonext = document.getElementById("talk_like_gonext");
+const correctanswer_picture = document.getElementById("talk_like_correctanswer_picture");
+const correctanswer = document.getElementById("talk_like_correctanswer");
+const correctanswer_area = document.getElementById("talk_like_correctanswer_area");
 
 let old_tippy = [];
 
@@ -13,6 +17,8 @@ class talk_like{
         left_img.src = left_img_src;
         right_img.src = right_img_src;
         audio.src = audio_src;
+        gonext.hidden = true;
+        correctanswer_area.hidden = true;
 
         old_tippy.forEach(element=>{
             element.destroy();
@@ -86,7 +92,7 @@ class talk_like{
             const message = await SpeechRecognizer.get_message();
 
             right_tippy.setContent(`<h1>${message}</h1><img src='./images/mic.png' class='icon'/>`);
-            
+
             const judgment_result = judge(message, get_kana(correct_text).join("")); //bool
             
             if(judgment_result){
@@ -130,25 +136,25 @@ class talk_like{
         }
 
         function oncorrect(){
-            // $get("#speak_question_correctanswer_picture").src = "./images/correct.png";
-            // $get("#speak_question_correctanswer").innerHTML = "ĐÚNG";
-            // $get("#speak_question_correctanswer_area").hidden = false;
-            // gonext.disabled = false;
+            correctanswer_picture.src = "./images/correct.png";
+            correctanswer.innerHTML = "ĐÚNG";
+            correctanswer_area.hidden = false;
+            gonext.hidden = false;
 
-            // gonext.addEventListener("click",function(){
-            //     _resolve(true);
-            // }, {once: true});
+            gonext.addEventListener("click",function(){
+                _resolve(true);
+            }, {once: true});
         }
 
         function onmistake(){
-            // $get("#speak_question_correctanswer_picture").src = "./images/mistake.png";
-            // $get("#speak_question_correctanswer").innerHTML = "SAI rồi bạn ơi!\nĐáp án :\n" + correct_txt;
-            // $get("#speak_question_correctanswer_area").hidden = false;
-            // gonext.disabled = false;
+            correctanswer_picture.src = "./images/mistake.png";
+            correctanswer.innerHTML = "SAI rồi bạn ơi!\nĐáp án :\n" + correct_text;
+            correctanswer_area.hidden = false;
+            gonext.hidden = false;
 
-            // gonext.addEventListener("click",function(){
-            //     _resolve(false);
-            // }, {once: true});
+            gonext.addEventListener("click",function(){
+                _resolve(false);
+            }, {once: true});
         }
 
         // left_tippy.setContent("string");

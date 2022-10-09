@@ -2,17 +2,35 @@
 <meta charset="utf-8">
 <head>
     <title>talk like</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
 </head>
 
 <body>
-    <img src="./images/chiwawa1.png" id="image_left">
-    <img src="./images/chiwawa2.png" id="image_right">
-    <audio id="audio" hidden></audio>
+    <div class="container" id="grid_overall">
+        <div class="row" id="images_wrap">
+            <img src="./images/chiwawa1.png" id="image_left">
+            <img src="./images/chiwawa2.png" id="image_right">
+            <audio id="audio" hidden></audio>
+        </div>
+    
+        <div id="talk_like_correctanswer_area" hidden>
+            <div>
+                <img id="talk_like_correctanswer_picture" src="./images/correct.png">
+                <span id="talk_like_correctanswer" class="display-1">
+                    ĐÚNG
+                </span>
+            </div>
+        </div>
+    
+        <div id="talk_like_gonext_area">
+            <button id="talk_like_gonext" class="btn btn-lg " hidden>Next</button>
+        </div>
+    </div>
+
     
     <script src="./js/main.js" type="module"></script>
     <link rel="stylesheet" href="./css/style.css">

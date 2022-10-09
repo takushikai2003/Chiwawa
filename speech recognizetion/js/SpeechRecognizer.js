@@ -2,6 +2,7 @@ const SpeechRecognizer = {
     message: "",
     start: start,
     stop: stop,
+    init_message: init_message,
     recording: false,
 };
 
@@ -14,6 +15,7 @@ function start() {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;//最大代替案
 
+    SpeechRecognizer.init_message();
 
     recognition.onresult = (event) => {
         const message = event.results[0][0].transcript;
@@ -47,6 +49,11 @@ function stop(){
     SpeechRecognizer.recording = false;
 
     return SpeechRecognizer.message;
+}
+
+
+function init_message(){
+    SpeechRecognizer.message = "";
 }
 
 

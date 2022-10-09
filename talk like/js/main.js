@@ -11,3 +11,7 @@ const data = {
 
 
 const tl1 = new talk_like(data);
+const result = await tl1.onend();
+console.log(result);
+const tl2 = new talk_like(data);
+console.log(await tl2.onend());
