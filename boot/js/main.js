@@ -27,7 +27,11 @@ function lesson_content_select(){
     $get("#lesson_content_select_menu").hidden = false;
 
     $get("#lesson_content_option1").addEventListener("click", ()=>{
-        start_content(`../common/index.html?lesson=${1}`);
+        start_content(`../vocabulary lesson/index.html?lesson=${1}`);
+    }, {once: true});
+
+    $get("#lesson_content_option2").addEventListener("click", ()=>{
+        start_content(`../talk like/index.html`);
     }, {once: true});
 
     $get("#lesson_content_option3").addEventListener("click", ()=>{

@@ -7,4 +7,4 @@ const data = {
 
 const vt1 = new video_text(data);
 await vt1.onend();
-console.log("video end");
+location.href = "../boot/index.html";
