@@ -14,7 +14,7 @@ function get_tokenizer(){
 async function get_dict_path(){
     const regexp = new RegExp(".*/(.*?)$");
     const html_name = location.href.match(regexp)[1];
-    // console.log(location.href.slice( 0, -html_name.length));
+    console.log(location.href.slice( 0, -html_name.length) + "/kuromoji_dict_path.txt");
     return await getDataAsString(location.href.slice( 0, -html_name.length) + "/kuromoji_dict_path.txt");
 }
 

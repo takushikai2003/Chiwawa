@@ -1,1 +1,1 @@
-../../speech recognizetion/lib/kuromoji/dict
+../speech recognizetion/lib/kuromoji/dict
