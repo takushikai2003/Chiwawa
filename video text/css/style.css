@@ -1,8 +1,12 @@
+body{
+    margin: 0px;
+}
+
 .meaning_word:hover{
     color: orange;
     background-color: rgb(184, 255, 247);
 }
 
 #video_element{
-    width: 500px;
+    width: 100%;
 }
