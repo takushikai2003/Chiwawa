@@ -1,0 +1,8 @@
+#calender_table{
+    border: solid 2px lightgray;
+    border-collapse: collapse;
+}
+
+th, td{
+    box-shadow : 0 0 0 1px lightgray;
+}

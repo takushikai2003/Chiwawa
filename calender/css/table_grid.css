@@ -1,0 +1,8 @@
+body{
+    margin: 0%;
+}
+
+#calender_table{
+    width: 100vw;
+    table-layout: fixed;
+}
