@@ -141,6 +141,10 @@ class talk_like{
             correctanswer_area.hidden = false;
             gonext.hidden = false;
 
+            let score = Number(localStorage.getItem("score")) || 0;
+            score++;
+            localStorage.setItem("score", score.toString());
+
             gonext.addEventListener("click",function(){
                 _resolve(true);
             }, {once: true});

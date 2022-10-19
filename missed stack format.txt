@@ -1,0 +1,8 @@
+localStorage missed_stack = [
+    [
+        time: UnixTimeStamp,
+        lesson: Number,
+        question: Number,
+        wrong_answer: String,
+    ]
+]

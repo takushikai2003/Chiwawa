@@ -59,7 +59,9 @@ class practice{
             $get("#practice_playtext_area").removeEventListener("click", audio_play);
             $get("#practice_audio").removeEventListener("click", onplayended);
     
+            let score = Number(localStorage.getItem("score")) || 0;
             score++;
+            localStorage.setItem("score", score.toString());
 
             _resolve();
             
@@ -149,7 +151,9 @@ class selective_question{
             $get("#selective_question_correctanswer").innerHTML = "ĐÚNG";
             $get("#selective_question_correctanswer_area").hidden = false;
 
+            let score = Number(localStorage.getItem("score")) || 0;
             score++;
+            localStorage.setItem("score", score.toString());
 
             gonext.addEventListener("click",()=>{
                 _resolve(true);
@@ -211,7 +215,9 @@ class description_question{
         }
         
         function oncorrect(){
+            let score = Number(localStorage.getItem("score")) || 0;
             score++;
+            localStorage.setItem("score", score.toString());
             
             $get("#description_question_correctanswer_picture").src = "./images/correct.png";
             $get("#description_question_correctanswer").innerHTML = "ĐÚNG";
@@ -325,6 +331,10 @@ class speak_question{
         }
 
         function oncorrect(){
+            let score = Number(localStorage.getItem("score")) || 0;
+            score++;
+            localStorage.setItem("score", score.toString());
+
             $get("#speak_question_correctanswer_picture").src = "./images/correct.png";
             $get("#speak_question_correctanswer").innerHTML = "ĐÚNG";
             $get("#speak_question_correctanswer_area").hidden = false;
