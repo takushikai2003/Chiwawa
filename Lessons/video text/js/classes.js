@@ -5,15 +5,12 @@ let subtitle_data = [];
 let text_replaced = false;
 
 class video_text{
-    constructor({video_src, text_data_src}){
+    constructor(data){
 
-        video_element.src = video_src;
+        video_element.src = data.video_src;
         // video_element.pause();
         
-        getDataAsString(text_data_src)
-        .then(data=>{
-            subtitle_data = JSON.parse(data);
-        });
+        subtitle_data = data.subtitles;
        
         let _resolve;
         this.onend = function(){
