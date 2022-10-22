@@ -1,5 +1,5 @@
 import {kuromoji} from "../lib/kuromoji/kuromoji-esm.js";
-import getDataAsString from "../../common esm/getDataAsString.js";
+import getDataAsString from "../../getDataAsString.js";
 //htmlと同じ階層に、kuromoji_dict_path.txtを設置する必要あり
 
 function get_tokenizer(){

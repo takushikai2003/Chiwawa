@@ -1,4 +1,4 @@
-import getDataAsString from "../../common esm/getDataAsString.js";
+import getDataAsString from "../../../common esm/getDataAsString.js";
 
 const video_element = document.getElementById("video_element");
 let subtitle_data = [];

@@ -1,6 +1,6 @@
-import SpeechRecognizer from "../../speech recognizetion/js/SpeechRecognizer.js";
-import get_kana from "../../speech recognizetion/js/get_kana.js";
-import FuzzySet from "../../speech recognizetion/lib/FuzzySet/FuzzySet.esm.js";
+import SpeechRecognizer from "../../../common esm/speech recognizetion/js/SpeechRecognizer.js";
+import get_kana from "../../../common esm/speech recognizetion/js/get_kana.js";
+import FuzzySet from "../../../common esm/speech recognizetion/lib/FuzzySet/FuzzySet.esm.js";
 
 
 function hide_all_window(){
