@@ -1,9 +1,23 @@
-const lineWidth = 3;
+const lineWidth = 10;
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 canvas.width = 500;
 canvas.height = 500;
+
+const white_a = new Image();
+white_a.src = "./images/あ_white.png";
+await wait_event(white_a, "load");
+ctx.drawImage(white_a, 0, 0, canvas.width, canvas.height);
+
+function wait_event(target, eventType){
+    return new Promise(resolve=>{
+        target.addEventListener(eventType,()=>{
+            resolve(target);
+        });
+    });
+}
+
 
 let isDrag = false;
 const lastPosition = { x: null, y: null };
