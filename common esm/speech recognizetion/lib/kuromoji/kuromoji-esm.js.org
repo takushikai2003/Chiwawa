@@ -6992,24 +6992,24 @@ var DictionaryLoader = require("./loader/NodeDictionaryLoader");
  * @param {string} option.dicPath Dictionary directory path (or URL using in browser)
  * @constructor
  */
-
-class TokenizerBuilder{
-    constructor(option){
-        if (option.dicPath == null) {
-            this.dic_path = "dict/";
-        } else {
-            this.dic_path = option.dicPath;
-        }
-    }
-
-    build(callback){
-        const loader = new DictionaryLoader(this.dic_path);
-        loader.load(function (err, dic) {
-            callback(err, new Tokenizer(dic));
-        });
+function TokenizerBuilder(option) {
+    if (option.dicPath == null) {
+        this.dic_path = "dict/";
+    } else {
+        this.dic_path = option.dicPath;
     }
 }
 
+/**
+ * Build Tokenizer instance by asynchronous manner
+ * @param {TokenizerBuilder~onLoad} callback Callback function
+ */
+TokenizerBuilder.prototype.build = function (callback) {
+    var loader = new DictionaryLoader(this.dic_path);
+    loader.load(function (err, dic) {
+        callback(err, new Tokenizer(dic));
+    });
+};
 
 /**
  * Callback used by build
@@ -7049,15 +7049,12 @@ module.exports = TokenizerBuilder;
  * @param {number} max_length
  * @constructor
  */
-class CharacterClass
-{
-    constructor(class_id, class_name, is_always_invoke, is_grouping, max_length) {
-        this.class_id = class_id;
-        this.class_name = class_name;
-        this.is_always_invoke = is_always_invoke;
-        this.is_grouping = is_grouping;
-        this.max_length = max_length;
-    }
+function CharacterClass(class_id, class_name, is_always_invoke, is_grouping, max_length) {
+    this.class_id = class_id;
+    this.class_name = class_name;
+    this.is_always_invoke = is_always_invoke;
+    this.is_grouping = is_grouping;
+    this.max_length = max_length;
 }
 
 module.exports = CharacterClass;

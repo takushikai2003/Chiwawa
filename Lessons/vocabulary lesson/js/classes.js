@@ -15,6 +15,7 @@ const $get = function (querySelector){
 }
 
 const path_to_lesson_data = "../lessons_data";
+
 class practice{
     constructor({img_src, pic_txt, audio_src, play_txt, supplement_txt}){
         img_src = path_to_lesson_data + img_src;
@@ -74,6 +75,10 @@ class practice{
 
 class selective_question{
     constructor({img_src, audio_src, opt1_txt, opt2_txt, opt3_txt, correct_opt_num}){
+
+        img_src = path_to_lesson_data + img_src;
+        audio_src = path_to_lesson_data + audio_src;
+
         hide_all_window();
         $get("#selective_question_window").hidden = false;
         $get("#selective_question_picture").src = img_src;
@@ -177,6 +182,10 @@ class selective_question{
 
 class description_question{
     constructor({img_src, audio_src, play_txt, supplement_txt, correct_txt,}){
+
+        img_src = path_to_lesson_data + img_src;
+        audio_src = path_to_lesson_data + audio_src;
+
         hide_all_window();
         $get("#description_question_window").hidden = false;
     
@@ -245,6 +254,9 @@ class description_question{
 
 class speak_question{
     constructor({img_src, pic_txt, correct_txt}){
+
+        img_src = path_to_lesson_data + img_src;
+
         hide_all_window();
         $get("#speak_question_window").hidden = false;
 
