@@ -25,7 +25,7 @@
         "correct_txt": "chào buổi trưa"
     },
     {
-        "typt": "speak",
+        "type": "speak",
         "img_src": "/images/図1.jpg",
         "pic_txt": "こんにちは",
         "correct_txt": "こんにちは"

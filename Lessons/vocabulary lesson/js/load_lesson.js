@@ -6,14 +6,14 @@ const params = url.searchParams;
 const lesson_nuber = params.get("lesson");
 
 
-const data_arr = Array.from(JSON.parse(await getDataAsString(`../lessons_data/lessons/lesson${lesson_nuber}_vocabulary.json`)));
+const data_arr = JSON.parse(await getDataAsString(`../lessons_data/lessons/lesson${lesson_nuber}_vocabulary.json`));
 
 
 for(let i=0; i<data_arr.length; i++){
     switch(data_arr[i].type){
         case "practice":
-            // const prc = new practice(data_arr[i]);
-            // await prc.onend();
+            const prc = new practice(data_arr[i]);
+            await prc.onend();
             break;
 
         case "selective":
