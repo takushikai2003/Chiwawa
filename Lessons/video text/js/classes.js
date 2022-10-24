@@ -4,13 +4,16 @@ const video_element = document.getElementById("video_element");
 let subtitle_data = [];
 let text_replaced = false;
 
+const path_to_lesson_data = "../lessons_data";
 class video_text{
-    constructor(data){
+    constructor({video_src, subtitles}){
 
-        video_element.src = data.video_src;
+        video_src = path_to_lesson_data + video_src;
+        
+        video_element.src = video_src;
         // video_element.pause();
         
-        subtitle_data = data.subtitles;
+        subtitle_data = subtitles;
        
         let _resolve;
         this.onend = function(){

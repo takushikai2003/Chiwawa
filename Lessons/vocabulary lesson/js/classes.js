@@ -14,9 +14,11 @@ const $get = function (querySelector){
     return document.querySelector(querySelector);
 }
 
-
+const path_to_lesson_data = "../lessons_data";
 class practice{
     constructor({img_src, pic_txt, audio_src, play_txt, supplement_txt}){
+        img_src = path_to_lesson_data + img_src;
+        audio_src = path_to_lesson_data + audio_src;
 
         hide_all_window();
         $get("#practice_window").hidden = false;

@@ -12,8 +12,15 @@ const correctanswer_area = document.getElementById("talk_like_correctanswer_area
 
 let old_tippy = [];
 
+
+const path_to_lesson_data = "../lessons_data";
 class talk_like{
     constructor({left_img_src, right_img_src, audio_src, left_html, right_html, correct_text}){
+        
+        left_img_src = path_to_lesson_data + left_img_src;
+        right_img_src = path_to_lesson_data + right_img_src;
+        audio_src = path_to_lesson_data + audio_src;
+
         left_img.src = left_img_src;
         right_img.src = right_img_src;
         audio.src = audio_src;
