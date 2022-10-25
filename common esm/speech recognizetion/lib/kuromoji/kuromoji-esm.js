@@ -7006,6 +7006,7 @@ class TokenizerBuilder{
         const loader = new DictionaryLoader(this.dic_path);
         loader.load(function (err, dic) {
             callback(err, new Tokenizer(dic));
+            console.log("build完了");
         });
     }
 }
@@ -8105,57 +8106,172 @@ var DictionaryLoader = require("./DictionaryLoader");
  * @param {string} dic_path Dictionary path
  * @constructor
  */
-function BrowserDictionaryLoader(dic_path) {
-    DictionaryLoader.apply(this, [dic_path]);
-}
 
-BrowserDictionaryLoader.prototype = Object.create(DictionaryLoader.prototype);
-
-/**
- * Utility function to load gzipped dictionary
- * @param {string} url Dictionary URL
- * @param {BrowserDictionaryLoader~onLoad} callback Callback function
- */
-BrowserDictionaryLoader.prototype.loadArrayBuffer = function (url, callback) {
-    /*
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.responseType = "arraybuffer";
-    xhr.onload = function () {
-        if (this.status > 0 && this.status !== 200) {
-            callback(xhr.statusText, null);
-            return;
-        }
-        var arraybuffer = this.response;
-
-        var gz = new zlib.Zlib.Gunzip(new Uint8Array(arraybuffer));
-        var typed_array = gz.decompress();
-        callback(null, typed_array.buffer);
-    };
-    xhr.onerror = function (err) {
-        callback(err, null);
-    };
-    xhr.send();
-    */
-    const gunzip = (arraybuffer, callback) => {
-        const gz = new zlib.Zlib.Gunzip(new Uint8Array(arraybuffer));
-        const typed_array = gz.decompress();
-        callback(null, typed_array.buffer);
-    };
-    try {
-        // console.log("fetch", url);
-        fetch(url).then(r => r.arrayBuffer()).then(a => gunzip(a, callback)).catch(err => callback(err, null));
-    } catch (e) {
-        Deno.readFile(url).then(a => gunzip(a, callback)).catch(err => callback(err, null));
+class BrowserDictionaryLoader extends DictionaryLoader{
+    constructor(dic_path){
+        super(dic_path);
     }
-};
 
-/**
- * Callback
- * @callback BrowserDictionaryLoader~onLoad
- * @param {Object} err Error object
- * @param {Uint8Array} buffer Loaded buffer
- */
+
+    //TODO: url -> Indexed DB key
+    loadArrayBuffer(url, callback){
+        
+        const regexp = new RegExp(".*/(.*?)$");
+        
+        let db;
+        const dbName = "kuromoji_dict";
+        const objStoreName = "kuromoji_dict_objectStore";
+        const id = url.match(regexp)[1];//base.dat.gzなど
+
+
+        (async function () {
+
+            await openDB();
+
+            const data = await getData(id);
+
+            if(data == undefined){
+                console.log("サーバーからdictを取得します");
+                const array_buffer = await wait_fetch(url);
+                await addData(array_buffer);
+                gunzip(array_buffer, callback);
+            }
+
+            else{
+                console.log("Indexed DBからdictを取得します");
+                const array_buffer = data.arrayBuffer;
+                gunzip(array_buffer, callback);
+                // console.log("gzip loaded")
+            }
+
+            // console.log("db 終了");
+            await db.close();
+        }());
+
+
+
+        function openDB() {
+            return new Promise((resolve,reject)=>{
+                
+                const request = indexedDB.open(dbName);
+                request.onupgradeneeded = function(event) {
+                    db = event.target.result;
+                    db.onerror = function(event) {  //エラー処理
+                        console.log("DBの作成に失敗しました。");
+                    };
+
+                    //オブジェクトストア名の確認
+                    if (!db.objectStoreNames.contains(objStoreName)) {
+                        //オブジェクトストアが無い場合
+                        const objStoreKey = { keyPath: "id" };    //キー設定
+                        //オブジェクトストア生成
+                        db.createObjectStore(objStoreName, objStoreKey);
+                        console.log("オブジェクトストア生成");
+                    }
+                };
+
+              
+                //オープンが正常の場合の関数宣言
+                request.onsuccess = function(event) {
+                    //データベースインスタンス保存
+                    db = event.target.result;
+                    // console.log("DBオープンOK");
+                    
+                    resolve();
+                };
+    
+                //エラーの場合の関数宣言
+                request.onerror = function(event){
+                    console.log("DBオープンエラー");
+                    reject();
+                };
+    
+            });
+        }
+
+
+        function addData(_data) {
+            return new Promise((resolve,reject)=>{
+
+                const transaction = db.transaction(objStoreName, "readwrite");
+                const objectStore = transaction.objectStore(objStoreName);
+
+                const data = {
+                    id: id , //キーデータ
+                    arrayBuffer: _data
+                };
+                        
+                const request = objectStore.add(data);
+
+                request.onsuccess = function(event) {
+                    // console.log("保存成功");
+                    resolve();
+                };
+
+                request.onerror = function(event) {
+                    reject();
+                    console.log("保存失敗。event:", event);
+                };
+            });
+        }
+
+
+        //return: data
+        function getData(id) {
+            return new Promise((resolve,reject)=>{
+                const transaction = db.transaction(objStoreName, "readonly");
+                const objectStore = transaction.objectStore(objStoreName);
+                const request = objectStore.get(id);
+                
+                //取得が成功した場合の関数宣言
+                request.onsuccess = function(event) {
+                    // console.log("データ取得成功");
+                    const result = event.target.result;
+                    resolve(result);
+                }
+    
+                //取得エラーの場合の関数宣言
+                request.onerror = function(event) {
+                    console.log("取得失敗。event:", event);
+                    reject();
+                }
+            });
+        }
+
+
+
+        function wait_fetch(url){
+            return new Promise((resolve,reject)=>{
+                try {
+                    // console.log("fetch", url);
+                    fetch(url)
+                    .then(r => {
+                        resolve(r.arrayBuffer())
+                    })
+
+                    // .then(a => gunzip(a, callback))
+                    // .catch(err => callback(err, null));
+                }
+                
+                catch (e) {
+                    Deno.readFile(url)
+                    .then(a => {
+                        resolve(a);
+                    })
+                    // .then(a => gunzip(a, callback))
+                    // .catch(err => callback(err, null));
+                }
+            });
+        }
+
+
+        function gunzip(arraybuffer, callback){
+            const gz = new zlib.Zlib.Gunzip(new Uint8Array(arraybuffer));
+            const typed_array = gz.decompress();
+            callback(null, typed_array.buffer);
+        };
+    }
+}
 
 module.exports = BrowserDictionaryLoader;
 
