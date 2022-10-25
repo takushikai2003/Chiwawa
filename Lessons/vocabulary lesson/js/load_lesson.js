@@ -13,6 +13,7 @@ for(let i=0; i<data_arr.length; i++){
     switch(data_arr[i].type){
         case "practice":
             const prc = new practice(data_arr[i]);
+            console.log("読み込み時間：",performance.now());
             await prc.onend();
             break;
 
