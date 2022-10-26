@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+#speak_question_picture_area{
+    border: solid 3px red;
+}
+
+#speak_question_picture{
+    width: 90%;
+}
+
+#speak_question_play{
+    top: 0px;
+    height: 40px;
+}
+
+#speak_question_supplement_area{
+    margin-top: 40px;
+    background-color: pink;
+}
+
+#speak_question_mic_area{
+    margin-top: 30px;
+    background-color: lightgreen;
+    cursor: pointer;
+    height: 100px;
+}
+
+#speak_question_mic{
+    top: 0px;
+    height: 80px;
+}
+
+#speak_question_correctanswer_area{
+    margin-top: 40px;
+    border: solid 1px springgreen;
+}
+
+#speak_question_correctanswer_picture{
+    width: 100px;
+}
+
+#speak_question_gonext{
+    margin-top: 50px;
+    background-color: lightsteelblue;
+}
