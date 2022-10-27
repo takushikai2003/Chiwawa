@@ -2,12 +2,20 @@
     height: 100vh;
 }
 
+#lesson_accordion{
+    margin-top: 100px;
+}
+
 .lesson_select_option {
     width: 100%;
     height: 100px;
     background-color: palegreen;
     margin-bottom: 30px;
-    /* border-radius: 30px; */
+    border-radius: 30px;
+}
+
+.lesson_select_option:disabled{
+    background-color: rgb(225, 253, 225);
 }
 
 .lesson_content_option {
@@ -15,5 +23,18 @@
     height: 100px;
     background-color: pink;
     margin-bottom: 30px;
+    border-radius: 30px;
+}
+
+.collapsing {
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+}
+
+.accordion-item:first-of-type .accordion-button {
+    border-radius: 30px;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
     border-radius: 30px;
 }
