@@ -11,102 +11,89 @@
         <img src="./images/boot screen.jpg" id="boot_screen_img">
     </div>
 
-    <div id="select_menu" class="container d-flex align-items-center " hidden>
-        <div id="select_menu_selection" class="row flex-fill">
-            <button id="select_menu_option1" class="btn btn-lg " disabled>
-                <h1>
-                    五十音図
-                    <br>
-                    Bảng chữ cái
-                </h1>
-            </button>
-            <button id="select_menu_option2" class="btn btn-lg ">
-                <h1>
-                    レッスン
-                    <br>
-                    Bài học
-                </h1>
-            </button>
-            <button id="select_menu_option3" class="btn btn-lg " disabled>
-                <h1>
-                    知識倉庫
-                    <br>
-                    Kho Tri thức
-                </h1>
-            </button>
-        </div>
-    </div>
-
+    
     <div id="lesson_select_menu" class="container d-flex align-items-center" hidden>
-            
-        <div class="row">
-            <button id="lesson_select_title" class="btn btn-lg col">
-                <h1>
-                    レッスン
-                    <br>
-                    Bài học
-                </h1>
-            </button>
 
-            <div class="col">
-                <div id="lesson_select_selection" class="row flex-fill">
-            
-                    <button id="lesson_select_option1" class="btn btn-lg ">
-                        <h1>
-                            レッスン１
-                            <br>
-                            Bài 1
-                        </h1>
-                    </button>
-                    <button id="lesson_select_option2" class="btn btn-lg " disabled>
-                        <h1>
-                            レッスン2
-                            <br>
-                            Bài 2
-                        </h1>
-                    </button>
-                    <button id="lesson_select_option3" class="btn btn-lg " disabled>
-                        <h1>
-                            レッスン3
-                            <br>
-                            Bài 3
-                        </h1>
-                    </button>
+        <div class="row flex-fill">
+
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button collapsed lesson_select_option" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                            <h1>
+                                Lesson1
+                            </h1>
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <button id="lesson_content_option1" class="lesson_content_option">
+                                <h1>
+                                    語彙
+                                </h1>
+                            </button>
+                            <button id="lesson_content_option1" class="lesson_content_option">
+                                <h1>
+                                    会話
+                                </h1>
+                            </button>
+                            <button id="lesson_content_option1" class="lesson_content_option">
+                                <h1>
+                                    動画
+                                </h1>
+                            </button>
+                            <button id="lesson_content_option1" class="lesson_content_option">
+                                <h1>
+                                    五十音図
+                                </h1>
+                            </button>
+                            <button id="lesson_content_option1" class="lesson_content_option">
+                                <h1>
+                                    知識倉庫
+                                </h1>
+                            </button>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed lesson_select_option" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                            <h1>
+                                Lesson2
+                            </h1>
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body">
+
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                        <button class="accordion-button collapsed lesson_select_option" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                            <h1>
+                                Lesson3
+                            </h1>
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                        <div class="accordion-body">
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
         
-    </div>
-
-    <div id="lesson_content_select_menu" class="container d-flex align-items-center" hidden>
-        <div id="lesson_content_selection" class="row flex-fill">
-            <button id="lesson_content_option1" class="btn btn-lg ">
-                <h1>
-                    語彙
-                    <br>
-                    Từ
-                </h1>
-            </button>
-            <button id="lesson_content_option2" class="btn btn-lg ">
-                <h1>
-                    会話
-                    <br>
-                    Nói
-                </h1>
-            </button>
-            <button id="lesson_content_option3" class="btn btn-lg ">
-                <h1>
-                    動画
-                </h1>
-            </button>
         </div>
     </div>
-
 
     <link rel="stylesheet" href="./css/boot screen.css">
-    <link rel="stylesheet" href="./css/select menu.css">
     <link rel="stylesheet" href="./css/lesson select menu.css">
-    <link rel="stylesheet" href="./css/lesson content select menu.css">
 
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" type="module"></script>
 </body>

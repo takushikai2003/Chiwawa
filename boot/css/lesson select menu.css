@@ -1,31 +1,19 @@
-#lesson_select_menu{
+#lesson_select_menu {
     height: 100vh;
 }
 
-#lesson_select_title{
-    height: 100px;
-    margin-right: 40px;
-    border-radius: 30px;
-    background-color: gold;
-}
-
-#lesson_select_option1{
+.lesson_select_option {
     width: 100%;
     height: 100px;
     background-color: palegreen;
     margin-bottom: 30px;
-    border-radius: 30px;
+    /* border-radius: 30px; */
 }
 
-#lesson_select_option2{
+.lesson_content_option {
+    width: 100%;
     height: 100px;
-    background-color: palegreen;
+    background-color: pink;
     margin-bottom: 30px;
-    border-radius: 30px;
-}
-
-#lesson_select_option3{
-    height: 100px;
-    background-color: palegreen;
     border-radius: 30px;
 }
