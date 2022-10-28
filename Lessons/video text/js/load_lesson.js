@@ -9,4 +9,6 @@ const data = JSON.parse(await getDataAsString(`../lessons_data/lessons/lesson${l
 
 const vt1 = new video_text(data);
 await vt1.onend();
-location.href = "../boot/index.html";
+
+
+location.href = "../../../boot/index.html?page=lesson_select";

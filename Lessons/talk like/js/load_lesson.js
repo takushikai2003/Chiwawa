@@ -7,9 +7,13 @@ const lesson_nuber = params.get("lesson");
 
 const data_arr = JSON.parse(await getDataAsString(`../lessons_data/lessons/lesson${lesson_nuber}_talk.json`));
 
+document.querySelector("#loading_window").hidden = true;
+document.querySelector("#grid_overall").hidden = false;
+
 for(let i=0; i<data_arr.length; i++){
     const question = new talk_like(data_arr[i]);
     const result = await question.onend();
 }
 
-location.href = "../boot/index.html";
+
+location.href = "../../../boot/index.html?page=lesson_select";

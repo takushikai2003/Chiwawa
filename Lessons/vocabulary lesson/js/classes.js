@@ -4,6 +4,7 @@ import FuzzySet from "../../../common esm/speech recognizetion/lib/FuzzySet/Fuzz
 
 
 function hide_all_window(){
+    document.querySelector("#loading_window").hidden = true;
     document.querySelector("#practice_window").hidden = true;
     document.querySelector("#selective_question_window").hidden = true;
     document.querySelector("#description_question_window").hidden = true;
