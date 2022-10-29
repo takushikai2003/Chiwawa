@@ -38,3 +38,7 @@
 .accordion-item:last-of-type .accordion-button.collapsed {
     border-radius: 30px;
 }
+
+.accordion-item {
+    border: none;
+}
