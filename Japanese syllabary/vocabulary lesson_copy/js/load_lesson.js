@@ -1,5 +1,6 @@
 import Practice from "./Practice.js";
 import StrokeOrderLearn from "./StrokeOrderLearn.js";
+import Trace from "./Trace.js";
 import SelectiveQuestion from "./SelectiveQuestion.js";
 import SpeakQuestion from "./SpeakQuestion.js";
 
@@ -47,6 +48,11 @@ const str_dat = {
     supplement_txt: "a"
 }
 
+const trace_dat = {
+    img_src: "./test_data/あ_white.png",
+    supplement_txt: "a"
+}
+
 const sel_dat = {
     img_src: "./test_data/あ_black.png",
     options: ["a","i","u","e","o"],
@@ -62,6 +68,8 @@ const prc = new Practice(prc_dat);
 await prc.onend();
 const str_l = new StrokeOrderLearn(str_dat);
 await str_l.onend();
+const trace_l = new Trace(trace_dat);
+await trace_l.onend();
 const sel_q = new SelectiveQuestion(sel_dat);
 await sel_q.onend();
 const spe_q = new SpeakQuestion(spk_dat);
