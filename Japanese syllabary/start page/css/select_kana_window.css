@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+#select_kana_window{
+    margin-top: 300px;
+}
+
+#hiragana_btn{
+    background-color: rgb(252, 178, 98);
+    border-radius: 30px;
+}
+
+#katakana_btn{
+    background-color: rgb(252, 178, 98);
+    margin-top: 100px;
+    border-radius: 30px;
+}
