@@ -4,7 +4,7 @@ const $get = function (querySelector){
     return document.querySelector(querySelector);
 }
 
-const path_to_lesson_data = "";//"../lessons_data";
+const path_to_lesson_data = "../data";
 
 class Practice{
     constructor({img_src, audio_src, play_txt, supplement_txt}){

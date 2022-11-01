@@ -1,0 +1,31 @@
+[
+    {
+        "type": "practice",
+        "img_src": "/images/あ_black.png",
+        "audio_src": "/audios/あ.mp3",
+        "play_txt": "a",
+        "supplement_txt": ""
+    },
+    {
+        "type": "stroke",
+        "img1_src": "/images/あ_animation.gif",
+        "img2_src": "/images/あ_white.png",
+        "supplement_txt": "a"
+    },
+    {
+        "type": "trace",
+        "img_src": "/images/あ_white.png",
+        "supplement_txt": "a"
+    },
+    {
+        "type": "selective",
+        "img_src": "/images/あ_black.png",
+        "options": ["a","i","u","e","o"],
+        "correct_opt_num": 1
+    },
+    {
+        "type": "speak",
+        "img_src": "/images/あ_black.png",
+        "correct_txt": "あ"
+    }
+]

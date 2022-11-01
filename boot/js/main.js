@@ -39,6 +39,10 @@ $get("#lesson_content_option3").addEventListener("click", ()=>{
     start_content(`../Lessons/video text/index.html?lesson=${1}`);
 }, {once: true});
 
+$get("#lesson_content_option4").addEventListener("click", ()=>{
+    start_content("../Japanese syllabary/start page/index.html");
+}, {once: true});
+
 
 function start_content(url){
     console.log("start content");

@@ -85,5 +85,5 @@ for(let i=0; i<katakana_table_data.length; i++){
 
 
 function start_mainpage(type, index){
-    console.log(type, index);
+    location.href = `../main/index.html?type=${type}&index=${index}`;
 }

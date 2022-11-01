@@ -4,11 +4,12 @@ const $get = function (querySelector){
     return document.querySelector(querySelector);
 }
 
-const path_to_lesson_data = "";//"../lessons_data";
+const path_to_lesson_data = "../data";
 
 class StrokeOrderLearn{
     constructor({img1_src, img2_src, supplement_txt}){
         img1_src = path_to_lesson_data + img1_src;
+        img2_src = path_to_lesson_data + img2_src;
 
         hide_all_window();
         $get("#stroke_order_learn_window").hidden = false;
