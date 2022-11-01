@@ -1,4 +1,5 @@
 import Practice from "./Practice.js";
+import StrokeOrderLearn from "./StrokeOrderLearn.js";
 import SelectiveQuestion from "./SelectiveQuestion.js";
 import SpeakQuestion from "./SpeakQuestion.js";
 
@@ -40,23 +41,27 @@ const prc_dat = {
     supplement_txt: ""
 }
 
+const str_dat = {
+    img1_src: "./test_data/あ_animation.gif",
+    img2_src: "./test_data/あ_white.png",
+    supplement_txt: "a"
+}
+
 const sel_dat = {
     img_src: "./test_data/あ_black.png",
-    opt1_txt: "a",
-    opt2_txt: "i",
-    opt3_txt: "u",
+    options: ["a","i","u","e","o"],
     correct_opt_num: 1
 }
 
 const spk_dat = {
-    img_src: "./test_data/stomatch.jpg",
-    audio_src: "./test_data/あ.mp3",
-    correct_txt: "い",
-    supplement_txt: "dạ dày"
+    img_src: "./test_data/あ_black.png",
+    correct_txt: "あ"
 }
 
 const prc = new Practice(prc_dat);
 await prc.onend();
+const str_l = new StrokeOrderLearn(str_dat);
+await str_l.onend();
 const sel_q = new SelectiveQuestion(sel_dat);
 await sel_q.onend();
 const spe_q = new SpeakQuestion(spk_dat);

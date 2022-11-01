@@ -16,22 +16,12 @@
     margin-top: 40px;
 }
 
-#selective_question_option1{
+.selective_question_option{
     height: 100px;
     background-color: pink;
     margin-bottom: 30px;
 }
 
-#selective_question_option2{
-    height: 100px;
-    background-color: pink;
-    margin-bottom: 30px;
-}
-
-#selective_question_option3{
-    height: 100px;
-    background-color: pink;
-}
 
 #selective_question_correctanswer_area{
     margin-top: 40px;

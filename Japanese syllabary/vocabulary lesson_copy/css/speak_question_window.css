@@ -1,11 +1,15 @@
 @charset "utf-8";
 
+#speak_question_window{
+    margin-top: 100px;
+}
+
 #speak_question_picture_area{
     border: solid 3px red;
 }
 
 #speak_question_picture{
-    width: 90%;
+    width: 100%;
 }
 
 #speak_question_play{

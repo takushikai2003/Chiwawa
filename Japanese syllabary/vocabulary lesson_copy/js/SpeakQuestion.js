@@ -12,28 +12,20 @@ const path_to_lesson_data = "";//"../lessons_data";
 
 
 class SpeakQuestion{
-    constructor({img_src, audio_src, correct_txt, supplement_txt}){
+    constructor({img_src, correct_txt}){
 
         img_src = path_to_lesson_data + img_src;
-        audio_src = path_to_lesson_data + audio_src;
 
         hide_all_window();
         $get("#speak_question_window").hidden = false;
 
         $get("#speak_question_picture").src = img_src;
-        $get("#speak_question_audio").src = audio_src;
-        $get("#speak_question_supplement").innerHTML = supplement_txt;
         $get("#speak_question_correctanswer_area").hidden = true;
 
         const mic_area = $get("#speak_question_mic_area");
         const gonext = $get("#speak_question_gonext");
 
         gonext.disabled = true;
-
-        $get("#speak_question_picture_area")
-        .addEventListener("click",()=>{
-            $get("#speak_question_audio").play();
-        });
 
 
         //音声認識

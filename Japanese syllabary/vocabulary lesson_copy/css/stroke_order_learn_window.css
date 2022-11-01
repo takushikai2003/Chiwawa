@@ -1,0 +1,28 @@
+@charset "utf-8";
+#stroke_order_learn_window{
+    margin-top: 100px;
+}
+
+#stroke_order_learn_picture1{
+    border: solid 3px black;
+    padding: 0%;
+    width: 100%;
+}
+
+#stroke_order_learn_supplement_area{
+    /* margin-top: 10px; */
+    background-color: pink;
+    cursor: pointer;
+}
+
+#stroke_order_learn_picture2{
+    border: solid 3px black;
+    margin-top: 20px;
+    padding: 0%;
+    width: 70%;
+}
+
+#stroke_order_learn_gonext{
+    margin-top: 50px;
+    background-color: lightsteelblue;
+}
