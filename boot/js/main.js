@@ -35,11 +35,11 @@ $get("#lesson_content_option2").addEventListener("click", ()=>{
     start_content(`../Lessons/talk like/index.html?lesson=${1}`);
 }, {once: true});
 
-$get("#lesson_content_option3").addEventListener("click", ()=>{
+$get("#video_lesson").addEventListener("click", ()=>{
     start_content(`../Lessons/video text/index.html?lesson=${1}`);
 }, {once: true});
 
-$get("#lesson_content_option4").addEventListener("click", ()=>{
+$get("#japanese_syllabary").addEventListener("click", ()=>{
     start_content("../Japanese syllabary/start page/index.html");
 }, {once: true});
 
