@@ -66,7 +66,7 @@ class SpeakQuestion{
                 oncorrect();
             }
             else{
-                onmistake();
+                onmistake(message);
             }
         }
 
@@ -117,7 +117,23 @@ class SpeakQuestion{
             }, {once: true});
         }
 
-        function onmistake(){
+        function onmistake(mistake){
+            const misetake_qestion = {
+                lessonType: "japanese_syllabary",
+                data: {
+                    type: "speak",
+                    img_src: img_src,
+                    correct_txt: correct_txt
+                },
+                mistake: mistake
+            }
+
+            const missed_stack = JSON.parse(localStorage.getItem("missed_stack")) || [];
+            missed_stack.push(misetake_qestion);
+
+            localStorage.setItem("missed_stack", JSON.stringify(missed_stack));
+
+
             $get("#speak_question_correctanswer_picture").src = "./images/mistake.png";
             $get("#speak_question_correctanswer").innerHTML = "SAI rồi bạn ơi!\nĐáp án :\n" + correct_txt;
             $get("#speak_question_correctanswer_area").hidden = false;

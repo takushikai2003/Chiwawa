@@ -166,7 +166,6 @@ class talk_like{
                     audio_src: audio_src,
                     left_html: left_html,
                     right_html: right_html,
-                    play_txt: play_txt,
                     correct_text: correct_text
                 },
                 mistake: mistake
