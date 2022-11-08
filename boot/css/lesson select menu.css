@@ -1,6 +1,6 @@
 #lesson_select_menu {
     height: 100vh;
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 .lesson_select_option {
@@ -38,4 +38,14 @@
 
 .accordion-item {
     border: none;
+}
+
+
+#retry{
+    width: 100%;
+    height: 100px;
+    background-color: lemonchiffon;
+    margin-bottom: 30px;
+    border-radius: 30px;
+    
 }

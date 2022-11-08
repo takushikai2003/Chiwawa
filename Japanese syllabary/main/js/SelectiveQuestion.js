@@ -1,4 +1,5 @@
 import hide_all_window from "./hide_all_window.js";
+import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/setMissedStack.js";
 
 const $get = function (querySelector){
     return document.querySelector(querySelector);
@@ -87,10 +88,7 @@ class SelectiveQuestion{
                 mistake: mistake
             }
 
-            const missed_stack = JSON.parse(localStorage.getItem("missed_stack")) || [];
-            missed_stack.push(misetake_qestion);
-
-            localStorage.setItem("missed_stack", JSON.stringify(missed_stack));
+            setMissedStack(misetake_qestion);
 
 
             $get("#selective_question_correctanswer_picture").src = "./images/mistake.png";

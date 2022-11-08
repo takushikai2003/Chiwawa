@@ -1,6 +1,13 @@
+import Retry from "../../common esm/Retry.js";
+
 const url = new URL(window.location.href);
 const params = url.searchParams;
 const page_name = params.get("page");
+const retry = params.get("retry");
+
+if(retry){
+    Retry();
+}
 
 function $get(querySelector){
     return document.querySelector(querySelector);
@@ -43,6 +50,9 @@ $get("#japanese_syllabary").addEventListener("click", ()=>{
     start_content("../Japanese syllabary/start page/index.html");
 }, {once: true});
 
+$get("#retry").addEventListener("click",()=>{
+    Retry();
+}, {once: true});
 
 function start_content(url){
     console.log("start content");

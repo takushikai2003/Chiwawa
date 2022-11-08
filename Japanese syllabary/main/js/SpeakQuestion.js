@@ -1,7 +1,7 @@
 import SpeechRecognizer from "../../../common esm/speech recognizetion/js/SpeechRecognizer.js";
 import get_kana from "../../../common esm/speech recognizetion/js/get_kana.js";
 import FuzzySet from "../../../common esm/speech recognizetion/lib/FuzzySet/FuzzySet.esm.js";
-
+import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/setMissedStack.js";
 import hide_all_window from "./hide_all_window.js";
 
 const $get = function (querySelector){
@@ -128,10 +128,7 @@ class SpeakQuestion{
                 mistake: mistake
             }
 
-            const missed_stack = JSON.parse(localStorage.getItem("missed_stack")) || [];
-            missed_stack.push(misetake_qestion);
-
-            localStorage.setItem("missed_stack", JSON.stringify(missed_stack));
+            setMissedStack(misetake_qestion);
 
 
             $get("#speak_question_correctanswer_picture").src = "./images/mistake.png";

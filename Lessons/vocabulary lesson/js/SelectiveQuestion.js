@@ -1,4 +1,5 @@
 import hide_all_window from "./hide_all_window.js";
+import {setMissedStack} from "../../../common esm/missedStack.js";
 
 const path_to_lesson_data = "../lessons_data";
 
@@ -115,10 +116,7 @@ class SelectiveQuestion{
                 mistake: selected_opt_num
             }
 
-            const missed_stack = JSON.parse(localStorage.getItem("missed_stack")) || [];
-            missed_stack.push(misetake_qestion);
-
-            localStorage.setItem("missed_stack", JSON.stringify(missed_stack));
+            setMissedStack(misetake_qestion);
 
 
             $get("#selective_question_correctanswer_picture").src = "./images/mistake.png";

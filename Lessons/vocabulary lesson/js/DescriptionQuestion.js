@@ -1,4 +1,5 @@
 import hide_all_window from "./hide_all_window.js";
+import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/missedStack.js";
 
 const path_to_lesson_data = "../lessons_data";
 
@@ -79,12 +80,9 @@ class DescriptionQuestion{
                 mistake: mistake
             }
 
-            const missed_stack = JSON.parse(localStorage.getItem("missed_stack")) || [];
-            missed_stack.push(misetake_qestion);
+            setMissedStack(misetake_qestion);
 
-            localStorage.setItem("missed_stack", JSON.stringify(missed_stack));
-
-
+            
             $get("#description_question_correctanswer_picture").src = "./images/mistake.png";
             $get("#description_question_correctanswer").innerHTML = "SAI rồi bạn ơi!\nĐáp án :\n" + correct_txt;
             correctanswer_area.hidden = false;
