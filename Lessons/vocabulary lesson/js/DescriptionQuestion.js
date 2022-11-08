@@ -1,0 +1,100 @@
+import hide_all_window from "./hide_all_window.js";
+
+const path_to_lesson_data = "../lessons_data";
+
+const $get = function (querySelector){
+    return document.querySelector(querySelector);
+}
+
+class DescriptionQuestion{
+    constructor({img_src, audio_src, play_txt, supplement_txt, correct_txt,}){
+
+        const _img_src = path_to_lesson_data + img_src;
+        const _audio_src = path_to_lesson_data + audio_src;
+
+        hide_all_window();
+        $get("#description_question_window").hidden = false;
+    
+        $get("#description_question_picture").src = _img_src;
+        $get("#description_question_audio").src = _audio_src;
+        $get("#description_question_play_text").innerHTML = play_txt;
+        $get("#description_question_supplement").innerHTML = supplement_txt;
+        
+    
+        const correctanswer_area = $get("#description_question_correctanswer_area");
+        const gonext = $get("#description_question_gonext");
+        const input = $get("#description_question_input");
+    
+        correctanswer_area.hidden = true;
+    
+        $get("#description_question_playtext_area").onclick = function(){
+            $get("#description_question_audio").play();
+        }
+    
+        gonext.innerHTML = "OK";
+
+        gonext.addEventListener("click",()=>{
+            if(input.value == correct_txt){
+                oncorrect();
+            }
+            else{
+                onmistake(input.value);
+            }
+
+            gonext.innerHTML = "Next";
+        }, {once: true});
+    
+        let _resolve;
+        this.onend = function(){
+            return new Promise(resolve=>{
+                _resolve = resolve;
+            });
+        }
+        
+        function oncorrect(){
+            let score = Number(localStorage.getItem("score")) || 0;
+            score++;
+            localStorage.setItem("score", score.toString());
+            
+            $get("#description_question_correctanswer_picture").src = "./images/correct.png";
+            $get("#description_question_correctanswer").innerHTML = "ĐÚNG";
+            correctanswer_area.hidden = false;
+
+            gonext.addEventListener("click",function(){
+                _resolve(true);
+            }, {once: true});
+        }
+    
+        function onmistake(mistake){
+            const misetake_qestion = {
+                lessonType: "vocabulary",
+                data: {
+                    type: "description",
+                    img_src: img_src,
+                    audio_src: audio_src,
+                    play_txt: play_txt,
+                    supplement_txt: supplement_txt,
+                    correct_txt: correct_txt
+                },
+                mistake: mistake
+            }
+
+            const missed_stack = JSON.parse(localStorage.getItem("missed_stack")) || [];
+            missed_stack.push(misetake_qestion);
+
+            localStorage.setItem("missed_stack", JSON.stringify(missed_stack));
+
+
+            $get("#description_question_correctanswer_picture").src = "./images/mistake.png";
+            $get("#description_question_correctanswer").innerHTML = "SAI rồi bạn ơi!\nĐáp án :\n" + correct_txt;
+            correctanswer_area.hidden = false;
+
+            gonext.addEventListener("click",function(){
+                _resolve(false);
+            }, {once: true});
+        }
+    }
+}
+
+
+export default DescriptionQuestion;

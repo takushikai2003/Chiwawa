@@ -17,13 +17,13 @@ const path_to_lesson_data = "../lessons_data";
 class talk_like{
     constructor({left_img_src, right_img_src, audio_src, left_html, right_html, correct_text}){
         
-        left_img_src = path_to_lesson_data + left_img_src;
-        right_img_src = path_to_lesson_data + right_img_src;
-        audio_src = path_to_lesson_data + audio_src;
+        const _left_img_src = path_to_lesson_data + left_img_src;
+        const _right_img_src = path_to_lesson_data + right_img_src;
+        const _audio_src = path_to_lesson_data + audio_src;
 
-        left_img.src = left_img_src;
-        right_img.src = right_img_src;
-        audio.src = audio_src;
+        left_img.src = _left_img_src;
+        right_img.src = _right_img_src;
+        audio.src = _audio_src;
         gonext.hidden = true;
         correctanswer_area.hidden = true;
 
@@ -106,7 +106,7 @@ class talk_like{
                 oncorrect();
             }
             else{
-                onmistake();
+                onmistake(message);
             }
         }
 
@@ -157,7 +157,27 @@ class talk_like{
             }, {once: true});
         }
 
-        function onmistake(){
+        function onmistake(mistake){
+            const misetake_qestion = {
+                lessonType: "talk_like",
+                data: {
+                    left_img_src: left_img_src,
+                    right_img_src: right_img_src,
+                    audio_src: audio_src,
+                    left_html: left_html,
+                    right_html: right_html,
+                    play_txt: play_txt,
+                    correct_text: correct_text
+                },
+                mistake: mistake
+            }
+
+            const missed_stack = JSON.parse(localStorage.getItem("missed_stack")) || [];
+            missed_stack.push(misetake_qestion);
+
+            localStorage.setItem("missed_stack", JSON.stringify(missed_stack));
+
+
             correctanswer_picture.src = "./images/mistake.png";
             correctanswer.innerHTML = "SAI rồi bạn ơi!\nĐáp án :\n" + correct_text;
             correctanswer_area.hidden = false;
