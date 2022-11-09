@@ -5,7 +5,7 @@ const params = url.searchParams;
 const page_name = params.get("page");
 const retry = params.get("retry");
 
-console.log(retry);
+// console.log(retry);
 if(retry){
     Retry();
 }

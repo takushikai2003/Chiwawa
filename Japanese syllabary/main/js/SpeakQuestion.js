@@ -1,7 +1,7 @@
 import SpeechRecognizer from "../../../common esm/speech recognizetion/js/SpeechRecognizer.js";
 import get_kana from "../../../common esm/speech recognizetion/js/get_kana.js";
 import FuzzySet from "../../../common esm/speech recognizetion/lib/FuzzySet/FuzzySet.esm.js";
-import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/setMissedStack.js";
+import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/missedStack.js";
 import hide_all_window from "./hide_all_window.js";
 
 const $get = function (querySelector){
