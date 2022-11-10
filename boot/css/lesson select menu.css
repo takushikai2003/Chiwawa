@@ -6,19 +6,19 @@
 .lesson_select_option {
     width: 100%;
     height: 100px;
-    background-color: palegreen;
+    background-color: orange;
     margin-bottom: 30px;
     border-radius: 30px;
 }
 
 .lesson_select_option:disabled{
-    background-color: rgb(225, 253, 225);
+    background-color: rgb(255, 233, 192);
 }
 
 .lesson_content_option {
     width: 100%;
     height: 100px;
-    background-color: pink;
+    background-color: gold;
     margin-bottom: 30px;
     border-radius: 30px;
 }
@@ -40,11 +40,15 @@
     border: none;
 }
 
+.accordion-button{
+    display: block;
+    text-align: center;
+}
 
 #retry{
     width: 100%;
     height: 100px;
-    background-color: lemonchiffon;
+    background-color: rgb(200, 243, 135);
     margin-bottom: 30px;
     border-radius: 30px;
     
