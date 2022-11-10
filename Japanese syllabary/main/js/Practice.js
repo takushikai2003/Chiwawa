@@ -15,15 +15,14 @@ class Practice{
         $get("#practice_window").hidden = false;
 
         $get("#practice_picture").src = img_src;
-        $get("#practice_audio").src = audio_src;
         $get("#practice_play_text").innerHTML = play_txt;
         $get("#practice_supplement").innerHTML = supplement_txt;
     
-    
+        const audio = new Audio(audio_src);
         $get("#practice_playtext_area").addEventListener("click", audio_play);
     
         function audio_play(){
-            $get("#practice_audio").play();
+            audio.play();
         }
     
         

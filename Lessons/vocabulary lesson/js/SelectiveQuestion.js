@@ -21,9 +21,7 @@ class SelectiveQuestion{
         const option2 = $get("#selective_question_option2");
         const option3 = $get("#selective_question_option3");
         const gonext = $get("#selective_question_gonext");
-        const audio = $get("#selective_question_audio");
-
-        audio.src = _audio_src;
+        const audio = new Audio(_audio_src);
 
         option1.innerHTML = opt1_txt;
         option2.innerHTML = opt2_txt;
@@ -75,6 +73,8 @@ class SelectiveQuestion{
         }
 
         gonext.addEventListener("click",()=>{
+            audio.remove();
+            
             if(selected_opt_num == correct_opt_num){
                 oncorrect();
             }

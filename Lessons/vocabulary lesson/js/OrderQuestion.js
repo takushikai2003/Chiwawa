@@ -18,11 +18,11 @@ class OrderQuestion{
         $get("#order_question_window").hidden = false;
         $get("#order_question_picture").src = _img_src;
         $get("#order_question_correctanswer_area").hidden = true;
-        $get("#order_question_audio").src = _audio_src;
-
+        
+        const audio = new Audio(_audio_src);
         $get("#order_question_picture_area")
         .addEventListener("click", ()=>{
-            $get("#order_question_audio").play();
+            audio.play();
         });
 
         const gonext = $get("#order_question_gonext");
@@ -70,16 +70,13 @@ class OrderQuestion{
             gonext.innerHTML = "Next";
         },{once: true});
 
+        
         const correct_audio = new Audio("./audios/correct.mp3");
         const mistake_audio = new Audio("./audios/mistake.mp3");
 
         //正解ならtrue,不正解ならfalseを返してresolve
         function oncorrect(){
             correct_audio.play();
-
-            const audio = document.createElement("audio");
-            audio.src = "./audios/correct.mp3";
-            audio.play();
             
             $get("#order_question_correctanswer_picture").src = "./images/correct.png";
             $get("#order_question_correctanswer").innerHTML = "";

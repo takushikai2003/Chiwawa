@@ -5,7 +5,6 @@ import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common
 
 const left_img = document.getElementById("image_left");
 const right_img = document.getElementById("image_right");
-const audio = document.getElementById("audio");
 const gonext = document.getElementById("talk_like_gonext");
 const correctanswer_picture = document.getElementById("talk_like_correctanswer_picture");
 const correctanswer = document.getElementById("talk_like_correctanswer");
@@ -24,7 +23,7 @@ class talk_like{
 
         left_img.src = _left_img_src;
         right_img.src = _right_img_src;
-        audio.src = _audio_src;
+        const audio = new Audio(_audio_src);
         gonext.hidden = true;
         correctanswer_area.hidden = true;
 

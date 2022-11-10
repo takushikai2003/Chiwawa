@@ -16,25 +16,24 @@ class Practice{
 
         $get("#practice_picture").src = _img_src;
         $get("#practice_picture_text").innerHTML = pic_txt;
-        $get("#practice_audio").src = _audio_src;
         $get("#practice_play_text").innerHTML = play_txt;
         $get("#practice_supplement").innerHTML = supplement_txt;
         $get("#practice_gonext").disabled = true;
     
-    
+        const audio = new Audio(_audio_src);
         $get("#practice_playtext_area").addEventListener("click", audio_play);
     
         function audio_play(){
-            $get("#practice_audio").play();
+            audio.play();
         }
     
-        $get("#practice_audio").addEventListener("ended", onplayended);
+        audio.addEventListener("ended", onplayended);
     
         let played_times = 0;
         function onplayended(){
             played_times++;
     
-            if(played_times >= 3){
+            if(played_times >= 2){
                 $get("#practice_gonext").disabled = false;
             }
         }
@@ -50,7 +49,7 @@ class Practice{
         //go next
         $get("#practice_gonext").addEventListener("click",()=>{
             $get("#practice_playtext_area").removeEventListener("click", audio_play);
-            $get("#practice_audio").removeEventListener("click", onplayended);
+            audio.remove();
     
             let score = Number(localStorage.getItem("score")) || 0;
             score++;

@@ -17,11 +17,10 @@ class DescriptionQuestion{
         $get("#description_question_window").hidden = false;
     
         $get("#description_question_picture").src = _img_src;
-        $get("#description_question_audio").src = _audio_src;
         $get("#description_question_play_text").innerHTML = play_txt;
         $get("#description_question_supplement").innerHTML = supplement_txt;
         
-    
+        const audio = new Audio(_audio_src);
         const correctanswer_area = $get("#description_question_correctanswer_area");
         const gonext = $get("#description_question_gonext");
         const input = $get("#description_question_input");
@@ -29,7 +28,7 @@ class DescriptionQuestion{
         correctanswer_area.hidden = true;
     
         $get("#description_question_playtext_area").onclick = function(){
-            $get("#description_question_audio").play();
+            audio.play();
         }
     
         gonext.innerHTML = "OK";
