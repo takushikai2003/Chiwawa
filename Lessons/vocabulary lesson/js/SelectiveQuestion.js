@@ -9,7 +9,6 @@ const $get = function (querySelector){
 
 class SelectiveQuestion{
     constructor({img_src, audio_src, opt1_txt, opt2_txt, opt3_txt, correct_opt_num}){
-
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
 
@@ -86,8 +85,13 @@ class SelectiveQuestion{
             gonext.innerHTML = "Next";
         },{once: true});
 
+        const correct_audio = new Audio("./audios/correct.mp3");
+        const mistake_audio = new Audio("./audios/mistake.mp3");
+        
         //正解ならtrue,不正解ならfalseを返してresolve
         function oncorrect(){
+            correct_audio.play();
+            
             $get("#selective_question_correctanswer_picture").src = "./images/correct.png";
             $get("#selective_question_correctanswer").innerHTML = "";
             $get("#selective_question_correctanswer_area").hidden = false;
@@ -102,7 +106,9 @@ class SelectiveQuestion{
         }
 
         function onmistake(selected_opt_num){
-            const misetake_qestion = {
+            mistake_audio.play();
+
+            const mistake_qestion = {
                 lessonType: "vocabulary",
                 data: {
                     type: "selective",
@@ -116,7 +122,7 @@ class SelectiveQuestion{
                 mistake: selected_opt_num
             }
 
-            setMissedStack(misetake_qestion);
+            setMissedStack(mistake_qestion);
 
 
             $get("#selective_question_correctanswer_picture").src = "./images/mistake.png";

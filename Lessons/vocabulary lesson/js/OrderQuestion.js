@@ -70,8 +70,17 @@ class OrderQuestion{
             gonext.innerHTML = "Next";
         },{once: true});
 
+        const correct_audio = new Audio("./audios/correct.mp3");
+        const mistake_audio = new Audio("./audios/mistake.mp3");
+
         //正解ならtrue,不正解ならfalseを返してresolve
         function oncorrect(){
+            correct_audio.play();
+
+            const audio = document.createElement("audio");
+            audio.src = "./audios/correct.mp3";
+            audio.play();
+            
             $get("#order_question_correctanswer_picture").src = "./images/correct.png";
             $get("#order_question_correctanswer").innerHTML = "";
             $get("#order_question_correctanswer_area").hidden = false;
@@ -86,7 +95,9 @@ class OrderQuestion{
         }
 
         function onmistake(mistake){
-            const misetake_qestion = {
+            mistake_audio.play();
+            
+            const mistake_qestion = {
                 lessonType: "japanese_syllabary",
                 data: {
                     type: "order",
@@ -97,7 +108,7 @@ class OrderQuestion{
                 mistake: mistake
             }
 
-            setMissedStack(misetake_qestion);
+            setMissedStack(mistake_qestion);
 
 
             $get("#order_question_correctanswer_picture").src = "./images/mistake.png";

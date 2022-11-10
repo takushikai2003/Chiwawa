@@ -1,8 +1,8 @@
-function setMissedStack(misetake_qestion){
+function setMissedStack(mistake_qestion){
     const time = Date.now();
-    misetake_qestion.time = time;
+    mistake_qestion.time = time;
     const missed_stack = JSON.parse(localStorage.getItem("missed_stack")) || [];
-    missed_stack.push(misetake_qestion);
+    missed_stack.push(mistake_qestion);
 
     localStorage.setItem("missed_stack", JSON.stringify(missed_stack));
 }

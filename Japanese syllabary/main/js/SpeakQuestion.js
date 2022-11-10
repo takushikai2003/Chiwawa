@@ -102,7 +102,12 @@ class SpeakQuestion{
             });
         }
 
+        const correct_audio = new Audio("./audios/correct.mp3");
+        const mistake_audio = new Audio("./audios/mistake.mp3");
+
         function oncorrect(){
+            correct_audio.play();
+
             let score = Number(localStorage.getItem("score")) || 0;
             score++;
             localStorage.setItem("score", score.toString());
@@ -118,7 +123,9 @@ class SpeakQuestion{
         }
 
         function onmistake(mistake){
-            const misetake_qestion = {
+            mistake_audio.play();
+            
+            const mistake_qestion = {
                 lessonType: "japanese_syllabary",
                 data: {
                     type: "speak",
@@ -128,7 +135,7 @@ class SpeakQuestion{
                 mistake: mistake
             }
 
-            setMissedStack(misetake_qestion);
+            setMissedStack(mistake_qestion);
 
 
             $get("#speak_question_correctanswer_picture").src = "./images/mistake.png";

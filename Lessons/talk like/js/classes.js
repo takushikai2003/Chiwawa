@@ -143,7 +143,12 @@ class talk_like{
             });
         }
 
+        const correct_audio = new Audio("./audios/correct.mp3");
+        const mistake_audio = new Audio("./audios/mistake.mp3");
+
         function oncorrect(){
+            correct_audio.play();
+
             correctanswer_picture.src = "./images/correct.png";
             correctanswer.innerHTML = "";
             correctanswer_area.hidden = false;
@@ -159,7 +164,9 @@ class talk_like{
         }
 
         function onmistake(mistake){
-            const misetake_qestion = {
+            mistake_audio.play();
+            
+            const mistake_qestion = {
                 lessonType: "talk_like",
                 data: {
                     left_img_src: left_img_src,
@@ -172,7 +179,7 @@ class talk_like{
                 mistake: mistake
             }
 
-            setMissedStack(misetake_qestion);
+            setMissedStack(mistake_qestion);
 
 
             correctanswer_picture.src = "./images/mistake.png";

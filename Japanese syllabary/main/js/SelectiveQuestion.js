@@ -61,8 +61,13 @@ class SelectiveQuestion{
             gonext.innerHTML = "Next";
         },{once: true});
 
+        const correct_audio = new Audio("./audios/correct.mp3");
+        const mistake_audio = new Audio("./audios/mistake.mp3");
+
         //正解ならtrue,不正解ならfalseを返してresolve
         function oncorrect(){
+            correct_audio.play();
+
             $get("#selective_question_correctanswer_picture").src = "./images/correct.png";
             $get("#selective_question_correctanswer").innerHTML = "";
             $get("#selective_question_correctanswer_area").hidden = false;
@@ -77,7 +82,9 @@ class SelectiveQuestion{
         }
 
         function onmistake(mistake){
-            const misetake_qestion = {
+            mistake_audio.play();
+
+            const mistake_qestion = {
                 lessonType: "japanese_syllabary",
                 data: {
                     type: "selective",
@@ -88,7 +95,7 @@ class SelectiveQuestion{
                 mistake: mistake
             }
 
-            setMissedStack(misetake_qestion);
+            setMissedStack(mistake_qestion);
 
 
             $get("#selective_question_correctanswer_picture").src = "./images/mistake.png";

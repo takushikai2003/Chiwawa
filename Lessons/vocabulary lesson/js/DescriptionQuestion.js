@@ -52,7 +52,12 @@ class DescriptionQuestion{
             });
         }
         
+        const correct_audio = new Audio("./audios/correct.mp3");
+        const mistake_audio = new Audio("./audios/mistake.mp3");
+
         function oncorrect(){
+            correct_audio.play();
+            
             let score = Number(localStorage.getItem("score")) || 0;
             score++;
             localStorage.setItem("score", score.toString());
@@ -67,7 +72,9 @@ class DescriptionQuestion{
         }
     
         function onmistake(mistake){
-            const misetake_qestion = {
+            mistake_audio.play();
+            
+            const mistake_qestion = {
                 lessonType: "vocabulary",
                 data: {
                     type: "description",
@@ -80,7 +87,7 @@ class DescriptionQuestion{
                 mistake: mistake
             }
 
-            setMissedStack(misetake_qestion);
+            setMissedStack(mistake_qestion);
 
             
             $get("#description_question_correctanswer_picture").src = "./images/mistake.png";
