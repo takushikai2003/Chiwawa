@@ -19,15 +19,23 @@ const lesson_select_menu = $get("#lesson_select_menu");
 
 
 if(page_name == "lesson_select"){
+    document.documentElement.style.backgroundColor = "white";
+    document.body.style.backgroundColor = "white";
+
     boot_screen.hidden = true;
     lesson_select_menu.hidden = false;
 }
 
 else{
+    document.documentElement.style.backgroundColor = "#FFD966";
+    document.body.style.backgroundColor = "#FFD966";
+
     boot_screen.hidden = false;
     lesson_select_menu.hidden = true;
 
     boot_screen.addEventListener("click", ()=>{
+        document.documentElement.style.backgroundColor = "white";
+        document.body.style.backgroundColor = "white";
         boot_screen.hidden = true;
         lesson_select_menu.hidden = false;
     }, {once: true});
