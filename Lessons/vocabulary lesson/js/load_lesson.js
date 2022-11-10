@@ -80,7 +80,7 @@ else{
             
             case "order":
                 const ord_q = new OrderQuestion(data_arr[i]);
-                correct = await ord_q.onend();
+                await ord_q.onend();
                 break;
         }
     }

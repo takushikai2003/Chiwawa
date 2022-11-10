@@ -16,22 +16,20 @@
     margin-top: 40px;
 }
 
-#order_question_option1{
+.order_question_option{
     height: 100px;
-    background-color: palegreen;
+    /* background-color: palegreen; */
     margin-bottom: 30px;
 }
 
-#order_question_option2{
-    height: 100px;
-    background-color: palegreen;
-    margin-bottom: 30px;
+.order_question_option_unselected{
+    background-color: rgb(213, 241, 213);
 }
 
-#order_question_option3{
-    height: 100px;
+.order_question_option_selected{
     background-color: palegreen;
 }
+
 
 #order_question_correctanswer_area{
     margin-top: 40px;

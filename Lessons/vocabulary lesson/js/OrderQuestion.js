@@ -30,18 +30,20 @@ class OrderQuestion{
         gonext.disabled = true;
 
         const selected_order = [];
-        let correct_opt_text;
+        let correct_opt_text = "";
+
+        for(let i=0; i<correct_order.length; i++){
+            correct_opt_text += options[correct_order[i]] + " ";
+        }
 
         for(let i=0; i<options.length; i++){
             const option = document.createElement("button");
-            option.setAttribute("class", "btn btn-lg order_question_option");
+            option.setAttribute("class", "btn btn-lg order_question_option order_question_option_unselected");
             option.innerHTML = options[i];
-            
-            if(correct_order == i + 1){
-                correct_opt_text =  options[i];
-            }
 
             option.addEventListener("click",()=>{
+                option.classList.remove("order_question_option_unselected");
+                option.classList.add("order_question_option_selected");
                 selected_order.push(i);
                 gonext.disabled = false;
             });

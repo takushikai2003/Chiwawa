@@ -1,5 +1,12 @@
 [
     {
+        "type": "order",
+        "img_src": "/images/図1.jpg",
+        "audio_src": "/audios/こんにちは.mp3",
+        "options": ["chào", "trưa", "buổi", "sáng"],
+        "correct_order": [0, 2, 1]
+    },
+    {
         "type": "practice",
         "img_src": "/images/図1.jpg",
         "pic_txt": "chào buổi trưa",
