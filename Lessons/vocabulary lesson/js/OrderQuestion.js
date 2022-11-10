@@ -5,41 +5,48 @@ const $get = function (querySelector){
     return document.querySelector(querySelector);
 }
 
-const path_to_lesson_data = "../data";
+const path_to_lesson_data = "../lessons_data";
 
 
-class SelectiveQuestion{
-    constructor({img_src, options, correct_opt_num}){
+class OrderQuestion{
+    constructor({img_src, audio_src, options, correct_order}){
 
         const _img_src = path_to_lesson_data + img_src;
+        const _audio_src = path_to_lesson_data + audio_src;
 
         hide_all_window();
-        $get("#selective_question_window").hidden = false;
-        $get("#selective_question_picture").src = _img_src;
-        $get("#selective_question_correctanswer_area").hidden = true;
+        $get("#order_question_window").hidden = false;
+        $get("#order_question_picture").src = _img_src;
+        $get("#order_question_correctanswer_area").hidden = true;
+        $get("#order_question_audio").src = _audio_src;
 
-        const gonext = $get("#selective_question_gonext");
+        $get("#order_question_picture_area")
+        .addEventListener("click", ()=>{
+            $get("#order_question_audio").play();
+        });
+
+        const gonext = $get("#order_question_gonext");
         gonext.innerHTML = "OK";
         gonext.disabled = true;
 
-        let selected_opt_num;
+        const selected_order = [];
         let correct_opt_text;
 
         for(let i=0; i<options.length; i++){
             const option = document.createElement("button");
-            option.setAttribute("class", "btn btn-lg selective_question_option");
+            option.setAttribute("class", "btn btn-lg order_question_option");
             option.innerHTML = options[i];
             
-            if(correct_opt_num == i + 1){
+            if(correct_order == i + 1){
                 correct_opt_text =  options[i];
             }
 
             option.addEventListener("click",()=>{
-                selected_opt_num = i + 1;
+                selected_order.push(i);
                 gonext.disabled = false;
             });
 
-            $get("#selective_question_area").appendChild(option);
+            $get("#order_question_area").appendChild(option);
         }
 
 
@@ -51,11 +58,11 @@ class SelectiveQuestion{
         }
 
         gonext.addEventListener("click",()=>{
-            if(selected_opt_num == correct_opt_num){
+            if(JSON.stringify(selected_order) == JSON.stringify(correct_order)){
                 oncorrect();
             }
             else{
-                onmistake(selected_opt_num);
+                onmistake(selected_order);
             }
 
             gonext.innerHTML = "Next";
@@ -63,9 +70,9 @@ class SelectiveQuestion{
 
         //正解ならtrue,不正解ならfalseを返してresolve
         function oncorrect(){
-            $get("#selective_question_correctanswer_picture").src = "./images/correct.png";
-            $get("#selective_question_correctanswer").innerHTML = "";
-            $get("#selective_question_correctanswer_area").hidden = false;
+            $get("#order_question_correctanswer_picture").src = "./images/correct.png";
+            $get("#order_question_correctanswer").innerHTML = "";
+            $get("#order_question_correctanswer_area").hidden = false;
 
             let score = Number(localStorage.getItem("score")) || 0;
             score++;
@@ -80,10 +87,10 @@ class SelectiveQuestion{
             const misetake_qestion = {
                 lessonType: "japanese_syllabary",
                 data: {
-                    type: "selective",
+                    type: "order",
                     img_src: img_src,
                     options: options,
-                    correct_opt_num: correct_opt_num
+                    correct_order: correct_order
                 },
                 mistake: mistake
             }
@@ -91,9 +98,9 @@ class SelectiveQuestion{
             setMissedStack(misetake_qestion);
 
 
-            $get("#selective_question_correctanswer_picture").src = "./images/mistake.png";
-            $get("#selective_question_correctanswer").innerHTML = "Đáp án : " + correct_opt_text;
-            $get("#selective_question_correctanswer_area").hidden = false;
+            $get("#order_question_correctanswer_picture").src = "./images/mistake.png";
+            $get("#order_question_correctanswer").innerHTML = "Đáp án : " + correct_opt_text;
+            $get("#order_question_correctanswer_area").hidden = false;
 
             gonext.addEventListener("click",()=>{
                 _resolve(false);
@@ -103,4 +110,4 @@ class SelectiveQuestion{
 }
 
 
-export default SelectiveQuestion;
+export default OrderQuestion;

@@ -145,7 +145,7 @@ class talk_like{
 
         function oncorrect(){
             correctanswer_picture.src = "./images/correct.png";
-            correctanswer.innerHTML = "ĐÚNG";
+            correctanswer.innerHTML = "";
             correctanswer_area.hidden = false;
             gonext.hidden = false;
 
@@ -176,7 +176,7 @@ class talk_like{
 
 
             correctanswer_picture.src = "./images/mistake.png";
-            correctanswer.innerHTML = "SAI rồi bạn ơi!\nĐáp án :\n" + correct_text;
+            correctanswer.innerHTML = "Đáp án : " + correct_text;
             correctanswer_area.hidden = false;
             gonext.hidden = false;
 

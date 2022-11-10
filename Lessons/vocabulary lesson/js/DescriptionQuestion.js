@@ -58,7 +58,7 @@ class DescriptionQuestion{
             localStorage.setItem("score", score.toString());
             
             $get("#description_question_correctanswer_picture").src = "./images/correct.png";
-            $get("#description_question_correctanswer").innerHTML = "ĐÚNG";
+            $get("#description_question_correctanswer").innerHTML = "";
             correctanswer_area.hidden = false;
 
             gonext.addEventListener("click",function(){
@@ -84,7 +84,7 @@ class DescriptionQuestion{
 
             
             $get("#description_question_correctanswer_picture").src = "./images/mistake.png";
-            $get("#description_question_correctanswer").innerHTML = "SAI rồi bạn ơi!\nĐáp án :\n" + correct_txt;
+            $get("#description_question_correctanswer").innerHTML = "Đáp án : " + correct_txt;
             correctanswer_area.hidden = false;
 
             gonext.addEventListener("click",function(){

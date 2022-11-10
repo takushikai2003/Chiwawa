@@ -108,7 +108,7 @@ class SpeakQuestion{
             localStorage.setItem("score", score.toString());
 
             $get("#speak_question_correctanswer_picture").src = "./images/correct.png";
-            $get("#speak_question_correctanswer").innerHTML = "ĐÚNG";
+            $get("#speak_question_correctanswer").innerHTML = "";
             $get("#speak_question_correctanswer_area").hidden = false;
             gonext.disabled = false;
 
@@ -132,7 +132,7 @@ class SpeakQuestion{
             setMissedStack(misetake_qestion);
 
             $get("#speak_question_correctanswer_picture").src = "./images/mistake.png";
-            $get("#speak_question_correctanswer").innerHTML = "SAI rồi bạn ơi!\nĐáp án :\n" + correct_txt;
+            $get("#speak_question_correctanswer").innerHTML = "Đáp án : " + correct_txt;
             $get("#speak_question_correctanswer_area").hidden = false;
             gonext.disabled = false;
 

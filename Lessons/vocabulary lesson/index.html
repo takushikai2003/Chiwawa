@@ -122,10 +122,29 @@
         </div>
     </div>
 
+    <div id="order_question_window" class="container" hidden>
+        <div id="order_question_picture_area" class="row">
+            <img id="order_question_picture" class="d-block mx-auto">
+            <img src="./images/play_icon.svg" id="order_question_play">
+            <audio id="order_question_audio"></audio>
+        </div>
+
+        <div id="order_question_area" class="row"></div>
+
+        <div id="order_question_correctanswer_area" class="row">
+            <div>
+                <img id="order_question_correctanswer_picture" src="./images/correct.png">
+                <span id="order_question_correctanswer" class="display-1"></span>
+            </div>
+        </div>
+    </div>
+
+
     <script src="./js/load_lesson.js" type="module"></script>
     <link rel="stylesheet" href="./css/overall.css">
     <link rel="stylesheet" href="./css/practice_window.css">
     <link rel="stylesheet" href="./css/selective_question_window.css">
     <link rel="stylesheet" href="./css/description_question_window.css">
     <link rel="stylesheet" href="./css/speak_question_window.css">
+    <link rel="stylesheet" href="./css/order_question_window.css">
 </body>

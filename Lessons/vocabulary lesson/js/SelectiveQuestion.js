@@ -89,7 +89,7 @@ class SelectiveQuestion{
         //正解ならtrue,不正解ならfalseを返してresolve
         function oncorrect(){
             $get("#selective_question_correctanswer_picture").src = "./images/correct.png";
-            $get("#selective_question_correctanswer").innerHTML = "ĐÚNG";
+            $get("#selective_question_correctanswer").innerHTML = "";
             $get("#selective_question_correctanswer_area").hidden = false;
 
             let score = Number(localStorage.getItem("score")) || 0;
@@ -120,7 +120,7 @@ class SelectiveQuestion{
 
 
             $get("#selective_question_correctanswer_picture").src = "./images/mistake.png";
-            $get("#selective_question_correctanswer").innerHTML = "SAI rồi bạn ơi!\nĐáp án :\n" + correct_opt_text;
+            $get("#selective_question_correctanswer").innerHTML = "Đáp án : " + correct_opt_text;
             $get("#selective_question_correctanswer_area").hidden = false;
 
             gonext.addEventListener("click",()=>{

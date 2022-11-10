@@ -2,6 +2,7 @@ import Practice from "./Practice.js";
 import SelectiveQuestion from "./SelectiveQuestion.js";
 import DescriptionQuestion from "./DescriptionQuestion.js";
 import SpeakQuestion from "./SpeakQuestion.js";
+import OrderQuestion from "./OrderQuestion.js";
 import getDataAsString from "../../../common esm/getDataAsString.js";
 import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/missedStack.js";
 
@@ -35,6 +36,11 @@ if(retry){
         case "speak":
             const spe_q = new SpeakQuestion(data);
             correct = await spe_q.onend();
+            break;
+        
+        case "order":
+            const ord_q = new OrderQuestion(data);
+            correct = await ord_q.onend();
             break;
     }
 
@@ -70,6 +76,11 @@ else{
             case "speak":
                 const spe_q = new SpeakQuestion(data_arr[i]);
                 await spe_q.onend();
+                break;
+            
+            case "order":
+                const ord_q = new OrderQuestion(data_arr[i]);
+                correct = await ord_q.onend();
                 break;
         }
     }
