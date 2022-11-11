@@ -20,7 +20,6 @@ function start(){
 function stop(seek_message){
     return new Promise(async resolve=>{
         const message = await SpeechRecognition.stop();
-        console.log(message);
     
         const result = judge(message, seek_message);//bool
         resolve({correct: result, message: message});

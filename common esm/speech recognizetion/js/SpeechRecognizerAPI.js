@@ -1,9 +1,8 @@
 const SpeechRecognition = {
-    message: "",
+    // message: "",
     start: start,
     stop: stop,
     recording: false,
-    // get_message: get_message,
 };
 
 
@@ -12,8 +11,8 @@ let message = "";
 
 function start() {
     return new Promise(resolve=>{
-        const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
-        recognition = new SpeechRecognition();
+        const _SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+        recognition = new _SpeechRecognition();
         recognition.continuous = true;
         recognition.lang = "ja-JP";
         recognition.interimResults = false;
@@ -24,7 +23,8 @@ function start() {
         recognition.onresult = (event) => {
             const _message = event.results[0][0].transcript;
             // const confidence = event.results[0][0].confidence;
-            message += _message
+            message += _message;
+            console.log(message);
         }
     
         // recognition.onnomatch = function(event) {
@@ -36,32 +36,31 @@ function start() {
         recognition.addEventListener("start", resolve());
     
         SpeechRecognition.recording = true;
+
+        recognition.onend = (event) => {
+            SpeechRecognition.recording = false;
+        }
     });
 }
 
 
 function stop(){
     return new Promise(async resolve=>{
-        recognition.stop();
-        SpeechRecognition.recording = false;
-    
-        recognition.onend = (event) => {
-            console.log(message);
-            SpeechRecognition.message = message;
+        
+        if(SpeechRecognition.recording){
+            recognition.stop();
+            SpeechRecognition.recording = false;
+        
+            recognition.onend = (event) => {
+                // SpeechRecognition.message = message;
+                resolve(message);
+            }
+        }
+        else{
             resolve(message);
         }
-        // console.log(await SpeechRecognition.get_message());
     });
 }
 
-
-// function get_message(){
-//     return new Promise(resolve=>{
-//         recognition.onend = (event) => {
-//             console.log(SpeechRecognition.message);
-//             resolve(SpeechRecognition.message);
-//         }
-//     });
-// }
 
 export default SpeechRecognition;
