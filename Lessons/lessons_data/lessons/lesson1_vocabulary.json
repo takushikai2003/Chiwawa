@@ -5,7 +5,7 @@
         "pic_txt": "chào buổi trưa",
         "audio_src": "/audios/こんにちは.mp3",
         "play_txt": "こんにちは",
-        "supplement_txt": "Nghe và nói theo 3 lần nhé!\n(聞きながら３回繰り返しましょう）"
+        "supplement_txt": "Nghe và nói theo 2 lần nhé!\n(聞きながら２回繰り返しましょう）"
     },
     {
         "type": "selective",
@@ -15,14 +15,6 @@
         "opt2_txt": "こんにちは",
         "opt3_txt": "こんちは",
         "correct_opt_num": 2
-    },
-    {
-        "type": "description",
-        "img_src": "/images/図1.jpg",
-        "audio_src": "/audios/こんにちは.mp3",
-        "play_txt": "こんにちは",
-        "supplement_txt": "ベトナム語を書こう",
-        "correct_txt": "chào buổi trưa"
     },
     {
         "type": "speak",

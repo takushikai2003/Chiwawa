@@ -10,76 +10,23 @@
     <div id="result_area"></div>
     
     <script type="module">
-        import SpeechRecognizer from "./js/SpeechRecognizer.js";
-        import tokenizer from "./js/tokenizer.js";
-        import FuzzySet from "./lib/FuzzySet/FuzzySet.esm.js";
+        import SpeechRecognizer from "./SpeechRecognizer.js";
         
         const btn = document.getElementById("btn");
-        const text_area = document.getElementById("text_area");
-        const result_area = document.getElementById("result_area");
 
         let recording = false;
-        btn.addEventListener("pointerdown", ()=>{
+        btn.addEventListener("pointerdown", async ()=>{
             if(!recording){
-                rec_start();
+                await SpeechRecognizer.start();
+                btn.style.border = "solid 3px red";
                 recording = true;
             }
             else{
-                rec_stop();
+                const result = await SpeechRecognizer.stop("コンニチハ");
+                console.log(result);
+                btn.style.border = "solid 1px black";
                 recording = false;
             }
         });
-
-        function rec_start(){
-            SpeechRecognizer.start();
-
-            setTimeout(() => {
-                rec_stop();
-            }, 10000);
-        }
-
-        async function rec_stop(){
-            if(!SpeechRecognizer.recording){
-                return;
-            }
-
-            SpeechRecognizer.stop();
-            const message = await SpeechRecognizer.get_message();
-
-            text_area.innerHTML = message;
-
-            const judgment_result = judge(message, "コンニチハ");//bool
-            console.log(judgment_result);
-        }
-
-
-        function judge(message, seek_message){
-            const threshold = 0.7;
-
-            const morpheme = tokenizer.tokenize(message);//形態素
-
-            let message_kana = [];
-            morpheme.forEach(element => {
-                message_kana.push(element.reading);
-            });
-
-            const fs = FuzzySet(message_kana);
-            const fs_result = fs.get(seek_message);
-
-            if(fs_result == null){
-                return false;
-            }
-
-            const fs_confidence = fs_result[0];
-
-            if(fs_confidence < threshold){
-                return false;
-            }
-            else{
-                return true;
-            }
-
-        }
-        
     </script>    
 </body>

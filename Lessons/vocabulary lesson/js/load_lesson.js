@@ -1,6 +1,6 @@
 import Practice from "./Practice.js";
 import SelectiveQuestion from "./SelectiveQuestion.js";
-import DescriptionQuestion from "./DescriptionQuestion.js";
+// import DescriptionQuestion from "./DescriptionQuestion.js";
 import SpeakQuestion from "./SpeakQuestion.js";
 import OrderQuestion from "./OrderQuestion.js";
 import getDataAsString from "../../../common esm/getDataAsString.js";
@@ -28,10 +28,10 @@ if(retry){
             correct = await sel_q.onend();
             break;
 
-        case "description":
-            const des_q = new DescriptionQuestion(data);
-            correct = await des_q.onend();
-            break;
+        // case "description":
+        //     const des_q = new DescriptionQuestion(data);
+        //     correct = await des_q.onend();
+        //     break;
 
         case "speak":
             const spe_q = new SpeakQuestion(data);
@@ -68,10 +68,10 @@ else{
                 await sel_q.onend();
                 break;
     
-            case "description":
-                const des_q = new DescriptionQuestion(data_arr[i]);
-                await des_q.onend();
-                break;
+            // case "description":
+            //     const des_q = new DescriptionQuestion(data_arr[i]);
+            //     await des_q.onend();
+            //     break;
     
             case "speak":
                 const spe_q = new SpeakQuestion(data_arr[i]);
