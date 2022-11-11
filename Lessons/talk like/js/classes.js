@@ -1,6 +1,4 @@
-import SpeechRecognizer from "../../../common esm/speech recognizetion/js/SpeechRecognizer.js";
-import get_kana from "../../../common esm/speech recognizetion/js/get_kana.js";
-import FuzzySet from "../../../common esm/speech recognizetion/lib/FuzzySet/FuzzySet.esm.js";
+import SpeechRecognizer from "../../../common esm/speech recognizetion/SpeechRecognizer.js";
 import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/missedStack.js";
 
 const left_img = document.getElementById("image_left");
@@ -80,8 +78,8 @@ class talk_like{
             }
         });
 
-        function rec_start(){
-            SpeechRecognizer.start();
+        async function rec_start(){
+            await SpeechRecognizer.start();
             right_tippy.popper.style.border = "solid 5px red";
             setTimeout(() => {
                 rec_stop();
@@ -89,51 +87,20 @@ class talk_like{
         }
 
         async function rec_stop(){
-            if(!SpeechRecognizer.recording){
-                return;
-            }
 
+            const judgment_result = await SpeechRecognizer.stop(correct_text);
+            
             right_tippy.popper.style.border = "";
-
-            SpeechRecognizer.stop();
-            const message = await SpeechRecognizer.get_message();
-
             right_tippy.setContent(`<h1>${message}</h1><img src='./images/mic.png' class='icon'/>`);
 
-            const judgment_result = judge(message, get_kana(correct_text).join("")); //bool
-            
-            if(judgment_result){
+            if(judgment_result.correct){
                 oncorrect();
             }
             else{
-                onmistake(message);
+                onmistake(judgment_result.message);
             }
         }
 
-
-        function judge(message, seek_message){
-            const threshold = 0.7;
-
-            const message_kana = get_kana(message);
-
-            const fs = FuzzySet(message_kana);
-            const fs_result = fs.get(seek_message);
-
-            if(fs_result == null){
-                return false;
-            }
-
-            const fs_confidence = fs_result[0];
-
-            if(fs_confidence < threshold){
-                return false;
-            }
-            else{
-                return true;
-            }
-
-        }
-        
 
         let _resolve;
         this.onend = function(){

@@ -24,7 +24,6 @@ function start() {
             const _message = event.results[0][0].transcript;
             // const confidence = event.results[0][0].confidence;
             message += _message;
-            console.log(message);
         }
     
         // recognition.onnomatch = function(event) {

@@ -1,6 +1,4 @@
-import SpeechRecognizer from "../../../common esm/speech recognizetion/js/SpeechRecognizer.js";
-import get_kana from "../../../common esm/speech recognizetion/js/get_kana.js";
-import FuzzySet from "../../../common esm/speech recognizetion/lib/FuzzySet/FuzzySet.esm.js";
+import SpeechRecognizer from "../../../common esm/speech recognizetion/SpeechRecognizer.js";
 import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/missedStack.js";
 import hide_all_window from "./hide_all_window.js";
 
@@ -41,8 +39,8 @@ class SpeakQuestion{
             }
         });
 
-        function rec_start(){
-            SpeechRecognizer.start();
+        async function rec_start(){
+            await SpeechRecognizer.start();
 	        mic_area.style.border = "solid 5px red";
             
             setTimeout(() => {
@@ -51,49 +49,17 @@ class SpeakQuestion{
         }
 
         async function rec_stop(){
-            if(!SpeechRecognizer.recording){
-                return;
-            }
 
-	        mic_area.style.border = "";
-
-            SpeechRecognizer.stop();
-            const message = await SpeechRecognizer.get_message();
-
-            const judgment_result = judge(message, get_kana(correct_txt).join("")); //bool
+            const judgment_result = await SpeechRecognizer.stop(correct_txt);
+            mic_area.style.border = "";
             
-            if(judgment_result){
+            if(judgment_result.correct){
                 oncorrect();
             }
             else{
-                onmistake(message);
+                onmistake(judgment_result.message);
             }
         }
-
-
-        function judge(message, seek_message){
-            const threshold = 0.7;
-
-            const message_kana = get_kana(message);
-
-            const fs = FuzzySet(message_kana);
-            const fs_result = fs.get(seek_message);
-
-            if(fs_result == null){
-                return false;
-            }
-
-            const fs_confidence = fs_result[0];
-
-            if(fs_confidence < threshold){
-                return false;
-            }
-            else{
-                return true;
-            }
-
-        }
-        
 
         let _resolve;
         this.onend = function(){

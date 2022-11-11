@@ -49,7 +49,7 @@ class Practice{
         $get("#practice_playtext_area").addEventListener("click", audio_play);
     
         function audio_play(){
-            console.log("audio played");
+            // console.log("audio played");
             audio.play();
         }
     

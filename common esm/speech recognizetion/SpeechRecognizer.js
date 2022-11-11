@@ -20,8 +20,8 @@ function start(){
 function stop(seek_message){
     return new Promise(async resolve=>{
         const message = await SpeechRecognition.stop();
-    
-        const result = judge(message, seek_message);//bool
+        
+        const result = judge(message, get_kana(seek_message).join(""));//bool
         resolve({correct: result, message: message});
     });
 }
@@ -29,6 +29,7 @@ function stop(seek_message){
 
 
 function judge(message, seek_message){
+
     const threshold = 0.7;
 
     const message_kana = get_kana(message);
