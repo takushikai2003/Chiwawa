@@ -169,6 +169,6 @@ zip.generateAsync({ type: "blob" }).then(blob => {
     a.remove();
 
     setTimeout(function() {
-      window.URL.revokeObjectURL(dataUrl);
+        window.URL.revokeObjectURL(dataUrl);
     }, 1000);
 });

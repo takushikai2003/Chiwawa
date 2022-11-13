@@ -47,7 +47,6 @@ class SpeakQuestion{
                 if(recording){
                     rec_stop();
                 }
-                rec_stop();
             }, 10000);
         }
 
