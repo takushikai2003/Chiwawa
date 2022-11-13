@@ -34,6 +34,17 @@
     background-color: palegreen;
 }
 
+#selective_question_option1:focus{
+    border: solid 3px royalblue;
+}
+#selective_question_option2:focus{
+    border: solid 3px royalblue;
+}
+#selective_question_option3:focus{
+    border: solid 3px royalblue;
+}
+
+
 #selective_question_correctanswer_area{
     margin-top: 40px;
     border: solid 1px springgreen;

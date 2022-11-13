@@ -22,6 +22,10 @@
     margin-bottom: 30px;
 }
 
+.selective_question_option:focus{
+    border: solid 3px royalblue;
+}
+
 
 #selective_question_correctanswer_area{
     margin-top: 40px;

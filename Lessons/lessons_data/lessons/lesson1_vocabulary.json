@@ -3,7 +3,15 @@
         "type": "practice",
         "img_src": "/images/図1.jpg",
         "pic_txt": "chào buổi trưa",
-        "audio_src": "/audios/こんにちは.mp3",
+        "audio_src": "/audios/こんにちはFM.mp3",
+        "play_txt": "こんにちは",
+        "supplement_txt": "Nghe và nói theo 2 lần nhé!\n(聞きながら２回繰り返しましょう）"
+    },
+    {
+        "type": "practice",
+        "img_src": "/images/図1.jpg",
+        "pic_txt": "chào buổi trưa",
+        "audio_src": "/audios/こんにちはM.mp3",
         "play_txt": "こんにちは",
         "supplement_txt": "Nghe và nói theo 2 lần nhé!\n(聞きながら２回繰り返しましょう）"
     },
