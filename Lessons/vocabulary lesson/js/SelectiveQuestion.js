@@ -8,7 +8,7 @@ const $get = function (querySelector){
 }
 
 class SelectiveQuestion{
-    constructor({img_src, audio_src, opt1_txt, opt2_txt, opt3_txt, correct_opt_num}, retry=false){
+    constructor({img_src, audio_src, opt1_txt, opt2_txt, opt3_txt, correct_opt_num, picture_text=""}, retry=false){
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
 
@@ -16,6 +16,7 @@ class SelectiveQuestion{
         $get("#selective_question_window").hidden = false;
         $get("#selective_question_picture").src = _img_src;
         $get("#selective_question_correctanswer_area").hidden = true;
+        $get("#selective_picture_text").innerHTML = picture_text;
 
         const option1 = $get("#selective_question_option1");
         const option2 = $get("#selective_question_option2");

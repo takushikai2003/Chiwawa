@@ -36,5 +36,15 @@
         "audio_src": "/audios/こんにちは.mp3",
         "options": ["chào", "trưa", "buổi", "sáng"],
         "correct_order": [0, 2, 1]
+    },
+    {
+        "type": "selective",
+        "img_src": "/images/図1.jpg",
+        "audio_src": "/audios/こんにちは.mp3",
+        "opt1_txt": "こ",
+        "opt2_txt": "い",
+        "opt3_txt": "り",
+        "correct_opt_num": 1,
+        "picture_text": "＿んにちは"
     }
 ]
