@@ -13,17 +13,16 @@ document.querySelector("#grid_overall").hidden = false;
 
 
 if(retry){
-    console.log("retry");
     const data = getMissedStack(missed_index).data;
     let correct = false;
-    const question = new talk_like(data);
+    const question = new talk_like(data, true);
     correct = await question.onend();
 
     if(correct){
         removeMissedStack(missed_index);
     }
 
-    location.href = "../../../boot/index.html?page=lesson_select?retry=true"
+    location.href = "../../../boot/index.html?retry=true";
 }
 
 else{

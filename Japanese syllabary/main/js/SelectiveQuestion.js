@@ -9,7 +9,7 @@ const path_to_lesson_data = "../data";
 
 
 class SelectiveQuestion{
-    constructor({img_src, options, correct_opt_num}){
+    constructor({img_src, options, correct_opt_num}, retry=false){
 
         const _img_src = path_to_lesson_data + img_src;
 
@@ -95,7 +95,9 @@ class SelectiveQuestion{
                 mistake: mistake
             }
 
-            setMissedStack(mistake_qestion);
+            if(!retry){
+                setMissedStack(mistake_qestion);
+            }
 
 
             $get("#selective_question_correctanswer_picture").src = "./images/mistake.png";

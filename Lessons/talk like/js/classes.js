@@ -13,7 +13,7 @@ let old_tippy = [];
 
 const path_to_lesson_data = "../lessons_data";
 class talk_like{
-    constructor({left_img_src, right_img_src, audio_src, left_html, right_html, correct_text}){
+    constructor({left_img_src, right_img_src, audio_src, left_html, right_html, correct_text}, retry=false){
         
         const _left_img_src = path_to_lesson_data + left_img_src;
         const _right_img_src = path_to_lesson_data + right_img_src;
@@ -82,6 +82,9 @@ class talk_like{
             await SpeechRecognizer.start();
             right_tippy.popper.style.border = "solid 5px red";
             setTimeout(() => {
+                if(recording){
+                    rec_stop();
+                }
                 rec_stop();
             }, 10000);
         }
@@ -91,7 +94,7 @@ class talk_like{
             const judgment_result = await SpeechRecognizer.stop(correct_text);
             
             right_tippy.popper.style.border = "";
-            right_tippy.setContent(`<h1>${message}</h1><img src='./images/mic.png' class='icon'/>`);
+            right_tippy.setContent(`<h1>${judgment_result.message}</h1><img src='./images/mic.png' class='icon'/>`);
 
             if(judgment_result.correct){
                 oncorrect();
@@ -145,7 +148,9 @@ class talk_like{
                 mistake: mistake
             }
 
-            setMissedStack(mistake_qestion);
+            if(!retry){
+                setMissedStack(mistake_qestion);
+            }
 
 
             correctanswer_picture.src = "./images/mistake.png";

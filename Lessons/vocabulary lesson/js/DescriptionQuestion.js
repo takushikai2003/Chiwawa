@@ -9,7 +9,7 @@ const $get = function (querySelector){
 }
 
 class DescriptionQuestion{
-    constructor({img_src, audio_src, play_txt, supplement_txt, correct_txt,}){
+    constructor({img_src, audio_src, play_txt, supplement_txt, correct_txt,}, retry=false){
 
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
@@ -87,7 +87,9 @@ class DescriptionQuestion{
                 mistake: mistake
             }
 
-            setMissedStack(mistake_qestion);
+            if(!retry){
+                setMissedStack(mistake_qestion);
+            }
 
             
             $get("#description_question_correctanswer_picture").src = "./images/mistake.png";

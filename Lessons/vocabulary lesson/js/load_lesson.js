@@ -24,7 +24,7 @@ if(retry){
         //     break;
 
         case "selective":
-            const sel_q = new SelectiveQuestion(data);
+            const sel_q = new SelectiveQuestion(data, true);
             correct = await sel_q.onend();
             break;
 
@@ -34,12 +34,12 @@ if(retry){
         //     break;
 
         case "speak":
-            const spe_q = new SpeakQuestion(data);
+            const spe_q = new SpeakQuestion(data, true);
             correct = await spe_q.onend();
             break;
         
         case "order":
-            const ord_q = new OrderQuestion(data);
+            const ord_q = new OrderQuestion(data, true);
             correct = await ord_q.onend();
             break;
     }

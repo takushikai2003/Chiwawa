@@ -9,7 +9,7 @@ const path_to_lesson_data = "../lessons_data";
 
 
 class OrderQuestion{
-    constructor({img_src, audio_src, options, correct_order}){
+    constructor({img_src, audio_src, options, correct_order}, retry=false){
 
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
@@ -95,7 +95,7 @@ class OrderQuestion{
             mistake_audio.play();
             
             const mistake_qestion = {
-                lessonType: "japanese_syllabary",
+                lessonType: "vocabulary",
                 data: {
                     type: "order",
                     img_src: img_src,
@@ -105,7 +105,9 @@ class OrderQuestion{
                 mistake: mistake
             }
 
-            setMissedStack(mistake_qestion);
+            if(!retry){
+                setMissedStack(mistake_qestion);
+            }
 
 
             $get("#order_question_correctanswer_picture").src = "./images/mistake.png";

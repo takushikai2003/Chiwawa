@@ -9,7 +9,7 @@ const $get = function (querySelector){
 const path_to_lesson_data = "../lessons_data";
 
 class SpeakQuestion{
-    constructor({img_src, pic_txt, correct_txt}){
+    constructor({img_src, pic_txt, correct_txt}, retry=false){
 
         const _img_src = path_to_lesson_data + img_src;
 
@@ -28,13 +28,13 @@ class SpeakQuestion{
 
         //音声認識
         let recording = false;
-        mic_area.addEventListener("pointerdown", ()=>{
+        mic_area.addEventListener("click", async ()=>{
             if(!recording){
-                rec_start();
+                await rec_start();
                 recording = true;
             }
             else{
-                rec_stop();
+                await rec_stop();
                 recording = false;
             }
         });
@@ -44,7 +44,9 @@ class SpeakQuestion{
 	        mic_area.style.border = "solid 5px red";
             
             setTimeout(() => {
-                rec_stop();
+                if(recording){
+                    rec_stop();
+                }
             }, 10000);
         }
 
@@ -59,31 +61,6 @@ class SpeakQuestion{
                 onmistake(judgment_result.message);
             }
         }
-
-
-        function judge(message, seek_message){
-            const threshold = 0.7;
-
-            const message_kana = get_kana(message);
-
-            const fs = FuzzySet(message_kana);
-            const fs_result = fs.get(seek_message);
-
-            if(fs_result == null){
-                return false;
-            }
-
-            const fs_confidence = fs_result[0];
-
-            if(fs_confidence < threshold){
-                return false;
-            }
-            else{
-                return true;
-            }
-
-        }
-        
 
         let _resolve;
         this.onend = function(){
@@ -126,7 +103,10 @@ class SpeakQuestion{
                 mistake: mistake
             }
 
-            setMissedStack(mistake_qestion);
+            if(!retry){
+                setMissedStack(mistake_qestion);
+            }
+
 
             $get("#speak_question_correctanswer_picture").src = "./images/mistake.png";
             $get("#speak_question_correctanswer").innerHTML = "Đáp án : " + correct_txt;

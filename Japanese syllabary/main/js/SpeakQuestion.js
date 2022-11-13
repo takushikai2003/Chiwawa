@@ -10,7 +10,7 @@ const path_to_lesson_data = "../data";
 
 
 class SpeakQuestion{
-    constructor({img_src, correct_txt}){
+    constructor({img_src, correct_txt}, retry=false){
 
         img_src = path_to_lesson_data + img_src;
 
@@ -44,6 +44,9 @@ class SpeakQuestion{
 	        mic_area.style.border = "solid 5px red";
             
             setTimeout(() => {
+                if(recording){
+                    rec_stop();
+                }
                 rec_stop();
             }, 10000);
         }
@@ -101,7 +104,9 @@ class SpeakQuestion{
                 mistake: mistake
             }
 
-            setMissedStack(mistake_qestion);
+            if(!retry){
+                setMissedStack(mistake_qestion);
+            }
 
 
             $get("#speak_question_correctanswer_picture").src = "./images/mistake.png";

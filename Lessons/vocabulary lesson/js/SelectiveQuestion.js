@@ -8,7 +8,7 @@ const $get = function (querySelector){
 }
 
 class SelectiveQuestion{
-    constructor({img_src, audio_src, opt1_txt, opt2_txt, opt3_txt, correct_opt_num}){
+    constructor({img_src, audio_src, opt1_txt, opt2_txt, opt3_txt, correct_opt_num}, retry=false){
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
 
@@ -122,7 +122,9 @@ class SelectiveQuestion{
                 mistake: selected_opt_num
             }
 
-            setMissedStack(mistake_qestion);
+            if(!retry){
+                setMissedStack(mistake_qestion);
+            }
 
 
             $get("#selective_question_correctanswer_picture").src = "./images/mistake.png";
