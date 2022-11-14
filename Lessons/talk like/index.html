@@ -7,36 +7,18 @@
 
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
+    
+    <script type="module">
+        import startTalkLike from "./js/load_lesson.js";
+        startTalkLike(1);
+    </script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/tippy_theme.css">
+    <link rel="stylesheet" href="./css/grid.css">
 </head>
 
 <body>
     <div id="loading_window">
         <h1>loading...</h1>
     </div>
-
-    <div class="container" id="grid_overall" hidden>
-        <div class="row" id="images_wrap">
-            <img id="image_left">
-            <img id="image_right">
-        </div>
-    
-        <div id="talk_like_correctanswer_area" hidden>
-            <div>
-                <img id="talk_like_correctanswer_picture" src="./images/correct.png">
-                <span id="talk_like_correctanswer" class="display-1">
-                    ĐÚNG
-                </span>
-            </div>
-        </div>
-    
-        <div id="talk_like_gonext_area">
-            <button id="talk_like_gonext" class="btn btn-lg " hidden>Next</button>
-        </div>
-    </div>
-
-    
-    <script src="./js/load_lesson.js" type="module"></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/tippy_theme.css">
-    <link rel="stylesheet" href="./css/grid.css">
 </body>

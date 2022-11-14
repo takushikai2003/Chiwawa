@@ -1,23 +1,27 @@
 import SpeechRecognizer from "../../../common esm/speech recognizetion/SpeechRecognizer.js";
 import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/missedStack.js";
+import getDataAsString from "../../../common esm/getDataAsString.js";
 
-const left_img = document.getElementById("image_left");
-const right_img = document.getElementById("image_right");
-const gonext = document.getElementById("talk_like_gonext");
-const correctanswer_picture = document.getElementById("talk_like_correctanswer_picture");
-const correctanswer = document.getElementById("talk_like_correctanswer");
-const correctanswer_area = document.getElementById("talk_like_correctanswer_area");
+const insertHTML = await getDataAsString("./pages/TalkLike.html");
 
 let old_tippy = [];
 
 
 const path_to_lesson_data = "../lessons_data";
-class talk_like{
-    constructor({left_img_src, right_img_src, audio_src, left_html, right_html, correct_text}, retry=false){
-        
+class TalkLike{
+    constructor(insertTarget, {left_img_src, right_img_src, audio_src, left_html, right_html, correct_text}, retry=false){
+        insertTarget.innerHTML = insertHTML;
+
         const _left_img_src = path_to_lesson_data + left_img_src;
         const _right_img_src = path_to_lesson_data + right_img_src;
         const _audio_src = path_to_lesson_data + audio_src;
+
+        const left_img = document.getElementById("image_left");
+        const right_img = document.getElementById("image_right");
+        const gonext = document.getElementById("talk_like_gonext");
+        const correctanswer_picture = document.getElementById("talk_like_correctanswer_picture");
+        const correctanswer = document.getElementById("talk_like_correctanswer");
+        const correctanswer_area = document.getElementById("talk_like_correctanswer_area");
 
         left_img.src = _left_img_src;
         right_img.src = _right_img_src;
@@ -168,4 +172,4 @@ class talk_like{
 }
 
 
-export {talk_like};
+export {TalkLike};
