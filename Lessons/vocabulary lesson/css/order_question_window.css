@@ -1,6 +1,7 @@
 #order_question_picture_area{
     cursor: pointer;
     border: solid 1px springgreen;
+    margin-top: 100px;
 }
 
 #order_question_picture{
