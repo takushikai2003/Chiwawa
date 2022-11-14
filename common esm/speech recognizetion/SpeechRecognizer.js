@@ -30,7 +30,7 @@ function stop(seek_message){
 
 function judge(message, seek_message){
 
-    const threshold = 0.7;
+    const threshold = 0.8;
 
     const message_kana = get_kana(message);
 
