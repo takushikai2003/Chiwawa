@@ -1,3 +1,7 @@
+import getDataAsString from "../common esm/getDataAsString.js";
+
+const insertHTML = await getDataAsString("./Practice.html");
+
 const path_to_lesson_data = ".";
 
 const $get = function (querySelector){
@@ -9,39 +13,12 @@ class Practice{
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
 
-        // $get("#practice_window").hidden = false;
-        // const practice_window = document.createElement("div");
-        // // practice_window.setAttribute("id", "practice_window");
-        // practice_window.setAttribute("class", "container");
-        // practice_window.setAttribute("hidden", "true");
-        // const picture_area = document.createElement("div");
-        // picture_area.setAttribute("class", "row");
-
-        const insertHTML = 
-        `
-        <div id="practice_window" class="container">
-        <div id="practice_picture_area" class="row">
-            <img id="practice_picture" class="d-block mx-auto" src=${_img_src}>
-            <div id="practice_picture_text" class="display-1 text-center">${pic_txt}</div>
-        </div>
-
-        <div id="practice_playtext_area" class="row">
-            <img src="./images/play_icon.svg" id="practice_play">
-            <span id="practice_play_text" class="display-1 text-center">${play_txt}</span>
-        </div>
-
-        <div id="practice_supplement_area" class="row">
-            <div id="practice_supplement" class="h1 text-center">
-                ${supplement_txt}
-            </div>
-        </div>
-
-        <div id="practice_gonext_area" class="row">
-            <button id="practice_gonext" class="btn btn-lg ">Next</button>
-        </div>
-        </div>`;
-
         insertTarget.innerHTML = insertHTML;
+        $get("#practice_picture").src = _img_src;
+        $get("#practice_picture_text").innerHTML = pic_txt;
+        $get("#practice_play_text").innerHTML = play_txt;
+        $get("#practice_supplement").innerHTML = supplement_txt;
+
 
         $get("#practice_gonext").disabled = true;
     
