@@ -17,7 +17,6 @@ class OrderQuestion{
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
 
-        $get("#order_question_window").hidden = false;
         $get("#order_question_picture").src = _img_src;
         $get("#order_question_correctanswer_area").hidden = true;
         

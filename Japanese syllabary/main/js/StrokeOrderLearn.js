@@ -15,8 +15,6 @@ class StrokeOrderLearn{
         img1_src = path_to_lesson_data + img1_src;
         img2_src = path_to_lesson_data + img2_src;
 
-        $get("#stroke_order_learn_window").hidden = false;
-
         $get("#stroke_order_learn_picture1").src = img1_src;
         $get("#stroke_order_learn_picture2").src = img2_src;
         $get("#stroke_order_learn_supplement").innerHTML = supplement_txt;

@@ -15,8 +15,6 @@ class Practice{
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
 
-        $get("#practice_window").hidden = false;
-
         $get("#practice_picture").src = _img_src;
         $get("#practice_picture_text").innerHTML = pic_txt;
         $get("#practice_play_text").innerHTML = play_txt;

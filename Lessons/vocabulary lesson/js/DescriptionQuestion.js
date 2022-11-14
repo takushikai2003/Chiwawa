@@ -16,8 +16,6 @@ class DescriptionQuestion{
 
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
-
-        $get("#description_question_window").hidden = false;
     
         $get("#description_question_picture").src = _img_src;
         $get("#description_question_play_text").innerHTML = play_txt;

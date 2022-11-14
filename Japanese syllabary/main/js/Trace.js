@@ -13,8 +13,6 @@ class Trace{
         insertTarget.innerHTML = insertHTML;
         
         img_src = path_to_lesson_data + img_src;
-        
-        $get("#trace_window").hidden = false;
 
         $get("#trace_supplement").innerHTML = supplement_txt;
 

@@ -1,7 +1,7 @@
-// import Practice from "./Practice.js";
+import Practice from "./Practice.js";
 import SelectiveQuestion from "./SelectiveQuestion.js";
 // import DescriptionQuestion from "./DescriptionQuestion.js";
-// import SpeakQuestion from "./SpeakQuestion.js";
+import SpeakQuestion from "./SpeakQuestion.js";
 import OrderQuestion from "./OrderQuestion.js";
 import getDataAsString from "../../../common esm/getDataAsString.js";
 import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/missedStack.js";
@@ -59,11 +59,11 @@ async function startVocabularyLesson(lesson_nuber, retry=false, missed_index){
     
         for(let i=0; i<data_arr.length; i++){
             switch(data_arr[i].type){
-                // case "practice":
-                //     const prc = new Practice(document.body, data_arr[i]);
-                //     console.log("読み込み時間：", performance.now());
-                //     await prc.onend();
-                //     break;
+                case "practice":
+                    const prc = new Practice(document.body, data_arr[i]);
+                    console.log("読み込み時間：", performance.now());
+                    await prc.onend();
+                    break;
         
                 case "selective":
                     const sel_q = new SelectiveQuestion(document.body, data_arr[i]);
@@ -75,10 +75,10 @@ async function startVocabularyLesson(lesson_nuber, retry=false, missed_index){
                 //     await des_q.onend();
                 //     break;
         
-                // case "speak":
-                //     const spe_q = new SpeakQuestion(document.body, data_arr[i]);
-                //     await spe_q.onend();
-                //     break;
+                case "speak":
+                    const spe_q = new SpeakQuestion(document.body, data_arr[i]);
+                    await spe_q.onend();
+                    break;
                 
                 case "order":
                     const ord_q = new OrderQuestion(document.body, data_arr[i]);

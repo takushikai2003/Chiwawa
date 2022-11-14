@@ -16,7 +16,6 @@ class SelectiveQuestion{
 
         const _img_src = path_to_lesson_data + img_src;
 
-        $get("#selective_question_window").hidden = false;
         $get("#selective_question_picture").src = _img_src;
         $get("#selective_question_correctanswer_area").hidden = true;
 

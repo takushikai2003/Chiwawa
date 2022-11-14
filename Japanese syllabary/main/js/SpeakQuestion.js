@@ -17,8 +17,6 @@ class SpeakQuestion{
         
         img_src = path_to_lesson_data + img_src;
 
-        $get("#speak_question_window").hidden = false;
-
         $get("#speak_question_picture").src = img_src;
         $get("#speak_question_correctanswer_area").hidden = true;
 
