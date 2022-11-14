@@ -17,30 +17,13 @@
     margin-top: 40px;
 }
 
-#selective_question_option1{
+.selective_question_option{
     height: 100px;
     background-color: palegreen;
     margin-bottom: 30px;
 }
 
-#selective_question_option2{
-    height: 100px;
-    background-color: palegreen;
-    margin-bottom: 30px;
-}
-
-#selective_question_option3{
-    height: 100px;
-    background-color: palegreen;
-}
-
-#selective_question_option1:focus{
-    border: solid 3px royalblue;
-}
-#selective_question_option2:focus{
-    border: solid 3px royalblue;
-}
-#selective_question_option3:focus{
+.selective_question_option:focus{
     border: solid 3px royalblue;
 }
 

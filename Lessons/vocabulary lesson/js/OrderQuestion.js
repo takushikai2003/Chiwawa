@@ -1,5 +1,7 @@
-import hide_all_window from "./hide_all_window.js";
 import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/missedStack.js";
+import getDataAsString from "../../../common esm/getDataAsString.js";
+
+const insertHTML = await getDataAsString("./pages/Order.html");
 
 const $get = function (querySelector){
     return document.querySelector(querySelector);
@@ -9,12 +11,12 @@ const path_to_lesson_data = "../lessons_data";
 
 
 class OrderQuestion{
-    constructor({img_src, audio_src, options, correct_order}, retry=false){
-
+    constructor(insertTarget, {img_src, audio_src, options, correct_order}, retry=false){
+        insertTarget.innerHTML = insertHTML;
+        
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
 
-        hide_all_window();
         $get("#order_question_window").hidden = false;
         $get("#order_question_picture").src = _img_src;
         $get("#order_question_correctanswer_area").hidden = true;

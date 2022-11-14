@@ -49,7 +49,7 @@ async function startJapaneseSyllabary(lesson_type, kana_index, retry=false, miss
             removeMissedStack(missed_index);
         }
     
-        location.href = "../../../boot/index.html?retry=true";
+        // location.href = "../../../boot/index.html?retry=true";
     }
     
     else{
@@ -84,7 +84,7 @@ async function startJapaneseSyllabary(lesson_type, kana_index, retry=false, miss
             }
         }
     
-        location.href = "../../../boot/index.html?page=lesson_select";
+        // location.href = "../../../boot/index.html?page=lesson_select";
     }
 }
 

@@ -1,4 +1,6 @@
-import hide_all_window from "./hide_all_window.js";
+import getDataAsString from "../../../common esm/getDataAsString.js";
+
+const insertHTML = await getDataAsString("./pages/Practice.html");
 
 const path_to_lesson_data = "../lessons_data";
 
@@ -7,11 +9,12 @@ const $get = function (querySelector){
 }
 
 class Practice{
-    constructor({img_src, pic_txt, audio_src, play_txt, supplement_txt}){
+    constructor(insertTarget, {img_src, pic_txt, audio_src, play_txt, supplement_txt}){
+        insertTarget.innerHTML = insertHTML;
+        
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
 
-        hide_all_window();
         $get("#practice_window").hidden = false;
 
         $get("#practice_picture").src = _img_src;

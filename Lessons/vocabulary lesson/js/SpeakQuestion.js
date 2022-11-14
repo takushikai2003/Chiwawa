@@ -1,6 +1,8 @@
-import hide_all_window from "./hide_all_window.js";
 import SpeechRecognizer from "../../../common esm/speech recognizetion/SpeechRecognizer.js";
 import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/missedStack.js";
+import getDataAsString from "../../../common esm/getDataAsString.js";
+
+const insertHTML = await getDataAsString("./pages/Speak.html");
 
 const $get = function (querySelector){
     return document.querySelector(querySelector);
@@ -9,11 +11,11 @@ const $get = function (querySelector){
 const path_to_lesson_data = "../lessons_data";
 
 class SpeakQuestion{
-    constructor({img_src, pic_txt, correct_txt}, retry=false){
-
+    constructor(insertTarget, {img_src, pic_txt, correct_txt}, retry=false){
+        insertTarget.innerHTML = insertHTML;
+        
         const _img_src = path_to_lesson_data + img_src;
 
-        hide_all_window();
         $get("#speak_question_window").hidden = false;
 
         $get("#speak_question_picture").src = _img_src;

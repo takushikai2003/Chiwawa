@@ -1,6 +1,8 @@
 //未使用
-import hide_all_window from "./hide_all_window.js";
 import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/missedStack.js";
+import getDataAsString from "../../../common esm/getDataAsString.js";
+
+const insertHTML = await getDataAsString("./pages/Description.html");
 
 const path_to_lesson_data = "../lessons_data";
 
@@ -9,12 +11,12 @@ const $get = function (querySelector){
 }
 
 class DescriptionQuestion{
-    constructor({img_src, audio_src, play_txt, supplement_txt, correct_txt,}, retry=false){
+    constructor(insertTarget, {img_src, audio_src, play_txt, supplement_txt, correct_txt,}, retry=false){
+        insertTarget.innerHTML = insertHTML;
 
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
 
-        hide_all_window();
         $get("#description_question_window").hidden = false;
     
         $get("#description_question_picture").src = _img_src;

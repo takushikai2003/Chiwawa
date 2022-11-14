@@ -1,5 +1,7 @@
-import hide_all_window from "./hide_all_window.js";
 import {setMissedStack} from "../../../common esm/missedStack.js";
+import getDataAsString from "../../../common esm/getDataAsString.js";
+
+const insertHTML = await getDataAsString("./pages/Selective.html");
 
 const path_to_lesson_data = "../lessons_data";
 
@@ -8,25 +10,20 @@ const $get = function (querySelector){
 }
 
 class SelectiveQuestion{
-    constructor({img_src, audio_src, opt1_txt, opt2_txt, opt3_txt, correct_opt_num, picture_text=""}, retry=false){
+    constructor(insertTarget, {img_src, audio_src, options, correct_opt_num, picture_text=""}, retry=false){
+        insertTarget.innerHTML = insertHTML;
+
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
 
-        hide_all_window();
         $get("#selective_question_window").hidden = false;
         $get("#selective_question_picture").src = _img_src;
         $get("#selective_question_correctanswer_area").hidden = true;
         $get("#selective_picture_text").innerHTML = picture_text;
 
-        const option1 = $get("#selective_question_option1");
-        const option2 = $get("#selective_question_option2");
-        const option3 = $get("#selective_question_option3");
+       
         const gonext = $get("#selective_question_gonext");
         const audio = new Audio(_audio_src);
-
-        option1.innerHTML = opt1_txt;
-        option2.innerHTML = opt2_txt;
-        option3.innerHTML = opt3_txt;
 
         gonext.innerHTML = "OK";
         gonext.disabled = true;
@@ -35,34 +32,25 @@ class SelectiveQuestion{
             audio.play();
         }
 
-        
-        let correct_opt_text;
-        if(correct_opt_num==1){
-            correct_opt_text = opt1_txt;
-        }
-        else if(correct_opt_num==2){
-            correct_opt_text = opt2_txt;
-        }
-        else{
-            correct_opt_text = opt3_txt;
-        }
-
 
         let selected_opt_num;
+        let correct_opt_text;
 
-        option1.onclick = function(){
-            selected_opt_num = 1;
-            gonext.disabled = false;
-        }
+        for(let i=0; i<options.length; i++){
+            const option = document.createElement("button");
+            option.setAttribute("class", "btn btn-lg selective_question_option");
+            option.innerHTML = options[i];
+            
+            if(correct_opt_num == i + 1){
+                correct_opt_text =  options[i];
+            }
 
-        option2.onclick = function(){
-            selected_opt_num = 2;
-            gonext.disabled = false;
-        }
+            option.addEventListener("click",()=>{
+                selected_opt_num = i + 1;
+                gonext.disabled = false;
+            });
 
-        option3.onclick = function(){
-            selected_opt_num = 3;
-            gonext.disabled = false;
+            $get("#selective_question_area").appendChild(option);
         }
 
 
@@ -115,9 +103,7 @@ class SelectiveQuestion{
                     type: "selective",
                     img_src: img_src,
                     audio_src: audio_src,
-                    opt1_txt: opt1_txt,
-                    opt2_txt: opt2_txt,
-                    opt3_txt: opt3_txt,
+                    options: options,
                     correct_opt_num: correct_opt_num,
                 },
                 mistake: selected_opt_num
