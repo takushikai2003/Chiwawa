@@ -6,7 +6,7 @@ const $get = function (querySelector){
     return document.querySelector(querySelector);
 }
 
-const path_to_lesson_data = "../data";
+const path_to_lesson_data = "./data";
 
 class Trace{
     constructor(insertTarget, {img_src, supplement_txt}){

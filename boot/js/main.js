@@ -56,7 +56,7 @@ $get("#video_lesson").addEventListener("click", ()=>{
 }, {once: true});
 
 $get("#japanese_syllabary").addEventListener("click", ()=>{
-    start_content("../Japanese syllabary/start page/index.html");
+    start_content("../Japanese syllabary/index.html");
 }, {once: true});
 
 $get("#retry").addEventListener("click",()=>{

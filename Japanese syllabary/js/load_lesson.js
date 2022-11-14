@@ -4,7 +4,7 @@ import Trace from "./Trace.js";
 import SelectiveQuestion from "./SelectiveQuestion.js";
 import SpeakQuestion from "./SpeakQuestion.js";
 import { setMissedStack, getMissedStack, removeMissedStack } from "../../../common esm/missedStack.js";
-import getDataAsString from "../../../common esm/getDataAsString.js";
+import getDataAsString from "../../common esm/getDataAsString.js";
 
 // const url = new URL(window.location.href);
 // const params = url.searchParams;
@@ -53,7 +53,7 @@ async function startJapaneseSyllabary(lesson_type, kana_index, retry=false, miss
     }
     
     else{
-        const data_arr = JSON.parse(await getDataAsString(`../data/lessons/${lesson_type}_${kana_index}.json`));
+        const data_arr = JSON.parse(await getDataAsString(`./data/lessons/${lesson_type}_${kana_index}.json`));
     
         for(let i=0; i<data_arr.length; i++){
             switch(data_arr[i].type){

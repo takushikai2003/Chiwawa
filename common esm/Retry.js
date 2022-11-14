@@ -17,7 +17,7 @@ function Retry(){
             location.href = `../Lessons/talk like/index.html?retry=true&missed_index=${index}`;
             break;
         case "japanese_syllabary":
-            location.href = `../Japanese syllabary/main/index.html?retry=true&missed_index=${index}`;
+            location.href = `../Japanese syllabary/index.html?retry=true&missed_index=${index}`;
             break;
         
         default :
