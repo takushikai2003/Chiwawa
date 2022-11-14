@@ -1,4 +1,6 @@
-import hide_all_window from "./hide_all_window.js";
+import getDataAsString from "../../../common esm/getDataAsString.js";
+
+const insertHTML = await getDataAsString("./pages/StrokeOrder.html");
 
 const $get = function (querySelector){
     return document.querySelector(querySelector);
@@ -7,11 +9,12 @@ const $get = function (querySelector){
 const path_to_lesson_data = "../data";
 
 class StrokeOrderLearn{
-    constructor({img1_src, img2_src, supplement_txt}){
+    constructor(insertTarget, {img1_src, img2_src, supplement_txt}){
+        insertTarget.innerHTML = insertHTML;
+        
         img1_src = path_to_lesson_data + img1_src;
         img2_src = path_to_lesson_data + img2_src;
 
-        hide_all_window();
         $get("#stroke_order_learn_window").hidden = false;
 
         $get("#stroke_order_learn_picture1").src = img1_src;

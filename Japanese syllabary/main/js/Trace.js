@@ -1,4 +1,6 @@
-import hide_all_window from "./hide_all_window.js";
+import getDataAsString from "../../../common esm/getDataAsString.js";
+
+const insertHTML = await getDataAsString("./pages/Trace.html");
 
 const $get = function (querySelector){
     return document.querySelector(querySelector);
@@ -7,10 +9,11 @@ const $get = function (querySelector){
 const path_to_lesson_data = "../data";
 
 class Trace{
-    constructor({img_src, supplement_txt}){
+    constructor(insertTarget, {img_src, supplement_txt}){
+        insertTarget.innerHTML = insertHTML;
+        
         img_src = path_to_lesson_data + img_src;
         
-        hide_all_window();
         $get("#trace_window").hidden = false;
 
         $get("#trace_supplement").innerHTML = supplement_txt;

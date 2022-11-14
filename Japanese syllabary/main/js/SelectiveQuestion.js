@@ -1,5 +1,7 @@
-import hide_all_window from "./hide_all_window.js";
 import {setMissedStack, getMissedStack, removeMissedStack} from "../../../common esm/missedStack.js";
+import getDataAsString from "../../../common esm/getDataAsString.js";
+
+const insertHTML = await getDataAsString("./pages/Selective.html");
 
 const $get = function (querySelector){
     return document.querySelector(querySelector);
@@ -9,11 +11,11 @@ const path_to_lesson_data = "../data";
 
 
 class SelectiveQuestion{
-    constructor({img_src, options, correct_opt_num}, retry=false){
+    constructor(insertTarget, {img_src, options, correct_opt_num}, retry=false){
+        insertTarget.innerHTML = insertHTML;
 
         const _img_src = path_to_lesson_data + img_src;
 
-        hide_all_window();
         $get("#selective_question_window").hidden = false;
         $get("#selective_question_picture").src = _img_src;
         $get("#selective_question_correctanswer_area").hidden = true;
