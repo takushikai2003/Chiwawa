@@ -21,7 +21,7 @@ function Retry(){
             break;
         
         default :
-            console.error("lessonType ",stack.lessonType," undefined");
+            console.error("lessonType ",stacks[index].lessonType," undefined");
     
     }
 }

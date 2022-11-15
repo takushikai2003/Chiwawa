@@ -1,9 +1,9 @@
-import Practice from "./Practice.js";
-import StrokeOrderLearn from "./StrokeOrderLearn.js";
-import Trace from "./Trace.js";
-import SelectiveQuestion from "./SelectiveQuestion.js";
-import SpeakQuestion from "./SpeakQuestion.js";
-import { setMissedStack, getMissedStack, removeMissedStack } from "../../../common esm/missedStack.js";
+import Practice from "../pages/Practice.js";
+import StrokeOrderLearn from "../pages/StrokeOrderLearn.js";
+import Trace from "../pages/Trace.js";
+import SelectiveQuestion from "../pages/SelectiveQuestion.js";
+import SpeakQuestion from "../pages/SpeakQuestion.js";
+import { setMissedStack, getMissedStack, removeMissedStack } from "../common esm/missedStack.js";
 import getDataAsString from "../common esm/getDataAsString.js";
 
 async function startJapaneseSyllabary(lesson_type, kana_index, retry=false, missed_index){

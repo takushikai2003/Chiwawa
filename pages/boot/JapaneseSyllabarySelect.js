@@ -1,7 +1,7 @@
-import startJapaneseSyllabary from "../../Japanese syllabary/js/load_lesson.js";
-import getDataAsString from "../../../common esm/getDataAsString.js";
+import startJapaneseSyllabary from "../../js/load_japanese_syllabary.js";
+import getDataAsString from "../../common esm/getDataAsString.js";
 
-const insertHTML = await getDataAsString("./pages/JapaneseSyllabaryStartPage.html");
+const insertHTML = await getDataAsString("./pages/boot/JapaneseSyllabarySelect.html");
 
 class JapaneseSyllabaryStartPage{
     constructor(insertTarget){

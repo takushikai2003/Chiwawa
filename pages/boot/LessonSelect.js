@@ -1,6 +1,6 @@
-import getDataAsString from "../../../common esm/getDataAsString.js";
+import getDataAsString from "../../common esm/getDataAsString.js";
 
-const insertHTML = await getDataAsString("./pages/LessonSelect.html");
+const insertHTML = await getDataAsString("./pages/boot/LessonSelect.html");
 
 class LessonSelect{
     constructor(insertTarget){

@@ -1,4 +1,5 @@
-{
+[{
+    "type": "video",
     "video_src": "/videos/yamadai tekuteku.mp4",
     "subtitles": [
         {
@@ -30,4 +31,4 @@
             ]
         }
     ]
-}
+}]

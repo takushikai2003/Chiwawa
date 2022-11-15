@@ -1,5 +1,6 @@
 [
     {
+        "type": "talk",
         "left_img_src": "/images/chiwawa1.png",
         "right_img_src": "/images/chiwawa2.png",
         "audio_src": "/audios/こんにちは.mp3",
@@ -8,6 +9,7 @@
         "correct_text": "こんにちは"
     },
     {
+        "type": "talk",
         "left_img_src": "/images/chiwawa1.png",
         "right_img_src": "/images/chiwawa2.png",
         "audio_src": "/audios/こんにちは.mp3",
@@ -16,6 +18,7 @@
         "correct_text": "こんにちは"
     },
     {
+        "type": "talk",
         "left_img_src": "/images/chiwawa1.png",
         "right_img_src": "/images/chiwawa2.png",
         "audio_src": "/audios/こんにちは.mp3",
@@ -24,6 +27,7 @@
         "correct_text": "はじめまして"
     },
     {
+        "type": "talk",
         "left_img_src": "/images/chiwawa1.png",
         "right_img_src": "/images/chiwawa2.png",
         "audio_src": "/audios/こんにちは.mp3",

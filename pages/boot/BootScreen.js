@@ -1,6 +1,6 @@
-import getDataAsString from "../../../common esm/getDataAsString.js";
+import getDataAsString from "../../common esm/getDataAsString.js";
 
-const insertHTML = await getDataAsString("./pages/BootScreen.html");
+const insertHTML = await getDataAsString("./pages/boot/BootScreen.html");
 
 class BootScreen{
     constructor(insertTarget){
