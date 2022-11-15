@@ -1,15 +1,6 @@
 import { TalkLike } from "./TalkLike.js";
-import getDataAsString from "../../../common esm/getDataAsString.js";
-import { setMissedStack, getMissedStack, removeMissedStack } from "../../../common esm/missedStack.js";
-
-// const url = new URL(window.location.href);
-// const params = url.searchParams;
-// const lesson_nuber = params.get("lesson");
-// const retry = params.get("retry");
-// const missed_index = params.get("missed_index");
-
-// document.querySelector("#loading_window").hidden = true;
-// document.querySelector("#grid_overall").hidden = false;
+import getDataAsString from "../common esm/getDataAsString.js";
+import { setMissedStack, getMissedStack, removeMissedStack } from "../common esm/missedStack.js";
 
 async function startTalkLike(lesson_nuber, retry=false, missed_index){
     if(retry){

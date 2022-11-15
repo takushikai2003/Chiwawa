@@ -1,4 +1,4 @@
-import Retry from "../../common esm/Retry.js";
+import Retry from "../common esm/Retry.js";
 import BootScreen from "./BootScreen.js";
 import LessonSelect from "./LessonSelect.js";
 

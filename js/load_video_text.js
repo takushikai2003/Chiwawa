@@ -1,5 +1,5 @@
 import { VideoText } from "./VideoText.js";
-import getDataAsString from "../../../common esm/getDataAsString.js";
+import getDataAsString from "../common esm/getDataAsString.js";
 
 const url = new URL(window.location.href);
 const params = url.searchParams;
