@@ -139,7 +139,6 @@ class TalkLike{
             mistake_audio.play();
             
             const mistake_qestion = {
-                lessonType: "talk_like",
                 data: {
                     left_img_src: left_img_src,
                     right_img_src: right_img_src,

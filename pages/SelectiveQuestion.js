@@ -105,7 +105,6 @@ class SelectiveQuestion{
             mistake_audio.play();
 
             const mistake_qestion = {
-                lessonType: "vocabulary",
                 data: {
                     type: "selective",
                     img_src: img_src,

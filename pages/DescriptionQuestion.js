@@ -75,7 +75,6 @@ class DescriptionQuestion{
             mistake_audio.play();
             
             const mistake_qestion = {
-                lessonType: "vocabulary",
                 data: {
                     type: "description",
                     img_src: img_src,

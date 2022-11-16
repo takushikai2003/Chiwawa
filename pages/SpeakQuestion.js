@@ -93,7 +93,6 @@ class SpeakQuestion{
             mistake_audio.play();
             
             const mistake_qestion = {
-                lessonType: "vocabulary",
                 data: {
                     type: "speak",
                     img_src: img_src,

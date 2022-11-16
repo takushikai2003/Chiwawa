@@ -96,7 +96,6 @@ class OrderQuestion{
             mistake_audio.play();
             
             const mistake_qestion = {
-                lessonType: "vocabulary",
                 data: {
                     type: "order",
                     img_src: img_src,
