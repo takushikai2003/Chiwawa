@@ -1,5 +1,5 @@
-import {setMissedStack} from "../../../common esm/missedStack.js";
-import getDataAsString from "../../../common esm/getDataAsString.js";
+import {setMissedStack} from "../common esm/missedStack.js";
+import getDataAsString from "../common esm/getDataAsString.js";
 import { correct_audio, mistake_audio } from "../common esm/Audios.js";
 
 const insertHTML = await getDataAsString("./pages/Selective.html");

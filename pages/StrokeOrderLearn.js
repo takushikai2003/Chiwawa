@@ -1,4 +1,4 @@
-import getDataAsString from "../../../common esm/getDataAsString.js";
+import getDataAsString from "../common esm/getDataAsString.js";
 
 const insertHTML = await getDataAsString("./pages/StrokeOrder.html");
 
