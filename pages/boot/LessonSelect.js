@@ -1,5 +1,5 @@
 import Retry from "../../common esm/Retry.js";
-import JapaneseSyllabarySelect from "../../pages/boot/KanaSelect.js";
+import JapaneseSyllabarySelect from "./KanaSelect.js";
 import startLesson from "../../js/load_lesson.js";
 import getDataAsString from "../../common esm/getDataAsString.js";
 import { getMissedStacks } from "../../common esm/missedStack.js";
