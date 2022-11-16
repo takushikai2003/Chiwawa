@@ -1,3 +1,2 @@
 seek時指定秒まで飛ぶ機能がない
 japanese syllabaryのよみこみ（classなのかなんなのか）
-load_〇〇のコードの共通化できるのではないか（vocabularyやtalkと分けずに、pageを読むだけで）
