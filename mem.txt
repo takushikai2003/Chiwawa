@@ -1,4 +1,2 @@
 id,lessonの対応表を作るべきではないか
 correct,mistakeの音はmodule化するとパフォーマンス上がる？
-
-missed stackのlessonTypeは不要？

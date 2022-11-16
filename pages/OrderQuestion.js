@@ -1,5 +1,6 @@
 import {setMissedStack, getMissedStack, removeMissedStack} from "../common esm/missedStack.js";
 import getDataAsString from "../common esm/getDataAsString.js";
+import { correct_audio, mistake_audio } from "../common esm/Audios.js";
 
 const insertHTML = await getDataAsString("./pages/Order.html");
 
@@ -71,9 +72,6 @@ class OrderQuestion{
             gonext.innerHTML = "Next";
         },{once: true});
 
-        
-        const correct_audio = new Audio("./audios/correct.mp3");
-        const mistake_audio = new Audio("./audios/mistake.mp3");
 
         //正解ならtrue,不正解ならfalseを返してresolve
         function oncorrect(){

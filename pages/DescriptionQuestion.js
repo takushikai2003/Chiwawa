@@ -1,6 +1,7 @@
 //未使用
 import {setMissedStack, getMissedStack, removeMissedStack} from "../common esm/missedStack.js";
 import getDataAsString from "../common esm/getDataAsString.js";
+import { correct_audio, mistake_audio } from "../common esm/Audios.js";
 
 const insertHTML = await getDataAsString("./pages/Description.html");
 
@@ -52,8 +53,6 @@ class DescriptionQuestion{
             });
         }
         
-        const correct_audio = new Audio("./audios/correct.mp3");
-        const mistake_audio = new Audio("./audios/mistake.mp3");
 
         function oncorrect(){
             correct_audio.play();

@@ -1,6 +1,7 @@
 import SpeechRecognizer from "../common esm/speech recognizetion/SpeechRecognizer.js";
 import {setMissedStack, getMissedStack, removeMissedStack} from "../common esm/missedStack.js";
 import getDataAsString from "../common esm/getDataAsString.js";
+import { correct_audio, mistake_audio } from "../common esm/Audios.js";
 
 const insertHTML = await getDataAsString("./pages/Speak.html");
 
@@ -69,8 +70,6 @@ class SpeakQuestion{
             });
         }
 
-        const correct_audio = new Audio("./audios/correct.mp3");
-        const mistake_audio = new Audio("./audios/mistake.mp3");
 
         function oncorrect(){
             correct_audio.play();
