@@ -1,0 +1,46 @@
+[
+    {
+        "type": "practice",
+        "img_src": "/images/図1.jpg",
+        "pic_txt": "chào buổi trưa",
+        "audio_src": "/audios/こんにちはFM.mp3",
+        "play_txt": "こんにちは",
+        "supplement_txt": "Nghe và nói theo 2 lần nhé!\n(聞きながら２回繰り返しましょう）"
+    },
+    {
+        "type": "practice",
+        "img_src": "/images/図1.jpg",
+        "pic_txt": "chào buổi trưa",
+        "audio_src": "/audios/こんにちはM.mp3",
+        "play_txt": "こんにちは",
+        "supplement_txt": "Nghe và nói theo 2 lần nhé!\n(聞きながら２回繰り返しましょう）"
+    },
+    {
+        "type": "selective",
+        "img_src": "/images/図1.jpg",
+        "audio_src": "/audios/こんにちは.mp3",
+        "options": ["こにちは","こんにちは","こんちは"],
+        "correct_opt_num": 2
+    },
+    {
+        "type": "speak",
+        "img_src": "/images/図1.jpg",
+        "pic_txt": "chào buổi trưa",
+        "correct_txt": "こんにちは"
+    },
+    {
+        "type": "order",
+        "img_src": "/images/図1.jpg",
+        "audio_src": "/audios/こんにちは.mp3",
+        "options": ["chào", "trưa", "buổi", "sáng"],
+        "correct_order": [0, 2, 1]
+    },
+    {
+        "type": "selective",
+        "img_src": "/images/図1.jpg",
+        "audio_src": "/audios/こんにちは.mp3",
+        "options": ["こ", "い", "り", "に"],
+        "correct_opt_num": 1,
+        "picture_text": "＿んにちは"
+    }
+]

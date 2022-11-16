@@ -1,0 +1,2 @@
+seek時指定秒まで飛ぶ機能がない
+japanese syllabaryのよみこみ（classなのかなんなのか）
