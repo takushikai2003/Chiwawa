@@ -8,10 +8,10 @@ const $get = function (querySelector){
     return document.querySelector(querySelector);
 }
 
-const path_to_lesson_data = "../lessons_data";
+const path_to_lesson_data = "./data";
 
 class SpeakQuestion{
-    constructor(insertTarget, {img_src, pic_txt, correct_txt}, retry=false){
+    constructor(insertTarget, {img_src, pic_txt="", correct_txt}, retry=false){
         insertTarget.innerHTML = insertHTML;
         
         const _img_src = path_to_lesson_data + img_src;

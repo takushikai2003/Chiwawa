@@ -1,4 +1,4 @@
-import startJapaneseSyllabary from "../../js/load_japanese_syllabary.js";
+import startLesson from "../../js/load_lesson.js";
 import getDataAsString from "../../common esm/getDataAsString.js";
 
 const insertHTML = await getDataAsString("./pages/boot/JapaneseSyllabarySelect.html");
@@ -63,9 +63,9 @@ class JapaneseSyllabaryStartPage{
                 td.innerHTML = hiragana_table_data[i][j];
                 tr.appendChild(td);
             }
-        
+
             tr.addEventListener("click", ()=>{
-                start_mainpage("hiragana", i);
+                start_japanese_syllabary("hiragana", i);
             });
         
             hiragana_table.appendChild(tr);
@@ -82,18 +82,18 @@ class JapaneseSyllabaryStartPage{
                 td.innerHTML = katakana_table_data[i][j];
                 tr.appendChild(td);
             }
-        
-            
+
             tr.addEventListener("click", ()=>{
-                start_mainpage("katakana", i);
+                start_japanese_syllabary("katakana", i);
             });
         
             katakana_table.appendChild(tr);
         }
         
         
-        function start_mainpage(type, index){
-            startJapaneseSyllabary(type, index);
+        function start_japanese_syllabary(type, index){
+            const path = `./data/japanese syllabary/${type}_${index}.json`
+            startLesson(path);
         }
     }
 }

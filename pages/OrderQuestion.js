@@ -7,7 +7,7 @@ const $get = function (querySelector){
     return document.querySelector(querySelector);
 }
 
-const path_to_lesson_data = "../lessons_data";
+const path_to_lesson_data = "./data";
 
 
 class OrderQuestion{

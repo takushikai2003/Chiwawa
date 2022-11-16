@@ -34,7 +34,7 @@ $get("#video_lesson").addEventListener("click", async()=>{
 }, {once: true});
 
 $get("#japanese_syllabary").addEventListener("click", ()=>{
-    new JapaneseSyllabarySelect();
+    new JapaneseSyllabarySelect(document.body);
 }, {once: true});
 
 $get("#retry").addEventListener("click",()=>{

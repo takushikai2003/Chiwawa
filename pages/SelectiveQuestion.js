@@ -3,7 +3,7 @@ import getDataAsString from "../../../common esm/getDataAsString.js";
 
 const insertHTML = await getDataAsString("./pages/Selective.html");
 
-const path_to_lesson_data = "../lessons_data";
+const path_to_lesson_data = "./data";
 
 const $get = function (querySelector){
     return document.querySelector(querySelector);
@@ -14,7 +14,14 @@ class SelectiveQuestion{
         insertTarget.innerHTML = insertHTML;
 
         const _img_src = path_to_lesson_data + img_src;
-        const _audio_src = path_to_lesson_data + audio_src;
+
+        let audio; 
+        if(audio_src != undefined){
+            audio = new Audio(path_to_lesson_data + audio_src);
+        }
+        else{
+            $get("#selective_question_play").hidden = true;
+        }
 
         $get("#selective_question_picture").src = _img_src;
         $get("#selective_question_correctanswer_area").hidden = true;
@@ -22,7 +29,6 @@ class SelectiveQuestion{
 
        
         const gonext = $get("#selective_question_gonext");
-        const audio = new Audio(_audio_src);
 
         gonext.innerHTML = "OK";
         gonext.disabled = true;
@@ -61,7 +67,9 @@ class SelectiveQuestion{
         }
 
         gonext.addEventListener("click",()=>{
-            audio.remove();
+            if(audio != undefined){
+                audio.remove();
+            }
             
             if(selected_opt_num == correct_opt_num){
                 oncorrect();

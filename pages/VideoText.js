@@ -2,7 +2,7 @@ import getDataAsString from "../common esm/getDataAsString.js";
 
 const insertHTML = await getDataAsString("./pages/VideoText.html");
 
-const path_to_lesson_data = "../lessons_data";
+const path_to_lesson_data = "./data";
 
 class VideoText{
     constructor(insertTarget, {video_src, subtitles}){

@@ -31,7 +31,6 @@ async function startLesson(lesson_data_path){
         switch(data_arr[i].type){
             case "practice":
                 const prc = new Practice(document.body, data_arr[i]);
-                console.log("読み込み時間：", performance.now());
                 await prc.onend();
                 break;
     

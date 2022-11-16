@@ -7,7 +7,7 @@ const insertHTML = await getDataAsString("./pages/TalkLike.html");
 let old_tippy = [];
 
 
-const path_to_lesson_data = "../lessons_data";
+const path_to_lesson_data = "./data";
 class TalkLike{
     constructor(insertTarget, {left_img_src, right_img_src, audio_src, left_html, right_html, correct_text}, retry=false){
         insertTarget.innerHTML = insertHTML;
