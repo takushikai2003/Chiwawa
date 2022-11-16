@@ -60,7 +60,7 @@ async function startLesson(lesson_data_path){
                 break;
             
             case "video":
-                const vt = new VideoText(document.body, data);
+                const vt = new VideoText(document.body, data_arr[i]);
                 await vt.onend();
                 break;
             
