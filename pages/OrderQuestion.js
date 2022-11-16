@@ -13,7 +13,7 @@ const path_to_lesson_data = "./data";
 class OrderQuestion{
     constructor(insertTarget, {img_src, audio_src, options, correct_order}, retry=false){
         insertTarget.innerHTML = insertHTML;
-        
+
         const _img_src = path_to_lesson_data + img_src;
         const _audio_src = path_to_lesson_data + audio_src;
 
@@ -99,6 +99,7 @@ class OrderQuestion{
                 data: {
                     type: "order",
                     img_src: img_src,
+                    audio_src: audio_src,
                     options: options,
                     correct_order: correct_order
                 },

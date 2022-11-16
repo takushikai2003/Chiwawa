@@ -25,6 +25,14 @@ import getDataAsString from "../common esm/getDataAsString.js";
 // }
 
 async function startLesson(lesson_data_path){
+
+    const url = new URL(window.location.href);
+    const params = url.searchParams;
+    const page = params.get("page");
+    if(page != "lesson"){
+        history.pushState(null, null, "./index.html?page=lesson");   
+    }
+
     const data_arr = JSON.parse(await getDataAsString(lesson_data_path));
     
     for(let i=0; i<data_arr.length; i++){

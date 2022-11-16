@@ -111,6 +111,7 @@ class SelectiveQuestion{
                     audio_src: audio_src,
                     options: options,
                     correct_opt_num: correct_opt_num,
+                    picture_text: picture_text,
                 },
                 mistake: selected_opt_num
             }
