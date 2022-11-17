@@ -74,14 +74,14 @@ for(let i=0; i<hiragana_data.length; i++){
             supplement_txt: romaji
         }
 
-        const selective =  {
+        const selective = {
             type: "selective",
             img_src: `/images/${chara}_black.png`,
             options: romaji_data[i],
             correct_opt_num: j+1
         }
 
-        const speak =  {
+        const speak = {
             type: "speak",
             img_src: `/images/${chara}_black.png`,
             correct_txt: chara
@@ -125,14 +125,14 @@ for(let i=0; i<katakana_data.length; i++){
             supplement_txt: romaji
         }
 
-        const selective =  {
+        const selective = {
             type: "selective",
             img_src: `/images/${chara}_black.png`,
             options: romaji_data[i],
             correct_opt_num: j+1
         }
 
-        const speak =  {
+        const speak = {
             type: "speak",
             img_src: `/images/${chara}_black.png`,
             correct_txt: chara
