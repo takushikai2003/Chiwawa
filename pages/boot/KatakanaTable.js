@@ -40,10 +40,15 @@ class KatakanaTable{
                 td.innerHTML = katakana_table_data[i][j];
                 tr.appendChild(td);
             }
-        
-            tr.addEventListener("click", ()=>{
-                start_japanese_syllabary("katakana", i);
-            });
+
+            if(learnedKatakanaRow >= i){
+                tr.addEventListener("click", ()=>{
+                    start_japanese_syllabary("katakana", i);
+                });
+            }
+            else{
+                tr.style.color = "gainsboro";
+            }
         
             katakana_table.appendChild(tr);
         }
