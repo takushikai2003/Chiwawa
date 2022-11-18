@@ -88,6 +88,9 @@ async function startLesson(lesson_data_path){
         }
     }
 
+
+    return;
+
 }
 
 

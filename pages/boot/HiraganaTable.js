@@ -17,6 +17,7 @@ const hiragana_table_data = [
     ["ん","","","",""],
 ];
 
+
 class HiraganaTable{
     constructor(){
         document.body.innerHTML = insertHTML;
@@ -28,6 +29,8 @@ class HiraganaTable{
             history.pushState(null, null, "./index.html?page=hiragana_table");   
         }
 
+        const learnedHiranagaRow = Number(localStorage.getItem("learnedHiranagaRow")) || 0;
+        
         const hiragana_table = document.querySelector("#hiragana_table");
 
         for(let i=0; i<hiragana_table_data.length; i++){
@@ -37,10 +40,15 @@ class HiraganaTable{
                 td.innerHTML = hiragana_table_data[i][j];
                 tr.appendChild(td);
             }
-        
-            tr.addEventListener("click", ()=>{
-                start_japanese_syllabary("hiragana", i);
-            });
+
+            if(learnedHiranagaRow >= i){
+                tr.addEventListener("click", ()=>{
+                    start_japanese_syllabary("hiragana", i);
+                });
+            }
+            else{
+                tr.style.color = "gainsboro";
+            }
         
             hiragana_table.appendChild(tr);
         }
@@ -49,9 +57,13 @@ class HiraganaTable{
 }
 
 
-function start_japanese_syllabary(type, index){
+async function start_japanese_syllabary(type, index){
     const path = `./data/japanese syllabary/${type}_${index}.json`
-    startLesson(path);
+    await startLesson(path);
+    const learnedHiranagaRow = Number(localStorage.getItem("learnedHiranagaRow")) || 0;
+    localStorage.setItem("learnedHiranagaRow", learnedHiranagaRow+1);
+    history.back();
+    return;
 }
 
 

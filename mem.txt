@@ -1,2 +1,2 @@
 id,lessonの対応表を作るべきではないか
-correct,mistakeの音はmodule化するとパフォーマンス上がる？
+行単位で動作を制限

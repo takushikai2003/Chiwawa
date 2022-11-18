@@ -29,6 +29,8 @@ class KatakanaTable{
             history.pushState(null, null, "./index.html?page=katakana_table");   
         }
 
+        const learnedKatakanaRow = Number(localStorage.getItem("learnedKatakanaRow")) || 0;
+
         const katakana_table = document.querySelector("#katakana_table");
 
         for(let i=0; i<katakana_table_data.length; i++){
@@ -49,9 +51,13 @@ class KatakanaTable{
 }
 
 
-function start_japanese_syllabary(type, index){
+async function start_japanese_syllabary(type, index){
     const path = `./data/japanese syllabary/${type}_${index}.json`
-    startLesson(path);
+    await startLesson(path);
+    const learnedKatakanaRow = Number(localStorage.getItem("learnedKatakanaRow")) || 0;
+    localStorage.setItem("learnedKatakanaRow", learnedKatakanaRow+1);
+    history.back();
+    return;
 }
 
 
