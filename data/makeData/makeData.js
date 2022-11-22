@@ -102,12 +102,13 @@ for(let i=0; i<katakana_data.length; i++){
 
     for(let j=0; j<katakana_data[i].length; j++){
         const chara = katakana_data[i][j];
+        const chara_hiragana = hiragana_data[i][j];
         const romaji = romaji_data[i][j];
 
         const practice = {
             type: "practice",
             img_src: `/images/${chara}_black.png`,
-            audio_src: `/audios/${chara}.mp3`,
+            audio_src: `/audios/${chara_hiragana}.mp3`,
             play_txt: romaji,
             supplement_txt: ""
         }
