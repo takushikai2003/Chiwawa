@@ -53,3 +53,18 @@
     border-radius: 30px;
     
 }
+
+
+#lesson_select_footer{
+    width: 100%;
+    background-color: ivory;
+    /* text-align: center; */
+    padding: 30px 0;
+    position: fixed;
+    bottom: 0;
+}
+
+#lesson_select_footer>img{
+    margin-left: 20px;
+    height: 70px;
+}

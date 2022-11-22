@@ -3,6 +3,7 @@ import JapaneseSyllabarySelect from "./KanaSelect.js";
 import startLesson from "../../js/load_lesson.js";
 import getDataAsString from "../../common esm/getDataAsString.js";
 import { getMissedStacks } from "../../common esm/missedStack.js";
+import Setting from "./Setting.js";
 
 function $get(querySelector){
     return document.querySelector(querySelector);
@@ -52,6 +53,11 @@ class LessonSelect{
             console.log("finish retry");//ここはwhileループしてもいいかも
         
             history.back();
+        }, {once: true});
+
+
+        $get("#lesson_select_setting").addEventListener("click", ()=>{
+            new Setting();
         }, {once: true});
     }
 }
