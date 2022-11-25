@@ -58,7 +58,7 @@ for(let i=0; i<hiragana_data.length; i++){
             img_src: `/images/${chara}_black.png`,
             audio_src: `/audios/${chara}.mp3`,
             play_txt: romaji,
-            supplement_txt: ""
+            supplement_txt: "Nghe và nói theo 2 lần để đi tiếp.(聞きながら2 回繰り返してから次へ)"
         }
 
         const stroke = {

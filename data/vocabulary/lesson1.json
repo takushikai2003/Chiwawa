@@ -5,7 +5,7 @@
         "pic_txt": "chào buổi trưa",
         "audio_src": "/audios/こんにちはFM.mp3",
         "play_txt": "こんにちは",
-        "supplement_txt": "Nghe và nói theo 2 lần nhé!\n(聞きながら２回繰り返しましょう）"
+        "supplement_txt": "Nghe và nói theo 2 lần để đi tiếp.\n(聞きながら2 回繰り返してから次へ)"
     },
     {
         "type": "practice",
@@ -13,7 +13,7 @@
         "pic_txt": "chào buổi trưa",
         "audio_src": "/audios/こんにちはM.mp3",
         "play_txt": "こんにちは",
-        "supplement_txt": "Nghe và nói theo 2 lần nhé!\n(聞きながら２回繰り返しましょう）"
+        "supplement_txt": "Nghe và nói theo 2 lần để đi tiếp.\n(聞きながら2 回繰り返してから次へ)"
     },
     {
         "type": "selective",
