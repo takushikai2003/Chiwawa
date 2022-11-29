@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+#kana_table_window{
+    margin-top: 100px;
+}
+
+
+#kana_table{
+    width: 100%;
+    text-align: center;
+    font-size: 8vw;
+}
+
+table,tr,td{
+    /* border: solid 3px white; */
+    border: solid 3px lightgray;
+}
