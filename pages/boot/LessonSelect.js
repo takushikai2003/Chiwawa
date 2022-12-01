@@ -53,16 +53,21 @@ class LessonSelect{
             await startLesson(`./data/vocabulary/lesson${1}.json`);
             history.back();
         }, {once: true});
-        
+
         $get("#lesson_content_option2").addEventListener("click", async()=>{
+            await startLesson(`./data/grammar/lesson${1}.json`);
+            history.back();
+        }, {once: true});
+        
+        $get("#lesson_content_option3").addEventListener("click", async()=>{
             await startLesson(`./data/talk like/lesson${1}.json`);
             history.back();
         }, {once: true});
         
-        $get("#video_lesson").addEventListener("click", async()=>{
-            await startLesson(`./data/video text/lesson${1}.json`);
-            history.back();
-        }, {once: true});
+        // $get("#video_lesson").addEventListener("click", async()=>{
+        //     await startLesson(`./data/video text/lesson${1}.json`);
+        //     history.back();
+        // }, {once: true});
         
         $get("#retry").addEventListener("click", async ()=>{
             while(true){
