@@ -11,13 +11,13 @@ const $get = function (querySelector){
 }
 
 class SelectiveQuestion{
-    constructor(insertTarget, {img_src, audio_src, options, correct_opt_num, picture_text=""}, retry=false){
+    constructor(insertTarget, {img_src, audio_src="", options, correct_opt_num, picture_text=""}, retry=false){
         insertTarget.innerHTML = insertHTML;
 
         const _img_src = path_to_lesson_data + img_src;
 
         let audio; 
-        if(audio_src != undefined){
+        if(audio_src != ""){
             audio = new Audio(path_to_lesson_data + audio_src);
         }
         else{
