@@ -163,7 +163,7 @@ const zip = new JSZip();
 
 
 //name: a_nなど
-function genData(kana_data, romaji_data, name){
+async function genData(kana_data, romaji_data, name, withMatome=false){
     for(let i=0; i<kana_data.length; i++){
         const data = [];
     
@@ -215,19 +215,32 @@ function genData(kana_data, romaji_data, name){
             data.push(practice, stroke, trace, selective, selective2, speak);
         }
     
-        
+        if(withMatome){
+            await fetch(`./matome/matome_${romaji_data[i][0]}_${romaji_data[i][romaji_data[i].length -1]}.json`)
+            .then((response) => response.text())
+            .then(_data => {
+                _data = JSON.parse(_data);
+                _data.forEach(element => {
+                    data.push(element);
+                });
+            })
+            .catch(e => {
+                console.log(e);
+            });
+        }
+
         // downloadText(`katakana_${i}.json`, JSON.stringify(data));
         zip.file(`${name}_${i}.json`, JSON.stringify(data));
     }
 }
 
 
-genData(hiragana_table_data_a_n, romaji_data_a_n, "hiragana_a_n");
-genData(hiragana_table_data_ga_po, romaji_table_data_ga_po, "hiragana_ga_po");
-genData(hiragana_table_data_kya_pyo, romaji_table_data_kya_pyo, "hiragana_kya_pyo");
-genData(katakana_table_data_a_n, romaji_data_a_n, "katakana_a_n");
-genData(katakana_table_data_ga_po, romaji_table_data_ga_po, "katakana_ga_po");
-genData(katakana_table_data_kya_pyo, romaji_table_data_kya_pyo, "katakana_kya_pyo");
+await genData(hiragana_table_data_a_n, romaji_data_a_n, "hiragana_a_n", true);
+await genData(hiragana_table_data_ga_po, romaji_table_data_ga_po, "hiragana_ga_po", true);
+await genData(hiragana_table_data_kya_pyo, romaji_table_data_kya_pyo, "hiragana_kya_pyo");
+await genData(katakana_table_data_a_n, romaji_data_a_n, "katakana_a_n");
+await genData(katakana_table_data_ga_po, romaji_table_data_ga_po, "katakana_ga_po");
+await genData(katakana_table_data_kya_pyo, romaji_table_data_kya_pyo, "katakana_kya_pyo");
 
 // function downloadText(fileName, text) {
 //     const blob = new Blob([text], { type: 'text/plain' });
