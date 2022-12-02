@@ -202,7 +202,7 @@ async function genData(kana_data, romaji_data, name, withMatome=false){
             const selective2 = {
                 type: "selective",
                 img_src: `/images/${romaji}_romaji.png`,
-                options: romaji_data[i],
+                options: kana_data[i],
                 correct_opt_num: j+1
             }
     
