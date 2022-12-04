@@ -62,7 +62,6 @@ class OrderQuestion{
         }
 
         gonext.addEventListener("click",()=>{
-            console.log(selected_order, correct_order);
             if(JSON.stringify(selected_order) == JSON.stringify(correct_order)){
                 oncorrect();
             }
