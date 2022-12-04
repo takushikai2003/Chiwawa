@@ -35,7 +35,7 @@ class OrderQuestion{
         let correct_opt_text = "";
 
         for(let i=0; i<correct_order.length; i++){
-            correct_opt_text += options[correct_order[i]] + " ";
+            correct_opt_text += options[correct_order[i]-1] + " ";
         }
 
         for(let i=0; i<options.length; i++){
@@ -46,7 +46,7 @@ class OrderQuestion{
             option.addEventListener("click",()=>{
                 option.classList.remove("order_question_option_unselected");
                 option.classList.add("order_question_option_selected");
-                selected_order.push(i);
+                selected_order.push(i+1);
                 gonext.disabled = false;
             });
 
@@ -62,6 +62,7 @@ class OrderQuestion{
         }
 
         gonext.addEventListener("click",()=>{
+            console.log(selected_order, correct_order);
             if(JSON.stringify(selected_order) == JSON.stringify(correct_order)){
                 oncorrect();
             }
