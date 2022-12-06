@@ -1,3 +1,9 @@
-#delete_score{
+#delete_score, #delete_retry, #delete_all, #setting_back{
     margin-top: 10px;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(246, 141, 125);
+    margin-bottom: 30px;
+    border-radius: 30px;
 }
+
