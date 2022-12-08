@@ -66,6 +66,7 @@ function addNotFoundFile(name){
     if(!notFoundFileNames.includes(name)){
         notFoundFileNames.push(name);
         notFoundFiles_elm.innerHTML += "<br>" + name;
+        increaseNotFoundTimes();
     }
 }
 
@@ -75,7 +76,6 @@ for(let i=0; i<questions.length; i++){
     if(question.img_src != undefined && question.img_src != ""){
         if(!await existsFile("../data" + question.img_src)){
             addNotFoundFile(question.img_src);
-            increaseNotFoundTimes();
         }
         
         increaseCheckedTimes();
@@ -84,7 +84,6 @@ for(let i=0; i<questions.length; i++){
     if(question.audio_src != undefined && question.audio_src != ""){
         if(!await existsFile("../data" + question.audio_src)){
             addNotFoundFile(question.audio_src);
-            increaseNotFoundTimes();
         }
 
         increaseCheckedTimes();
@@ -93,7 +92,6 @@ for(let i=0; i<questions.length; i++){
     if(question.img1_src != undefined && question.img1_src != ""){
         if(!await existsFile("../data" + question.img1_src)){
             addNotFoundFile(question.img1_src);
-            increaseNotFoundTimes();
         }
         
         increaseCheckedTimes();
@@ -102,7 +100,6 @@ for(let i=0; i<questions.length; i++){
     if(question.img2_src != undefined && question.img2_src != ""){
         if(!await existsFile("../data" + question.img2_src)){
             addNotFoundFile(question.img2_src);
-            increaseNotFoundTimes();
         }
         
         increaseCheckedTimes();
