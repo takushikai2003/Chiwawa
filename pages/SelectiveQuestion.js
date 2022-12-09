@@ -45,7 +45,7 @@ class SelectiveQuestion{
         for(let i=0; i<options.length; i++){
             const option = document.createElement("button");
             option.setAttribute("class", "btn btn-lg selective_question_option");
-            option.innerHTML = options[i];
+            option.innerHTML = "<h1>" + options[i] + "</h1>";
             
             if(correct_opt_num == i + 1){
                 correct_opt_text =  options[i];
