@@ -95,7 +95,7 @@ const romaji_table_data_ga_po = [
 
 const romaji_table_data_kya_pyo = [
     ["kya","kyu","kyo"],
-    ["sya","syu","syo"],
+    ["sha","shu","sho"],
     ["cha","chu","cho"],
     ["nya","nyu","nyo"],
     ["hya","hyu","hyo"],
@@ -212,7 +212,13 @@ async function genData(kana_data, romaji_data, name, withMatome=false){
                 correct_txt: chara
             }
     
-            data.push(practice, stroke, trace, selective, selective2, speak);
+            if(name=="hiragana_a_n" || name=="katakana_a_n"){
+                data.push(practice, stroke, trace, selective, selective2, speak);
+            }
+            else{
+                data.push(practice, selective, selective2, speak);
+            }
+            
         }
     
         if(withMatome){
