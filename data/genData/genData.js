@@ -126,7 +126,7 @@ function genData(kana_data, romaji_data, name, withMatome=false){
                 img_src: `/images/${chara}_black.png`,
                 audio_src: `/audios/${chara}.mp3`,
                 play_txt: romaji,
-                supplement_txt: "Nghe và nói theo 2 lần để đi tiếp. \n(聞きながら２回繰り返してから次へ）"
+                supplement_txt: "Nghe và nói theo 2 lần để đi tiếp. <br>(聞きながら２回繰り返してから次へ）"
             }
     
             const stroke = {
