@@ -9,7 +9,7 @@ const $get = function (querySelector){
 }
 
 class Practice{
-    constructor(insertTarget, {img_src, pic_txt="", audio_src, play_txt, supplement_txt}){
+    constructor(insertTarget, {img_src, pic_txt="", audio_src, play_txt, supplement_txt="Nghe và nói theo 2 lần để đi tiếp. \n(聞きながら２回繰り返してから次へ）"}){
         insertTarget.innerHTML = insertHTML;
         
         const _img_src = path_to_lesson_data + img_src;

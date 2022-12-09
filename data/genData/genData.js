@@ -1,3 +1,5 @@
+//use node.js
+
 const hiragana_table_data_a_n = [
     ["あ","い","う","え","お"],
     ["か","き","く","け","こ"],
@@ -108,62 +110,10 @@ const romaji_table_data_kya_pyo = [
 ];
 
 
-const zip = new JSZip();
-// const folder = zip.folder("data");
-
-
-// for(let i=0; i<hiragana_data.length; i++){
-//     const data = [];
-
-//     for(let j=0; j<hiragana_data[i].length; j++){
-//         const chara = hiragana_data[i][j];
-//         const romaji = romaji_data[i][j];
-
-//         const practice = {
-//             type: "practice",
-//             img_src: `/images/${chara}_black.png`,
-//             audio_src: `/audios/${chara}.mp3`,
-//             play_txt: romaji,
-//             supplement_txt: "Nghe và nói theo 2 lần để đi tiếp.<br>(聞きながら2 回繰り返してから次へ)"
-//         }
-
-//         const stroke = {
-//             type: "stroke",
-//             img1_src: `/images/${chara}_animation.gif`,
-//             img2_src: `/images/${chara}_white.png`,
-//             supplement_txt: romaji
-//         }
-
-//         const trace = {
-//             type: "trace",
-//             img_src: `/images/${chara}_white.png`,
-//             supplement_txt: romaji
-//         }
-
-//         const selective = {
-//             type: "selective",
-//             img_src: `/images/${chara}_black.png`,
-//             options: romaji_data[i],
-//             correct_opt_num: j+1
-//         }
-
-//         const speak = {
-//             type: "speak",
-//             img_src: `/images/${chara}_black.png`,
-//             correct_txt: chara
-//         }
-
-//         data.push(practice,stroke,trace,selective,speak);
-//     }
-
-
-//     // downloadText(`hiragana_${i}.json`, JSON.stringify(data));
-//     zip.file(`hiragana_${i}.json`, JSON.stringify(data));
-// }
-
+const fs = require("fs");
 
 //name: a_nなど
-async function genData(kana_data, romaji_data, name, withMatome=false){
+function genData(kana_data, romaji_data, name, withMatome=false){
     for(let i=0; i<kana_data.length; i++){
         const data = [];
     
@@ -176,7 +126,7 @@ async function genData(kana_data, romaji_data, name, withMatome=false){
                 img_src: `/images/${chara}_black.png`,
                 audio_src: `/audios/${chara}.mp3`,
                 play_txt: romaji,
-                supplement_txt: ""
+                supplement_txt: "Nghe và nói theo 2 lần để đi tiếp. \n(聞きながら２回繰り返してから次へ）"
             }
     
             const stroke = {
@@ -222,53 +172,26 @@ async function genData(kana_data, romaji_data, name, withMatome=false){
         }
     
         if(withMatome){
-            await fetch(`./matome/matome_${romaji_data[i][0]}_${romaji_data[i][romaji_data[i].length -1]}.json`)
-            .then((response) => response.text())
-            .then(_data => {
-                _data = JSON.parse(_data);
+            try{
+                const _data = JSON.parse(fs.readFileSync(`./matome/matome_${romaji_data[i][0]}_${romaji_data[i][romaji_data[i].length -1]}.json`));
                 _data.forEach(element => {
                     data.push(element);
                 });
-            })
-            .catch(e => {
-                console.log(e);
-            });
+            }
+            catch{
+
+            }
+            
         }
 
-        // downloadText(`katakana_${i}.json`, JSON.stringify(data));
-        zip.file(`${name}_${i}.json`, JSON.stringify(data));
+        fs.writeFileSync(`../japanese syllabary/${name}_${i}.json`, JSON.stringify(data));
     }
 }
 
 
-await genData(hiragana_table_data_a_n, romaji_data_a_n, "hiragana_a_n", true);
-await genData(hiragana_table_data_ga_po, romaji_table_data_ga_po, "hiragana_ga_po", true);
-await genData(hiragana_table_data_kya_pyo, romaji_table_data_kya_pyo, "hiragana_kya_pyo");
-await genData(katakana_table_data_a_n, romaji_data_a_n, "katakana_a_n");
-await genData(katakana_table_data_ga_po, romaji_table_data_ga_po, "katakana_ga_po");
-await genData(katakana_table_data_kya_pyo, romaji_table_data_kya_pyo, "katakana_kya_pyo");
-
-// function downloadText(fileName, text) {
-//     const blob = new Blob([text], { type: 'text/plain' });
-//     const aTag = document.createElement('a');
-//     aTag.href = URL.createObjectURL(blob);
-//     aTag.target = '_blank';
-//     aTag.download = fileName;
-//     aTag.click();
-//     URL.revokeObjectURL(aTag.href);
-// }
-
-
-zip.generateAsync({ type: "blob" }).then(blob => {
-
-    const a = document.createElement("a");
-    const dataUrl = URL.createObjectURL(blob);
-    a.href = dataUrl;
-    a.download = "japanese_syllabary_data.zip";
-    a.click();
-    a.remove();
-
-    setTimeout(function() {
-        window.URL.revokeObjectURL(dataUrl);
-    }, 1000);
-});
+genData(hiragana_table_data_a_n, romaji_data_a_n, "hiragana_a_n", true);
+genData(hiragana_table_data_ga_po, romaji_table_data_ga_po, "hiragana_ga_po", true);
+genData(hiragana_table_data_kya_pyo, romaji_table_data_kya_pyo, "hiragana_kya_pyo");
+genData(katakana_table_data_a_n, romaji_data_a_n, "katakana_a_n");
+genData(katakana_table_data_ga_po, romaji_table_data_ga_po, "katakana_ga_po");
+genData(katakana_table_data_kya_pyo, romaji_table_data_kya_pyo, "katakana_kya_pyo");
