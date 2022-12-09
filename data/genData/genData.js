@@ -77,7 +77,7 @@ const romaji_data_a_n = [
     ["sa","shi","su","se","so"],
     ["ta","chi","tsu","te","to"],
     ["na","ni","nu","ne","no"],
-    ["ha","hi","hu","he","ho"],
+    ["ha","hi","fu","he","ho"],
     ["ma","mi","mu","me","mo"],
     ["ya","yu","yo"],
     ["ra","ri","ru","re","ro"],

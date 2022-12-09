@@ -45,6 +45,8 @@ for(let i=0; i<10; i++){
     );
 }
 
+console.log(questions.length);
+
 const notFoundFileNames = [];
 const checked_times_elm = document.getElementById("checked_times");
 const notFoundTimes_elm = document.getElementById("not_found_times");
