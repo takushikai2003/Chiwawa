@@ -139,6 +139,7 @@ class TalkLike{
             
             const mistake_qestion = {
                 data: {
+                    type: "talk",
                     left_img_src: left_img_src,
                     right_img_src: right_img_src,
                     audio_src: audio_src,
