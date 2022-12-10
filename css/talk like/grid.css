@@ -1,6 +1,6 @@
 #grid_overall{
     display: grid;
-    grid-template-rows: 600px auto 100px;
+    grid-template-rows: 600px auto auto auto;
 }
 
 

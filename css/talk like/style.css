@@ -15,15 +15,22 @@
 
 #talk_like_correctanswer_area{
     margin-top: 40px;
-    border: solid 1px springgreen;
+    border: solid 2px springgreen;
+}
+
+
+#talk_like_supplement_txt{
+    margin-top: 100px;
+    border: solid 2px blue;
 }
 
 #talk_like_correctanswer_picture{
     width: 100px;
 }
 
+
 #talk_like_gonext{
-    width: 100%;
     margin-top: 50px;
+    width: 100%;
     background-color: lightskyblue;
 }
