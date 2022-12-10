@@ -52,6 +52,7 @@ class SelectiveQuestion{
             }
 
             option.addEventListener("click",()=>{
+                option.focus();//safariは強制でfocusを当ててあげる
                 selected_opt_num = i + 1;
                 gonext.disabled = false;
             });

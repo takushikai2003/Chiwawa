@@ -1,6 +1,5 @@
-import BootScreen from "../pages/boot/BootScreen.js";
 import LessonSelect from "../pages/boot/LessonSelect.js";
-
+import BootScreen from "../pages/boot/BootScreen.js";
 
 const boot_screen = new BootScreen(document.body);
 
