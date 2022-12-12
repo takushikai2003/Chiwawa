@@ -37,7 +37,7 @@ function judge(message, search_message){
 
     console.log("speech recognizetion result:",
     {
-        recgnized: message,
+        recognized: message,
         search: search_message,
         recgnized_kana: message_kana,
         search_kana: search_message_kana
