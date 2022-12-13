@@ -1,6 +1,7 @@
 import SpeechRecognition from "./js/SpeechRecognizerAPI.js";
 import FuzzySet from "./lib/FuzzySet/FuzzySet.esm.js";
 import get_kana from "./js/get_kana.js";
+import sendLog from "../sendLog.js";
 
 //arg search_message: string
 const SpeechRecognizer = {
@@ -42,6 +43,15 @@ function judge(message, search_message){
         recgnized_kana: message_kana,
         search_kana: search_message_kana
     });
+
+    sendLog(JSON.stringify(
+        {
+            recognized: message,
+            search: search_message,
+            recgnized_kana: message_kana,
+            search_kana: search_message_kana
+        }
+    ));
 
     const fs = FuzzySet([message_kana]);
     const fs_result = fs.get(search_message_kana);

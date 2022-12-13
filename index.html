@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <link rel="icon" href="./images/favicon.ico" />
 
@@ -27,6 +28,13 @@
     <link rel="stylesheet" href="./css/trace_window.css">
     <link rel="stylesheet" href="./css/video_text.css">
 
+    <script type="module">
+        import sendLog from "./common esm/sendLog.js";
+
+        window.onerror = function(message){
+            sendLog(message);
+        }
+    </script>
     <script src="./js/load_boot.js" type="module"></script>
     <script src="./js/historyControl.js" type="module"></script>
 </head>
