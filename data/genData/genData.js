@@ -156,17 +156,17 @@ function genData(kana_data, romaji_data, name, withMatome=false){
                 correct_opt_num: j+1
             }
     
-            const speak = {
-                type: "speak",
-                img_src: `/images/${chara}_black.png`,
-                correct_txt: chara
-            }
+            // const speak = {
+            //     type: "speak",
+            //     img_src: `/images/${chara}_black.png`,
+            //     correct_txt: chara
+            // }
     
             if(name=="hiragana_a_n" || name=="katakana_a_n"){
-                data.push(practice, stroke, trace, selective, selective2, speak);
+                data.push(practice, stroke, trace, selective, selective2);
             }
             else{
-                data.push(practice, selective, selective2, speak);
+                data.push(practice, selective, selective2);
             }
             
         }

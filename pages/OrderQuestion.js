@@ -40,8 +40,8 @@ class OrderQuestion{
 
         for(let i=0; i<options.length; i++){
             const option = document.createElement("button");
-            option.setAttribute("class", "btn btn-lg order_question_option order_question_option_unselected");
-            option.innerHTML = "<h1>" + options[i] + "</h1>";
+            option.setAttribute("class", "btn order_question_option order_question_option_unselected");
+            option.innerHTML = options[i];
 
             option.addEventListener("click",()=>{
                 option.classList.remove("order_question_option_unselected");

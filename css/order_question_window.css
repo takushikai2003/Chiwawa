@@ -21,6 +21,7 @@
     height: 100px;
     /* background-color: palegreen; */
     margin-bottom: 30px;
+    font-size: 60px;
 }
 
 .order_question_option_unselected{
@@ -39,9 +40,4 @@
 
 #order_question_correctanswer_picture{
     width: 100px;
-}
-
-#order_question_gonext{
-    margin-top: 50px;
-    background-color: lightskyblue;
 }
