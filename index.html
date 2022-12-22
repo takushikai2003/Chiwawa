@@ -30,10 +30,11 @@
     <link rel="stylesheet" href="./css/overall.css">
 
     <script type="module">
-        import sendLog from "./common esm/sendLog.js";
+        import sendError from "./common esm/sendError.js";
 
-        window.onerror = function(message){
-            sendLog(message);
+        window.onerror = function(message, url, line, col, errorObj){
+            // console.log(JSON.stringify({message:message, url:url, line:line, col:col, errorObj: errorObj.toString()}));
+            sendError(JSON.stringify({message:message, url:url, line:line, col:col, errorObj: errorObj.toString()}));
         }
     </script>
     <script src="./js/load_boot.js" type="module"></script>
