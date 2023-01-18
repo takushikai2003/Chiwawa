@@ -40,6 +40,7 @@ class Practice{
         }
     
         let _resolve;
+        //funcにせず直接onend = new Promiseでいい？
         this.onend = function(){
             return new Promise(resolve=>{
                 _resolve = resolve;
