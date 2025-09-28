@@ -4,7 +4,10 @@ import getDataAsString from "../../getDataAsString.js";
 
 function get_tokenizer(){
     return new Promise(async resolve =>{
-        kuromoji.builder({ dicPath:  await get_dict_path()})
+        const dic_path = await get_dict_path();
+        console.log(dic_path);
+        
+        kuromoji.builder({ dicPath: dic_path})
         .build((err, tokenizer) => {
             resolve(tokenizer);
         });
