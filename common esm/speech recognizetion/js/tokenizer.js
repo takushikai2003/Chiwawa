@@ -4,22 +4,27 @@ import getDataAsString from "../../getDataAsString.js";
 
 function get_tokenizer(){
     return new Promise(async resolve =>{
-        const dic_path = await get_dict_path();
-        console.log(dic_path);
-        
-        kuromoji.builder({ dicPath: dic_path})
+        // const dict_path = await get_dict_path();
+        const dict_path = get_dict_path();
+        console.log(dict_path);
+
+        kuromoji.builder({ dicPath: dict_path})
         .build((err, tokenizer) => {
             resolve(tokenizer);
         });
     });
 }
 
-async function get_dict_path(){
-    const regexp = new RegExp(".*/(.*?)$");
-    const html_name = location.href.match(regexp)[1];
-    // console.log(location.href.slice( 0, -html_name.length) + "/kuromoji_dict_path.txt");
-    return await getDataAsString(location.href.slice( 0, -html_name.length) + "/kuromoji_dict_path.txt");
+function get_dict_path(){
+    return new URL("../lib/kuromoji/dict", import.meta.url).href;
 }
+
+// async function get_dict_path(){
+//     const regexp = new RegExp(".*/(.*?)$");
+//     const html_name = location.href.match(regexp)[1];
+//     // console.log(location.href.slice( 0, -html_name.length) + "/kuromoji_dict_path.txt");
+//     return await getDataAsString(location.href.slice( 0, -html_name.length) + "/kuromoji_dict_path.txt");
+// }
 
 const tokenizer = await get_tokenizer();
 
