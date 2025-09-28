@@ -16,7 +16,7 @@ function get_tokenizer(){
 }
 
 function get_dict_path(){
-    return new URL("../lib/kuromoji/dict", import.meta.url).href;
+    return new URL("../lib/kuromoji/dict", import.meta.url).pathname;
 }
 
 // async function get_dict_path(){
